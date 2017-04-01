@@ -1,5 +1,4 @@
 Yii 2 Advanced Project Template
-===============================
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.
@@ -19,7 +18,7 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 DIRECTORY STRUCTURE
 -------------------
 
-```
+
 common
     config/              contains shared configurations
     mail/                contains view files for e-mails
@@ -52,4 +51,5 @@ frontend
     widgets/             contains frontend widgets
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
-```
+
+# phpbbs
