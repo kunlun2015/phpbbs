@@ -46,6 +46,9 @@ $(document).ready(function(){
                 required: !0,
                 minlength: 4
             },
+            mobile:{
+                isMobile: true
+            },
             password: {
                 required: !0,
                 minlength: 6
@@ -78,7 +81,9 @@ $(document).ready(function(){
                 data: $('.add-user-form').serialize(),
                 success: function(res){
                     if(res.code == 0){
-                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 1});
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(layer){
+                            window.location.href = res.data.url;
+                        });
                     }else{
                         layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
                     }
@@ -86,5 +91,4 @@ $(document).ready(function(){
             })
         }
     })
-
 });

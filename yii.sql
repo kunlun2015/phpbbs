@@ -22,6 +22,7 @@ create table Kl_user(
     id int unsigned primary key auto_increment,
     username varchar(16) not null default '' comment '用户名',
     realname varchar(8) not null default '' comment '真实姓名',
+    sex tinyint(1) not null default 0 comment '1男，2女',
     mobile char(11) not null default '' comment '手机号码',
     avatar text comment '用户头像',
     password varchar(32) not null default '' comment '登录密码',

@@ -461,7 +461,7 @@ RootAsset::register($this);
                                 <span class="title">首页</span>
                             </a>
                         </li>
-                        <li class="nav-item start <?php if(Yii::$app->controller->id == 'root/user' && Yii::$app->controller->action->id == 'index') echo 'active'; ?>">
+                        <li class="nav-item start <?php if(Yii::$app->controller->id == 'root/user') echo 'active'; ?>">
                             <a href="<?php echo Url::to(['/root/user']); ?>" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title">用户管理</span>

@@ -20,8 +20,10 @@ class User extends \backend\models\CommonModel{
         return $rst;
     }
 
-    public function addUser(){
-           
+    public function addUser($data){
+        $data['encrypt'] = $this->randString(8);
+        $data['password'] = md5(md5($data['password']).$data['encrypt']);
+        return $this->db->createCommand()->insert('{{%user}}', $data)->execute();
     }
 
 }

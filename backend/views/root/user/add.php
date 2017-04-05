@@ -19,7 +19,11 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span>用户管理</span>
+            <a href="<?php echo Url::to(['root/user']); ?>">用户管理</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <span>添加用户</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -55,7 +59,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">Horizontal Form</span>
+                    <span class="caption-subject font-dark sbold uppercase">添加用户</span>
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -76,15 +80,21 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-3 control-label">手机号码</label>
+                            <div class="col-md-9">
+                                <input type="text" name="mobile" class="form-control input-inline input-medium" placeholder="手机号码">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-3 control-label">登录密码</label>
                             <div class="col-md-9">
-                                <input type="text" name="password" id="password" class="form-control input-inline input-medium" placeholder="登录密码">
+                                <input type="password" name="password" id="password" class="form-control input-inline input-medium" placeholder="登录密码">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">确认登录密码</label>
                             <div class="col-md-9">
-                                <input type="text" name="password_confirm" class="form-control input-inline input-medium" placeholder="登录密码">
+                                <input type="password" name="password_confirm" class="form-control input-inline input-medium" placeholder="登录密码">
                             </div>
                         </div>
                         <div class="form-group">

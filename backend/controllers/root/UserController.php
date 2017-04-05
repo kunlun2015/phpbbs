@@ -10,6 +10,7 @@ namespace backend\controllers\root;
 use Yii;
 use yii\web\Controller;
 use backend\models\root\User;
+use yii\helpers\Url;
 
 class UserController extends RootController{
 
@@ -41,8 +42,19 @@ class UserController extends RootController{
         $act = $this->request->post('act');
         switch ($act) {
             case 'add':
-                $username = trim($this->request->post('username'));
-                $password = $this->request->post('password');
+                $data = array(
+                    'username' => trim($this->request->post('username')),
+                    'mobile'   => $this->request->post('mobile'),
+                    'password' => trim($this->request->post('password')),
+                    'remarks'   => $this->request->post('remarks')
+                    );
+                $model = new User;
+                $rst = $model->addUser($data);
+                if($rst){
+                    $this->jsonExit(0, '用户添加成功！', array('url' => Url::to(['root/user'])));
+                }else{
+                    $this->jsonExit(-1, '用户添加失败，请稍候重试！');
+                }
                 break;
             
             default:

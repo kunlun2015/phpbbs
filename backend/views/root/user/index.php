@@ -71,9 +71,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <button id="sample_editable_1_new" class="btn sbold green"> 添加用户
+                                <a href="<?php echo Url::to(['root/user/add']); ?>" class="btn sbold green"> 添加用户
                                     <i class="fa fa-plus"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
