@@ -11,11 +11,11 @@ class AppAsset extends AssetBundle{
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'assets/css/common.css',
+        'static/css/common.css',
     ];
     public $js = [
-        'assets/js/jquery-3.1.0.min.js',
-        'assets/js/common.js'
+        'static/js/jquery-3.1.0.min.js',
+        'static/js/common.js'
     ];
 
     //定义按需加载JS方法，注意加载顺序在最后  

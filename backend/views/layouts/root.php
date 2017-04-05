@@ -39,7 +39,7 @@ RootAsset::register($this);
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="index.html">
-                        <img src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout2/img/logo-default.png" alt="logo" class="logo-default" /> </a>
+                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout2/img/logo-default.png" alt="logo" class="logo-default" /> </a>
                     <div class="menu-toggler sidebar-toggler">
                         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
                     </div>
@@ -221,7 +221,7 @@ RootAsset::register($this);
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">Just Now </span>
@@ -232,7 +232,7 @@ RootAsset::register($this);
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">16 mins </span>
@@ -243,7 +243,7 @@ RootAsset::register($this);
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Bob Nilson </span>
                                                         <span class="time">2 hrs </span>
@@ -254,7 +254,7 @@ RootAsset::register($this);
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">40 mins </span>
@@ -265,7 +265,7 @@ RootAsset::register($this);
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">46 mins </span>
@@ -393,7 +393,7 @@ RootAsset::register($this);
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout2/img/avatar3_small.jpg" />
+                                    <img alt="" class="img-circle" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout2/img/avatar3_small.jpg" />
                                     <span class="username username-hide-on-mobile"> Nick </span>
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -619,14 +619,14 @@ RootAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-success">8</span>
                                         </div>
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar3.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar3.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Bob Nilson</h4>
                                             <div class="media-heading-sub"> Project Manager </div>
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar1.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar1.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Nick Larson</h4>
                                             <div class="media-heading-sub"> Art Director </div>
@@ -636,14 +636,14 @@ RootAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-danger">3</span>
                                         </div>
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar4.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar4.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Deon Hubert</h4>
                                             <div class="media-heading-sub"> CTO </div>
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar2.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar2.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Ella Wong</h4>
                                             <div class="media-heading-sub"> CEO </div>
@@ -656,7 +656,7 @@ RootAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-warning">2</span>
                                         </div>
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar6.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar6.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Lara Kunis</h4>
                                             <div class="media-heading-sub"> CEO, Loop Inc </div>
@@ -667,7 +667,7 @@ RootAsset::register($this);
                                         <div class="media-status">
                                             <span class="label label-sm label-success">new</span>
                                         </div>
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar7.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar7.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Ernie Kyllonen</h4>
                                             <div class="media-heading-sub"> Project Manager,
@@ -675,7 +675,7 @@ RootAsset::register($this);
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar8.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar8.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Lisa Stone</h4>
                                             <div class="media-heading-sub"> CTO, Keort Inc </div>
@@ -686,14 +686,14 @@ RootAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-success">7</span>
                                         </div>
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar9.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar9.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Deon Portalatin</h4>
                                             <div class="media-heading-sub"> CFO, H&D LTD </div>
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar10.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar10.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Irina Savikova</h4>
                                             <div class="media-heading-sub"> CEO, Tizda Motors Inc </div>
@@ -703,7 +703,7 @@ RootAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-danger">4</span>
                                         </div>
-                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar11.jpg" alt="...">
+                                        <img class="media-object" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar11.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Maria Gomez</h4>
                                             <div class="media-heading-sub"> Manager, Infomatic Inc </div>
@@ -720,7 +720,7 @@ RootAsset::register($this);
                                     </div>
                                     <div class="page-quick-sidebar-chat-user-messages">
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -729,7 +729,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -738,7 +738,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -747,7 +747,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -756,7 +756,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -765,7 +765,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -774,7 +774,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -783,7 +783,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -792,7 +792,7 @@ RootAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -1142,8 +1142,8 @@ RootAsset::register($this);
         </div>
         <!-- END FOOTER -->
         <!--[if lt IE 9]>
-        <script src="assets/global/plugins/respond.min.js"></script>
-        <script src="assets/global/plugins/excanvas.min.js"></script> 
+        <script src="static/global/plugins/respond.min.js"></script>
+        <script src="static/global/plugins/excanvas.min.js"></script> 
         <![endif]-->        
         <?php $this->endBody() ?>
     </body>

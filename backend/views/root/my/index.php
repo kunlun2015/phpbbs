@@ -7,7 +7,7 @@
  */
     $this->title = '用户首页';
     use yii\helpers\Url;    
-    \backend\assets\RootAsset::addCss($this, 'assets/pages/css/profile.min.css');
+    \backend\assets\RootAsset::addCss($this, 'static/pages/css/profile.min.css');
 ?>
 <!-- END THEME PANEL -->
 <h3 class="page-title"> 我的信息 | 账号管理
@@ -22,7 +22,7 @@
             <div class="portlet light profile-sidebar-portlet ">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="<?php echo Yii::$app->homeUrl; ?>assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>
+                    <img src="<?php echo Yii::$app->homeUrl; ?>static/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">

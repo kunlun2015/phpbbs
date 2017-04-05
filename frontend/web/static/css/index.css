@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/**
+ * 首页样式
+ * @authors Amos (735767227@qq.com)
+ * @date    2017-03-18 16:40:16
+ * @version $Id$
+ */
+/* .new-publish-list{margin-top: 10px;}
+.new-publish-list li{width: 790px;height: 180px;border: 1px solid #ddd;margin-top: 25px;background-color: #fff;}
+.new-publish-list li:hover{box-shadow:1px 3px 9px #ccc;transition:.3s}
+.new-publish-list li:first-child{margin-top: 0;}
+.new-publish-list .thumb{width: 200px;height: 150px;margin: 15px 20px 0 20px;overflow: hidden;float: left;}
+.new-publish-list .abstract{width: 550px;height: 180px;box-sizing: border-box;float: left;padding: 15px 0;}
+.abstract .title{height: 35px;line-height: 35px;font-size: 18px;}
+.abstract a{font-family: "微软雅黑", Arial, Helvetica, sans-serif;color: #2b2b2b;}
+.abstract .abstract-con{height: 100px;font-size: 14px;text-indent: 1em;font-family: "微软雅黑", Arial, Helvetica, sans-serif;padding-right: 10px;}
+.abstract .subject-info{overflow: hidden;}
+.abstract .subject-info span{height: 15px;line-height: 15px;display: inline-block;margin-right: 45px;font-size: 12px;color: #aaa;float: left;}
+
+.search{width: 100%;height: 55px;padding-top: 20px;background-color: #fff;margin-top: 10px;}
+.search .keywords{display: block;width: 250px;height: 35px;box-sizing: border-box;outline: none;padding-left: 5px;border-radius: 5px;border: 1px solid #ccc;margin: auto;padding-right: 35px;}
+.search-btn{position: absolute;display: inline-block;width: 35px;height: 35px;margin-top: -35px;margin-left: 235px;cursor: pointer;}
+.icon-search{background-position: 2px 4px;width: 35px;height: 35px;}
+
+.hot-recommend{width: 100%;margin-top: 5px;background-color: #fff;padding: 5px 5px 5px 10px;box-sizing: border-box;}
+.hot-recommend li{height: 28px;line-height: 28px;overflow: hidden;transition:all .3s}
+.hot-recommend li:hover{padding-left: 20px;transition:.3s}
+.hot-recommend span{display: inline-block;width: 20px;height: 20px;border-radius: 5px;background-color: #ccc;text-align: center;line-height: 20px;color: #fff;font-size: 16px;font-family: georgia;}
+.hot-recommend a{font-size: 14px;font-family: "微软雅黑", Arial, Helvetica, sans-serif;color: #2b2b2b;padding-left: 5px;}
+.hot-recommend .th-1{background-color: #f54343;}
+.hot-recommend .th-2{background-color: #77d549;}
+.hot-recommend .th-3{background-color: #62c1ff;} */
+
+.hot-recommend{width: 1100px;margin: 10px auto 10px auto;}
+.hot-recommend .slide-wrap{position: relative;overflow: hidden;width: 750px;height: 300px;float: left;}
+.hot-recommend .slide-wrap img{width: 750px;}
+.slide .title{position: absolute;display: inline-block;width: 750px;}
+.swiper-pagination{text-align: right !important;padding-right: 10px;box-sizing: border-box;}
+.swiper-pagination-bullet{width: 10px !important;height: 10px !important;opacity: 1 !important;background-color: #fff !important;}
+.swiper-pagination-bullet-active{background-color: #f54343 !important;}
+.hot-recomment-r{width: 340px; height: 445px; float: left;margin-left: 10px;background-color: #F4F4F4;box-sizing: border-box;padding: 5px 10px;}
+.hot-recomment-r .top{border-bottom: 1px solid #ccc;padding-bottom: 8px;}
+.hot-recomment-r .top .title{font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;font-weight: bold;line-height: 30px;padding: 5px 0;}
+.hot-recomment-r .top .title a,.top .abstract a{color: #333;}
+.hot-recomment-r .top .title a:hover,.top .abstract a:hover{color: #f54343;}
+.hot-recomment-r .top .abstract{color: #777;}
+.hot-recomment-r .list{padding: 5px 0;}
+.hot-recomment-r .list a{font-family: 'Microsoft YaHei', SimSun, 'Arial Narrow';font-size: 14px;color: #333;line-height: 25px;}
+.hot-recomment-r .list a:hover{color: #f54343;}
+.hot-recomment-d{width: 750px;height: 135px;margin-top: -135px;float: left;}
+.hot-recomment-d ul{width: 370px;float: left;}
+.hot-recomment-d ul:first-child{margin-right: 10px;}
+.hot-recomment-d li{line-height: 25px;}
+.hot-recomment-d a{font-family: 'Microsoft YaHei', SimSun, 'Arial Narrow';font-size: 14px;color: #333;}
+.hot-recomment-d a:hover{color: #f54343;}
+a.cate-a{color: #f54343 !important;}
+
+.category-recommend{width: 1100px;margin: auto;}
+.category-recommend .recommend-l{width: 750px;float: left;margin-right: 10px;}
+.category-recommend .recommend-r{width: 340px;float: left;}
+.category-recommend .recommend-l .category{width: 365px;float: left;}
+.recommend-l .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 2px solid #f54343;}
+.recommend-l .category .title span{display: inline-block;border-bottom: 2px solid #000;}
+.category li{line-height: 25px;}
+.category li a{font-family: 'Microsoft YaHei', SimSun, 'Arial Narrow';font-size: 14px;color: #333;}
+
+.recommend-r .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 4px solid #000;}
+.recommend-r .category .title span{display: inline-block;border-bottom: 4px solid #f54343;color: #f54343;}

@@ -9,7 +9,7 @@ use backend\assets\RootAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;  
 RootAsset::register($this);
-\backend\assets\RootAsset::addScript($this, 'assets/pages/scripts/login.min.js');
+\backend\assets\RootAsset::addScript($this, 'static/pages/scripts/login.min.js');
 $this->title = '管理员登录';
 ?>
 <?php $this->beginPage() ?>
@@ -36,7 +36,7 @@ $this->title = '管理员登录';
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="index.html">
-                <img src="<?php echo Yii::$app->homeUrl; ?>assets/pages/img/logo-big-white.png" style="height: 17px;" alt="" /> </a>
+                <img src="<?php echo Yii::$app->homeUrl; ?>static/pages/img/logo-big-white.png" style="height: 17px;" alt="" /> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->

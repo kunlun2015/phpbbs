@@ -110,4 +110,4 @@
         </div>
     </div>
 </div>
-<?php \backend\assets\RootAsset::addScript($this, 'assets/js/root/user.js'); ?>
+<?php \backend\assets\RootAsset::addScript($this, 'static/js/root/user.js'); ?>

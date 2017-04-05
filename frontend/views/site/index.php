@@ -1,9 +1,9 @@
 <?php
     $this->title = 'PHP';
-    \frontend\assets\AppAsset::addCss($this, 'assets/css/index.css');
-    \frontend\assets\AppAsset::addCss($this, 'assets/libs/swiper/css/swiper.min.css');
-    \frontend\assets\AppAsset::addScript($this, 'assets/libs/swiper/js/swiper.jquery.min.js');
-    \frontend\assets\AppAsset::addScript($this, 'assets/js/index.js');
+    \frontend\assets\AppAsset::addCss($this, 'static/css/index.css');
+    \frontend\assets\AppAsset::addCss($this, 'static/libs/swiper/css/swiper.min.css');
+    \frontend\assets\AppAsset::addScript($this, 'static/libs/swiper/js/swiper.jquery.min.js');
+    \frontend\assets\AppAsset::addScript($this, 'static/js/index.js');
 ?>
 <header class="common-header">
     <div class="top-bar">
@@ -36,151 +36,15 @@
         </ul>
     </div>
 </header>
-<!-- <div class="wrap"><div class="cur-nav">您的位置：</div>
-    <div class="wrap-l">
-        <div class="section-title">
-            <span></span>
-            <em>文章推荐</em>
-        </div>
-        <ul class="new-publish-list">
-            <?php for ($i=0; $i < 4; $i++) { ?>
-            <li>
-                <div class="thumb"><a href=""><img src="assets/images/9ba3fc76468bd16.jpg" alt="文章标题"></a></div>
-                <div class="abstract">
-                    <p class="title"><a href="">刚经历的数据库优化经验分享</a></p>
-                    <div class="abstract-con">这次Z11硬件升级的地方主要是增加了RAM的容量，由原来的4G增加到了6G。6G RAM版本的Z11再加上高通骁龙820，整机的流畅性是得到保证的，在把玩王者荣耀时并没有出现卡顿的情况，整个游戏的帧率维持在30帧左右。</div>
-                    <div class="subject-info">
-                        <span>作者：Amos</span>
-                        <span>发布时间：2017-03-21 12:12:34</span>
-                        <span>分类：前端</span>
-                    </div>
-                </div>                               
-            </li>
-            <?php } ?>
-        </ul>
-    </div>
-    <div class="wrap-r clearfix">
-        <div class="section-title">
-            <span></span>
-            <em>站内搜索</em>
-        </div>
-        <div class="search">
-            <input type="text" name="keywords" class="keywords" placeholder="请输入您要查找的关键词">
-            <em class="search-btn"><i class="icon icon-search"></i></em>
-        </div>
-        <div class="section-title mt-10">
-            <span></span>
-            <em>热门推荐</em>
-        </div>
-        <ul class="hot-recommend">
-            <li>
-                <span class="th-1">1</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-            <li>
-                <span class="th-2">2</span>
-                <a href="">整机的流畅性是得到保证的，在把玩王者荣耀时并没有出现卡</a>
-            </li>
-            <li>
-                <span class="th-3">3</span>
-                <a href="">刚经历的数据库优化经验分享</a>
-            </li>
-             <li>
-                <span>4</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>5</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>6</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>7</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-        </ul>
-        <div class="section-title mt-10">
-            <span></span>
-            <em>最新发布</em>
-        </div>
-        <ul class="hot-recommend">
-            <li>
-                <span class="th-1">1</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-            <li>
-                <span class="th-2">2</span>
-                <a href="">整机的流畅性是得到保证的，在把玩王者荣耀时并没有出现卡</a>
-            </li>
-            <li>
-                <span class="th-3">3</span>
-                <a href="">刚经历的数据库优化经验分享</a>
-            </li>
-             <li>
-                <span>4</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>5</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>6</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>7</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-        </ul>
-        <div class="section-title mt-10">
-            <span></span>
-            <em>行业新闻</em>
-        </div>
-        <ul class="hot-recommend">
-            <li>
-                <span class="th-1">1</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-            <li>
-                <span class="th-2">2</span>
-                <a href="">整机的流畅性是得到保证的，在把玩王者荣耀时并没有出现卡</a>
-            </li>
-            <li>
-                <span class="th-3">3</span>
-                <a href="">刚经历的数据库优化经验分享</a>
-            </li>
-             <li>
-                <span>4</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>5</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>6</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-             <li>
-                <span>7</span>
-                <a href="">html5本地存储方式探讨</a>
-            </li>
-        </ul>
-    </div>
-</div> -->
 <div class="hot-recommend clearfix">
     <div class="slide-wrap">
         <div class="swiper-wrapper">
             <div class="swiper-slide slide">
-                <a href=""><img src="assets/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a>
+                <a href=""><img src="static/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a>
                 
             </div>
-            <div class="swiper-slide"><a href=""><img src="assets/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a></div>
-            <div class="swiper-slide"><a href=""><img src="assets/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a></div>
+            <div class="swiper-slide"><a href=""><img src="static/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a></div>
+            <div class="swiper-slide"><a href=""><img src="static/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a></div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
