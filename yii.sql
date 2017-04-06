@@ -36,3 +36,6 @@ create table Kl_user(
     create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
     unique username(username(16))
 )charset = utf8 engine = innodb comment ="用户表";
+
+INSERT INTO `kl_root_user` (`id`, `username`, `realname`, `avatar`, `mobile`, `password`, `encrypt`, `login_times`, `last_login_time`, `last_login_ip`, `remarks`, `status`, `create_at`) VALUES
+    (1, 'root', '', NULL, '', '1920284cad7e656c2c7678cecba5cc41', 'rjlJNbSD', 6, '2017-04-06 12:56:23', '::1', NULL, 0, '2017-03-28 11:35:56');

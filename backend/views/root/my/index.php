@@ -167,4 +167,4 @@
         <!-- END PROFILE CONTENT -->
     </div>
 </div>
-<?php \backend\assets\RootAsset::addScript($this, 'assets/js/root/r_user.js'); ?>
+<?php \backend\assets\RootAsset::addScript($this, 'assets/js/root/my.js'); ?>

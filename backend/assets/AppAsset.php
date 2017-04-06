@@ -25,7 +25,6 @@ class AppAsset extends AssetBundle
         'static/layouts/layout/css/layout.min.css',
         'static/layouts/layout/css/themes/darkblue.min.css',
         'static/layouts/layout/css/custom.min.css'
-
     ];
     public $js = [
         'static/global/plugins/jquery.min.js',
@@ -36,6 +35,8 @@ class AppAsset extends AssetBundle
         'static/global/plugins/jquery.blockui.min.js',
         'static/global/plugins/uniform/jquery.uniform.min.js',
         'static/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js',
+        'static/global/plugins/jquery-validation/js/jquery.validate.min.js',
+        'static/global/plugins/jquery-validation/js/additional-methods.min.js',
         'static/global/scripts/app.min.js',
         'static/layouts/layout/scripts/layout.min.js',
         'static/layouts/layout/scripts/demo.min.js',
@@ -44,4 +45,14 @@ class AppAsset extends AssetBundle
     public $depends = [
         
     ];
+
+    //定义按需加载JS方法，注意加载顺序在最后  
+    public static function addScript($view, $jsfile) {  
+        $view->registerJsFile('@web/'.$jsfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);  
+    }  
+      
+   //定义按需加载css方法，注意加载顺序在最后  
+    public static function addCss($view, $cssfile) {  
+        $view->registerCssFile('@web/'.$cssfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);  
+    }
 }

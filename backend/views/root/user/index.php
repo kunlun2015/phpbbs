@@ -96,12 +96,21 @@
                         <tr class="odd gradeX">
                             <td>
                                 <input type="checkbox" class="checkboxes" value="1" /> </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td class="center">  </td>
-                            <td>  </td>
-                            <td>  </td>
+                            <td> <?php echo $v['username']; ?> </td>
+                            <td> <?php echo $v['realname']; ?> </td>
+                            <td> <?php echo $v['login_times']; ?> </td>
+                            <td class="center"> <?php echo $v['last_login_time']; ?>  </td>
+                            <td> 
+                                <?php if($v['status'] == 0){ ?>
+                                <span class="label label-sm label-success"> 正常 </span>
+                                <?php }else if($v['status'] == 1){ ?> 
+                                <span class="label label-sm label-warning"> 禁用 </span>
+                                <?php } ?>
+                            </td>
+                            <td class="table-opt-td">
+                                <a href="<?php echo Url::to(['root/user/edit', 'uid' => $v['id']]); ?>">编辑</a>
+                                <a href="">删除</a>
+                            </td>
                         </tr>
                         <?php } ?>                                       
                     </tbody>

@@ -20,6 +20,7 @@ class RootAsset extends AssetBundle
         'static/global/plugins/uniform/css/uniform.default.css',
         'static/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
 
+        'static/global/plugins/icheck/skins/all.css',
         'static/global/css/components.min.css',        
         'static/global/plugins/select2/css/select2.min.css',
         'static/global/plugins/select2/css/select2-bootstrap.min.css',
@@ -31,7 +32,7 @@ class RootAsset extends AssetBundle
         'static/layouts/layout2/css/themes/blue.min.css',
         'static/layouts/layout2/css/custom.min.css',
         'static/pages/css/login-2.min.css',
-        'static/css/style.css'
+        'static/css/style_root.css'
 
     ];
     public $js = [
@@ -54,8 +55,9 @@ class RootAsset extends AssetBundle
         'static/layouts/layout2/scripts/demo.min.js',
         'static/layouts/global/scripts/quick-sidebar.min.js',
         'static/global/plugins/select2/js/select2.full.min.js',
+        'static/global/plugins/icheck/icheck.min.js',
         'static/plugin/layer/layer.js',
-        'static/js/common.js'
+        'static/js/root/common.js'
     ];
     public $depends = [
         

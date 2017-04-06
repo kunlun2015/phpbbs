@@ -26,3 +26,9 @@ $('.log-out').click(function(){
     })    
     return false;
 })
+
+//返回
+$('.history-back').click(function(){
+    window.history.back();
+    return false;
+})

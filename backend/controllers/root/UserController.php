@@ -34,6 +34,16 @@ class UserController extends RootController{
         return $this->render('add');
     }
 
+    //编辑用户
+    public function actionEdit(){
+        $uid = $this->request->get('uid', 0);
+        $data['user_info'] = (new User)->getEditUser($uid);
+        if(!$data['user_info']){
+            exit('没有该用户！');
+        }
+        return $this->render('edit', $data);
+    }
+
     //用户操作
     public function actionAction(){
         if(!$this->request->isAjax){
@@ -54,6 +64,22 @@ class UserController extends RootController{
                     $this->jsonExit(0, '用户添加成功！', array('url' => Url::to(['root/user'])));
                 }else{
                     $this->jsonExit(-1, '用户添加失败，请稍候重试！');
+                }
+                break;
+
+            case 'edit':
+                $data = array(
+                        'id'       => $this->request->post('uid'),
+                        'realname' => $this->request->post('realname'),
+                        'mobile'   => $this->request->post('mobile'),
+                        'remarks'  => $this->request->post('remarks'),
+                        'status'   => $this->request->post('status')
+                    );
+                $rst = (new User)->editUser($data);
+                if($rst == 1){
+                    $this->jsonExit(0, '用户修改成功！', array('url' => Url::to(['root/user'])));
+                }else{
+                    $this->jsonExit(-1, '用户信息没有被修改！');
                 }
                 break;
             
