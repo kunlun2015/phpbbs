@@ -9,8 +9,16 @@
 namespace backend\controllers;
 use Yii;
 use yii\web\Controller;
+use yii\helpers\Url;
 
 class AdminController extends CommonController{
 
+    public function init(){
+        parent::init();
+        //登录控制
+        if(!$this->session->get('user')){
+            return $this->redirect(Url::to(['/login'], true), 301);
+        }
+    }
     
 }

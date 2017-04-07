@@ -10,6 +10,7 @@ namespace backend\controllers;
 use Yii;
 use yii\web\Controller;
 use backend\models\Login;
+use yii\helpers\Url;
 
 class LoginController extends CommonController{
 
@@ -19,11 +20,18 @@ class LoginController extends CommonController{
     }
 
     //用户登录验证
-    public function actionCheck(){        
+    public function actionCheck(){      
         $username = trim($this->request->post('username'));
         $password = $this->request->post('password');
         $user_ip  = $this->request->userIP;
         $rst = (new Login)->loginCheck($username, $password, $user_ip);
+        if($rst === -1){
+            $this->jsonExit(-1, '用户名输入有误！');
+        }elseif($rst === -2){
+            $this->jsonExit(-2, '密码输入不正确！');
+        }elseif($rst === true){
+            $this->jsonExit(0, '登录成功！', array('url' => Url::to(['/site',])));
+        }
     }
 
 }

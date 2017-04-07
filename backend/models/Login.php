@@ -49,7 +49,7 @@ class Login extends CommonModel{
             'last_login_time' => $this->user['last_login_time'],
             'last_login_ip'   => $this->user['last_login_ip']
         );
-        Yii::$app->session->set('user', $session_info);
+        $this->session->set('user', $session_info);
         return true;
     }
 }

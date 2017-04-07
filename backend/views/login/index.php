@@ -51,7 +51,7 @@ $this->title = '用户登录';
             <!-- BEGIN LOGIN FORM -->
             <form class="login-form" action="" method="post">
                 <h3 class="form-title font-green">用户登录</h3>
-                <div class="alert alert-danger display-hide">
+                <div class="alert alert-danger display-hide return-msg">
                     <button class="close" data-close="alert"></button>
                     <span> 用户名和登录密码不能为空 </span>
                 </div>
