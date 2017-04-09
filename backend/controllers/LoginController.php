@@ -30,8 +30,17 @@ class LoginController extends CommonController{
         }elseif($rst === -2){
             $this->jsonExit(-2, '密码输入不正确！');
         }elseif($rst === true){
-            $this->jsonExit(0, '登录成功！', array('url' => Url::to(['/site',])));
+            $this->jsonExit(0, '登录成功！', array('url' => Url::to(['/site'])));
         }
+    }
+
+    //退出登录
+    public function actionLogOut(){
+        if(!$this->request->isAjax){
+            $this->jsonExit(-1, '非法请求！');
+        }
+        $this->session->remove('user');
+        $this->jsonExit(0, '登录成功！', array('url' => Url::to(['/login'], true)));
     }
 
 }

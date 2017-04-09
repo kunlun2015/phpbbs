@@ -5,7 +5,7 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
-
+use yii\helpers\Url;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -338,13 +338,13 @@ AppAsset::register($this);
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <img alt="" class="img-circle" src="static/layouts/layout/img/avatar3_small.jpg" />
-                                <span class="username username-hide-on-mobile"> Nick </span>
+                                <span class="username username-hide-on-mobile"> <?php echo Yii::$app->session->get('user')['username']; ?> </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="page_user_profile_1.html">
-                                        <i class="icon-user"></i> My Profile </a>
+                                    <a href="">
+                                        <i class="icon-user"></i> 我的账户 </a>
                                 </li>
                                 <li>
                                     <a href="app_calendar.html">
@@ -368,7 +368,7 @@ AppAsset::register($this);
                                         <i class="icon-lock"></i> Lock Screen </a>
                                 </li>
                                 <li>
-                                    <a href="page_user_login_1.html">
+                                    <a class="log-out" href="<?php echo Url::to(['/login/log-out']); ?>">
                                         <i class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>

@@ -40,7 +40,9 @@ class AppAsset extends AssetBundle
         'static/global/scripts/app.min.js',
         'static/layouts/layout/scripts/layout.min.js',
         'static/layouts/layout/scripts/demo.min.js',
-        'static/layouts/global/scripts/quick-sidebar.min.js'
+        'static/layouts/global/scripts/quick-sidebar.min.js',
+        'static/plugin/layer/layer.js',
+        'static/js/common.js'
     ];
     public $depends = [
         
