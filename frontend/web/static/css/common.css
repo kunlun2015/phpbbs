@@ -17,7 +17,7 @@ a:hover{color: #f54343;}
 
 .common-header .top-bar{height: 30px;line-height: 30px;background-color: #fcfcfc;margin: auto;}
 .common-header .top-bar a{color: #2b2b2b;}
-.common-header .top-bar-info{width: 1100px;margin: auto;}
+.common-header .top-bar-info{width: 1100px;margin: auto;background-color: #fcfcfc;}
 .common-header .login{float: right;}
 .common-header .top{width: 1100px;height: 100px;margin: auto;}
 .common-header .menu ul{width: 1100px;background-color: #f54343;margin: auto;}

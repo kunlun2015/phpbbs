@@ -467,6 +467,12 @@ RootAsset::register($this);
                                 <span class="title">用户管理</span>
                             </a>
                         </li>
+                        <li class="nav-item start <?php if(Yii::$app->controller->id == 'root/function') echo 'active'; ?>">
+                            <a href="<?php echo Url::to(['/root/function']); ?>" class="nav-link nav-toggle">
+                                <i class="fa fa-cog"></i>
+                                <span class="title">功能管理</span>
+                            </a>
+                        </li>
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>

@@ -18,7 +18,7 @@ create table kl_root_user(
 )charset = utf8 engine = innodb comment ="系统管理员";
 
 #用户表
-create table Kl_user(
+create table kl_user(
     id int unsigned primary key auto_increment,
     username varchar(16) not null default '' comment '用户名',
     realname varchar(8) not null default '' comment '真实姓名',
@@ -39,3 +39,17 @@ create table Kl_user(
 
 INSERT INTO `kl_root_user` (`id`, `username`, `realname`, `avatar`, `mobile`, `password`, `encrypt`, `login_times`, `last_login_time`, `last_login_ip`, `remarks`, `status`, `create_at`) VALUES
     (1, 'root', '', NULL, '', '1920284cad7e656c2c7678cecba5cc41', 'rjlJNbSD', 6, '2017-04-06 12:56:23', '::1', NULL, 0, '2017-03-28 11:35:56');
+
+#功能管理
+create table kl_function(
+    id int unsigned primary key auto_increment,
+    icon varchar(64) not null default '' comment '菜单图标',
+    name varchar(16) not null default '' comment '功能名称',
+    controller varchar(32) not null default '' comment '控制器',
+    method varchar(32) not null  default '' comment '方法',
+    url text comment '跳转链接',
+    groupid int unsigned not null default 0 comment '所在分组id',
+    status tinyint(1) not null default 0 comment '菜单状态，默认0，1禁用',
+    create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+    created varchar(16) not null default '' comment '操作者'
+)charset = utf8 engine = innodb comment ="功能管理";
