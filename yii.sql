@@ -43,6 +43,7 @@ INSERT INTO `kl_root_user` (`id`, `username`, `realname`, `avatar`, `mobile`, `p
 #功能管理
 create table kl_function(
     id int unsigned primary key auto_increment,
+    parent_id int unsigned not null default 0 comment '父菜单id',
     icon varchar(64) not null default '' comment '菜单图标',
     name varchar(16) not null default '' comment '功能名称',
     controller varchar(32) not null default '' comment '控制器',
@@ -53,3 +54,14 @@ create table kl_function(
     create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
     created varchar(16) not null default '' comment '操作者'
 )charset = utf8 engine = innodb comment ="功能管理";
+
+#功能分组
+create table kl_function_group(
+    id int unsigned primary key auto_increment,
+    name varchar(32) not null default '' comment '分组标题',
+    sort tinyint not null default 0 comment '分组排序',
+    remarks text comment '分组说明',
+    status tinyint(1) not null default 0 comment '状态，0正常，1禁用',
+    create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+    created varchar(16) not null default '' comment '操作者'
+)charset = utf8 engine = innodb comment ="功能分组";

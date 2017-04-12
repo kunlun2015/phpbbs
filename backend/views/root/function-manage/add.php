@@ -19,7 +19,7 @@ $this->title = '功能管理-添加功能';
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a href="<?php echo Url::to(['root/function']); ?>">功能管理</a>
+            <a href="<?php echo Url::to(['root/function-manage']); ?>">功能管理</a>
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
@@ -71,8 +71,18 @@ $this->title = '功能管理-添加功能';
                 </div>
             </div>
             <div class="portlet-body form">
-                <form class="form-horizontal add-user-form" role="form">
+                <form class="form-horizontal add-function-form" role="form">
                     <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">菜单分组</label>
+                            <div class="col-md-9">
+                                <select class="form-control input-medium">
+                                    <?php foreach ($groupList as $k => $v) { ?>
+                                    <option value="<?=$v['id']?>"><?=$v['name']?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">菜单名称</label>
                             <div class="col-md-9">
@@ -88,19 +98,25 @@ $this->title = '功能管理-添加功能';
                         <div class="form-group">
                             <label class="col-md-3 control-label">控制器</label>
                             <div class="col-md-9">
-                                <input type="password" name="controller" class="form-control input-inline input-medium" placeholder="控制器">
+                                <input type="text" name="controller" class="form-control input-inline input-medium" placeholder="控制器">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">方法名称</label>
                             <div class="col-md-9">
-                                <input type="password" name="password_confirm" class="form-control input-inline input-medium" placeholder="方法名称">
+                                <input type="text" name="method" class="form-control input-inline input-medium" placeholder="方法名称">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">URL</label>
                             <div class="col-md-9">
                                 <input type="password" name="password_confirm" class="form-control input-inline input-medium" placeholder="跳转链接">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">排序</label>
+                            <div class="col-md-9">
+                                <input type="text" name="sort" class="form-control input-inline input-medium" placeholder="菜单排序(分组内排序)">
                             </div>
                         </div>
                         <div class="form-group">
@@ -120,9 +136,10 @@ $this->title = '功能管理-添加功能';
                     </div>
                     <input type="hidden" name="act" value="add">
                     <input type="hidden" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
-                    <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['root/user/action']); ?>">
+                    <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['root/function-manage/save']); ?>">
                 </form>
             </div>
         </div>
     </div>
 </div>
+<?php \backend\assets\RootAsset::addScript($this, 'static/js/root/function-manage.js'); ?>

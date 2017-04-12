@@ -19,6 +19,8 @@ class RootAsset extends AssetBundle
         'static/global/plugins/bootstrap/css/bootstrap.min.css',
         'static/global/plugins/uniform/css/uniform.default.css',
         'static/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
+        'static/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css',
+        'static/global/plugins/bootstrap-modal/css/bootstrap-modal.css',
 
         'static/global/plugins/icheck/skins/all.css',
         'static/global/css/components.min.css',        
@@ -50,6 +52,8 @@ class RootAsset extends AssetBundle
         'static/global/scripts/datatable.js',
         'static/global/plugins/datatables/datatables.min.js',
         'static/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
+        'static/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js',
+        'static/global/plugins/bootstrap-modal/js/bootstrap-modal.js',
         'static/global/scripts/app.min.js',
         'static/layouts/layout2/scripts/layout.min.js',
         'static/layouts/layout2/scripts/demo.min.js',

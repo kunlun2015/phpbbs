@@ -62,11 +62,10 @@ $this->title = '功能管理';
                     <span class="caption-subject bold uppercase"> 功能列表管理 </span>
                 </div>
                 <div class="actions">
-                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                            <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                    <div class="btn-group btn-group-devided">
                         <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                            <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+                           <a href="<?php echo Url::to(['root/function-manage/function-group']); ?>" class="my-btn-group">功能分组</a>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -75,7 +74,7 @@ $this->title = '功能管理';
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a href="<?php echo Url::to(['root/function/add']); ?>" class="btn sbold green"> 添加功能
+                                <a href="<?php echo Url::to(['root/function-manage/add']); ?>" class="btn sbold green"> 添加功能
                                     <i class="fa fa-plus"></i>
                                 </a>
                             </div>
@@ -101,4 +100,4 @@ $this->title = '功能管理';
         </div>
     </div>
 </div>
-<?php \backend\assets\RootAsset::addScript($this, 'static/js/root/function.js'); ?>
+<?php \backend\assets\RootAsset::addScript($this, 'static/js/root/function-manage.js'); ?>

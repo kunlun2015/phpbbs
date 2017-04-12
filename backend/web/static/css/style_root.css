@@ -7,3 +7,5 @@
  */
 .login-form .form-title{text-align: center;}
 .table-opt-td a{display: inline-block;margin: 0 5px;}
+a.my-btn-group{color: #666;}
+a.my-btn-group:hover{color: #fff;text-decoration: none;}
