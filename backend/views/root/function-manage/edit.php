@@ -1,15 +1,15 @@
 <?php
 /**
- * 功能添加
+ * 编辑功能菜单
  * @authors Amos (735767227@qq.com)
- * @date    2017-04-10 18:22:00
+ * @date    2017-04-13 11:54:09
  * @version $Id$
  */
 use yii\helpers\Url;
-$this->title = '功能管理-添加功能';
+$this->title = '功能管理-编辑功能';
 ?>
-<h3 class="page-title"> 功能添加
-    <small>功能添加、修改等</small>
+<h3 class="page-title"> 功能编辑
+    <small>功能修改</small>
 </h3>
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -23,7 +23,7 @@ $this->title = '功能管理-添加功能';
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span>添加功能</span>
+            <span>编辑功能</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -59,7 +59,7 @@ $this->title = '功能管理-添加功能';
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">添加功能</span>
+                    <span class="caption-subject font-dark sbold uppercase">编辑功能</span>
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -71,14 +71,14 @@ $this->title = '功能管理-添加功能';
                 </div>
             </div>
             <div class="portlet-body form">
-                <form class="form-horizontal add-function-form" role="form">
+                <form class="form-horizontal edit-function-form" role="form">
                     <div class="form-body">
                         <div class="form-group">
                             <label class="col-md-3 control-label">菜单分组</label>
                             <div class="col-md-9">
                                 <select name="groupid" class="form-control input-medium">
                                     <?php foreach ($groupList as $k => $v) { ?>
-                                    <option value="<?=$v['id']?>" <?php if(isset($pMenu['groupid']) && $v['id'] == $pMenu['groupid']){ echo 'selected';}elseif(isset($pMenu['groupid']) && $v['id'] != $pMenu['groupid']){echo 'disabled';} ?>><?=$v['name']?></option>
+                                    <option value="<?=$v['id']?>" <?php if($menu['groupid'] == $v['id']) echo 'selected'; ?>><?=$v['name']?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -86,45 +86,43 @@ $this->title = '功能管理-添加功能';
                         <div class="form-group">
                             <label class="col-md-3 control-label">菜单名称</label>
                             <div class="col-md-9">
-                                <input type="text" name="name" class="form-control input-inline input-medium" placeholder="菜单名称">
+                                <input type="text" name="name" value="<?=$menu['name']?>" class="form-control input-inline input-medium" placeholder="菜单名称">
                             </div>
                         </div>
-                        <?php if(!isset($pMenu)){ ?>
                         <div class="form-group">
                             <label class="col-md-3 control-label">菜单图标</label>
                             <div class="col-md-9">
-                                <input type="text" name="icon" class="form-control input-inline input-medium" placeholder="菜单图标">
+                                <input type="text" name="icon" value="<?=$menu['icon']?>" class="form-control input-inline input-medium" placeholder="菜单图标">
                             </div>
                         </div>
-                        <?php } ?>
                         <div class="form-group">
                             <label class="col-md-3 control-label">控制器</label>
                             <div class="col-md-9">
-                                <input type="text" name="controller" value="<?php if(isset($pMenu['controller'])) echo $pMenu['controller'];?>" <?php if(isset($pMenu['controller'])) echo 'readonly';?> class="form-control input-inline input-medium" placeholder="控制器">
+                                <input type="text" name="controller" value="<?=$menu['controller']?>" class="form-control input-inline input-medium" placeholder="控制器">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">方法名称</label>
                             <div class="col-md-9">
-                                <input type="text" name="method" class="form-control input-inline input-medium" placeholder="方法名称">
+                                <input type="text" name="method" value="<?=$menu['method']?>" class="form-control input-inline input-medium" placeholder="方法名称">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">URL</label>
                             <div class="col-md-9">
-                                <input type="text" name="url" class="form-control input-inline input-medium" placeholder="跳转链接">
+                                <input type="text" name="url" value="<?=$menu['url']?>" class="form-control input-inline input-medium" placeholder="跳转链接">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">排序</label>
                             <div class="col-md-9">
-                                <input type="text" name="sort" class="form-control input-inline input-medium" placeholder="菜单排序(分组内排序)">
+                                <input type="text" name="sort" value="<?=$menu['sort']?>" class="form-control input-inline input-medium" placeholder="菜单排序(分组内排序)">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">备注</label>
                             <div class="col-md-9">
-                                <textarea name="remarks" cols="30" rows="4" class="form-control" placeholder="备注信息"></textarea>
+                                <textarea name="remarks" cols="30" rows="4" class="form-control" placeholder="备注信息"><?=$menu['remarks']?></textarea>
                             </div>
                         </div>
                     </div>
@@ -136,8 +134,9 @@ $this->title = '功能管理-添加功能';
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="pid" value="<?php if(isset($pMenu['id'])) echo $pMenu['id']; ?>">
-                    <input type="hidden" name="act" value="add">
+                    <input type="hidden" name="act" value="edit">
+                    <input type="hidden" name="id" value="<?=$menu['id']?>">
+                    <input type="hidden" name="pid" value="<?=$menu['parent_id']?>">
                     <input type="hidden" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
                     <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['root/function-manage/save']); ?>">
                 </form>

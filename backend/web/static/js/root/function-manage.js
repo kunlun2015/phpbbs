@@ -184,7 +184,7 @@ $(document).ready(function(){
         })
         return false;
     })
-    //添加功能
+    //添加功能菜单
     var e = $('.add-function-form'),
     r = $(".alert-danger", e),
     i = $(".alert-success", e);
@@ -249,7 +249,7 @@ $(document).ready(function(){
                     if(res.code == 0){
                         layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index){
                             layer.close(index);
-                            window.location.reload();
+                            window.location.href = res.data.url;
                         });
                     }else{
                         layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
@@ -257,5 +257,104 @@ $(document).ready(function(){
                 }
             })
         }
+    })
+    //编辑功能菜单
+    var e = $('.edit-function-form'),
+    r = $(".alert-danger", e),
+    i = $(".alert-success", e);
+    e.validate({
+        errorElement: "span",
+        errorClass: "help-block help-block-error",
+        focusInvalid: !1,
+        ignore: "",
+        messages: {
+            name: {
+                required: '请输入菜单名称'
+            },
+            controller:{
+                required: '控制器不能为空'
+            },
+            method:{
+                required: '方法不能为空'
+            },
+            sort: {
+                number: '排序只能为数字'
+            }
+        },
+        rules: {
+            name: {
+                required: !0
+            },
+            controller: {
+                required: !0
+            },
+            method:{
+                required: !0
+            },
+            sort: {
+                number: true
+            }
+        },
+        invalidHandler: function(e, t) {
+            i.hide(),
+            r.show(),
+            App.scrollTo(r, -200)
+        },
+        highlight: function(e) {
+            $(e).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(e) {
+            $(e).closest(".form-group").removeClass("has-error")
+        },
+        success: function(e) {
+            e.closest(".form-group").removeClass("has-error")
+        },
+        submitHandler: function(e) {
+            var loading = layer.load()
+            i.show(),
+            r.hide()
+            $.ajax({
+                url: $("input[name=request_url]").val(),
+                type: 'post',
+                dataType: 'json',
+                data: $('.edit-function-form').serialize(),
+                success: function(res){
+                    layer.close(loading);
+                    if(res.code == 0){
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index){
+                            layer.close(index);
+                            window.location.href = res.data.url;
+                        });
+                    }else{
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+                    }
+                }
+            })
+        }
+    })
+    //删除功能菜单
+    $('.del-function-menu').click(function(){
+        var _this = $(this);
+        layer.confirm('确定要删除功能菜单吗？删除功能菜单将会同时删除此菜单下的菜单且不可恢复，请谨慎操作！', {title: siteName+'提示您：', icon: 3}, function(index){
+            var loading = layer.load();
+            $.ajax({
+                url: _this.attr('href'),
+                type: 'get',
+                dataType: 'json',
+                data: {act: 'deleteFunction', id: _this.data('id')},
+                success: function(res){
+                    layer.close(loading);
+                    if(res.code == 0){
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index){
+                            layer.close(index);
+                            _this.parent().parent().remove();
+                        });
+                    }else{
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+                    }
+                }
+            })
+        })
+        return false;
     })
 })

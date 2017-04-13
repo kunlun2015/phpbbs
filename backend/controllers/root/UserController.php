@@ -44,6 +44,12 @@ class UserController extends RootController{
         return $this->render('edit', $data);
     }
 
+    //用户权限
+    public function actionAuthority(){
+        $uid = $this->request->get('uid', 0);
+        return $this->render('authority');
+    }
+
     //用户操作
     public function actionAction(){
         if(!$this->request->isAjax){

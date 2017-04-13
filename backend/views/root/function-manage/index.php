@@ -64,7 +64,7 @@ $this->title = '功能管理';
                 <div class="actions">
                     <div class="btn-group btn-group-devided">
                         <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                           <a href="<?php echo Url::to(['root/function-manage/function-group']); ?>" class="my-btn-group">功能分组</a>
+                           <a href="<?php echo Url::to(['root/function-manage/function-group', 'pid' => $pid]); ?>" class="my-btn-group">功能分组</a>
                         </label>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ $this->title = '功能管理';
                     <div class="row">
                         <div class="col-md-6">
                             <div class="btn-group">
-                                <a href="<?php echo Url::to(['root/function-manage/add']); ?>" class="btn sbold green"> 添加功能
+                                <a href="<?php echo Url::to(['root/function-manage/add', 'pid' => $pid]); ?>" class="btn sbold green"> 添加功能
                                     <i class="fa fa-plus"></i>
                                 </a>
                             </div>
@@ -87,13 +87,34 @@ $this->title = '功能管理';
                             <th> ID </th>
                             <th> 名称 </th>
                             <th> 所在组 </th>
-                            <th> 控制器 </th>
-                            <th> 链接 </th>                            
+                            <th> 控制器 </th>                        
                             <th> 状态 </th>
                             <th> 操作 </th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($list as $k => $v) { ?>
+                        <tr>
+                            <td><?=$v['id']?></td>
+                            <td><?=$v['name']?></td>
+                            <td><?=$v['group_name']?></td>
+                            <td><?=$v['controller']?></td>
+                            <td>
+                                <?php if($v['status'] == 0){ ?>
+                                <span class="label label-sm label-success"> 正常 </span>
+                                <?php }else if($v['status'] == 1){ ?> 
+                                <span class="label label-sm label-warning"> 禁用 </span>
+                                <?php } ?>
+                            </td>
+                            <td>
+                                <a href="<?php echo Url::to(['root/function-manage/edit', 'id' => $v['id'], 'pid'=>$pid]); ?>">编辑</a>
+                                <?php if($menuLevel != 3){ ?>
+                                <a href="<?php echo Url::to(['root/function-manage', 'pid' => $v['id']]); ?>">查看</a>
+                                <?php } ?>
+                                <a class="del-function-menu" data-id="<?=$v['id']?>" href="<?php echo Url::to(['root/function-manage/request-distribution']); ?>">删除</a>
+                            </td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

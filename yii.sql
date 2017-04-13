@@ -51,6 +51,8 @@ create table kl_function(
     url text comment '跳转链接',
     groupid int unsigned not null default 0 comment '所在分组id',
     status tinyint(1) not null default 0 comment '菜单状态，默认0，1禁用',
+    sort int unsigned not null default 0 comment '菜单分组内排序',
+    remarks text comment '备注信息',
     create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
     created varchar(16) not null default '' comment '操作者'
 )charset = utf8 engine = innodb comment ="功能管理";

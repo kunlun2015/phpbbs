@@ -109,6 +109,7 @@
                             </td>
                             <td class="table-opt-td">
                                 <a href="<?php echo Url::to(['root/user/edit', 'uid' => $v['id']]); ?>">编辑</a>
+                                <a href="<?php echo Url::to(['root/user/authority', 'uid' => $v['id']]); ?>">权限</a>
                                 <a href="">删除</a>
                             </td>
                         </tr>
