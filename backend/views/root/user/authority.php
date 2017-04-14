@@ -19,7 +19,11 @@ use yii\helpers\Url;
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span>用户管理</span>
+            <a href="<?php echo Url::to(['root/user']); ?>">用户管理</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <span>权限管理</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -65,8 +69,13 @@ use yii\helpers\Url;
                             <input type="radio" name="options" class="toggle" id="option2">Settings</label>
                     </div>
                 </div>
+                <div class="portlet-body">
+                    <div id="tree-authority"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<?php \backend\assets\RootAsset::addCss($this, 'static/global/plugins/jstree/dist/themes/default/style.min.css'); ?>
+<?php \backend\assets\RootAsset::addScript($this, 'static/global/plugins/jstree/dist/jstree.min.js'); ?>
 <?php \backend\assets\RootAsset::addScript($this, 'static/js/root/user.js'); ?>

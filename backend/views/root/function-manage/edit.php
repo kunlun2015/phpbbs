@@ -78,7 +78,7 @@ $this->title = '功能管理-编辑功能';
                             <div class="col-md-9">
                                 <select name="groupid" class="form-control input-medium">
                                     <?php foreach ($groupList as $k => $v) { ?>
-                                    <option value="<?=$v['id']?>" <?php if($menu['groupid'] == $v['id']) echo 'selected'; ?>><?=$v['name']?></option>
+                                    <option value="<?=$v['id']?>" <?php if($menu['groupid'] == $v['id']){echo 'selected';}else if($menu['parent_id']){ echo ' disabled'; } ?>><?=$v['name']?></option>
                                     <?php } ?>
                                 </select>
                             </div>

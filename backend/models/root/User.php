@@ -37,4 +37,25 @@ class User extends \backend\models\CommonModel{
         return $this->db->createCommand()->update('{{%user}}', $data, array('id' => $data['id']))->execute();
     }
 
+    //生成authority tree json
+    public function menuLevelTree(){
+        $menu = array();
+        $group = (new FunctionManage)->availableFunctionGroup();
+        $i = 0;
+        foreach ($group as $k => $v) {
+            $menu[$i]['text'] = $v['name'];
+            $menu[$i]['groupid'] = $v['id'];
+            $firstLevelMenu = $this->getFirstLevalMenuByGroupId($v['id']);            
+            $menu[$i]['children'] = $firstLevelMenu;
+            $i += 1;
+        }
+        var_dump($menu);
+        exit();
+    }
+
+    //获取分组下的一级菜单
+    private function getFirstLevalMenuByGroupId($groupid){
+        return $this->db->createCommand('select id, name from {{%function}} where groupid = :groupid and parent_id = 0 order by sort desc', array('groupid' => $groupid))->queryAll();
+    }
+
 }
