@@ -70,7 +70,7 @@ use yii\helpers\Url;
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div id="tree-authority"></div>
+                    <div id="tree-authority" data-menuTree="<?=$menuTree?>"></div>
                 </div>
             </div>
         </div>

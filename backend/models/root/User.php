@@ -37,25 +37,47 @@ class User extends \backend\models\CommonModel{
         return $this->db->createCommand()->update('{{%user}}', $data, array('id' => $data['id']))->execute();
     }
 
-    //生成authority tree json
+    //生成menu tree
     public function menuLevelTree(){
         $menu = array();
         $group = (new FunctionManage)->availableFunctionGroup();
         $i = 0;
-        foreach ($group as $k => $v) {
+        foreach ($group as $k => &$v) {
             $menu[$i]['text'] = $v['name'];
             $menu[$i]['groupid'] = $v['id'];
-            $firstLevelMenu = $this->getFirstLevalMenuByGroupId($v['id']);            
+            $firstLevelMenu = $this->getFirstLevalMenuByGroupId($v['id']); 
+            //!$firstLevelMenu && unset($v);
+            if(!$firstLevelMenu){
+                unset($menu[$i]);
+                $i += 1;
+                continue;
+            }     
             $menu[$i]['children'] = $firstLevelMenu;
+            $j = 0;
+            foreach ($firstLevelMenu as $kFirstLevelMenu => $vFirstLevelMenu) {
+                $secondLevelMenu = $this->getMenuListByParentId($vFirstLevelMenu['id']);
+                $menu[$i]['children'][$j]['children'] = $secondLevelMenu;
+                $k = 0;
+                foreach ($secondLevelMenu as $kSecondLevelMenu => $vSecondLevelMenu) {
+                    $thirdLevelMenu = $this->getMenuListByParentId($vSecondLevelMenu['id']);
+                    $menu[$i]['children'][$j]['children'][$k]['children'] = $thirdLevelMenu;
+                    $k += 1;
+                }
+                $j += 1;
+            }
             $i += 1;
         }
-        var_dump($menu);
-        exit();
+        return $menu;
     }
 
     //获取分组下的一级菜单
     private function getFirstLevalMenuByGroupId($groupid){
-        return $this->db->createCommand('select id, name from {{%function}} where groupid = :groupid and parent_id = 0 order by sort desc', array('groupid' => $groupid))->queryAll();
+        return $this->db->createCommand('select id, name from {{%function}} where groupid = :groupid and parent_id = 0 and status = 0 order by sort desc', array('groupid' => $groupid))->queryAll();
+    }
+
+    //根据parent_id获取菜单树的list
+    private function getMenuListByParentId($parent_id){
+        return $this->db->createCommand('select id, name from {{%function}} where parent_id = :parent_id and status = 0 order by sort desc', array('parent_id' => $parent_id))->queryAll();
     }
 
 }

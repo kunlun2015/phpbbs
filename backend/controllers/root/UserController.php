@@ -47,8 +47,9 @@ class UserController extends RootController{
     //用户权限
     public function actionAuthority(){
         $uid = $this->request->get('uid', 0);
-        $data['authority'] = (new User)->menuLevelTree();
-        return $this->render('authority');
+        $menuTree = (new User)->menuLevelTree();
+        $data['menuTree'] = json_encode($menuTree);
+        return $this->render('authority', $data);
     }
 
     //用户操作
