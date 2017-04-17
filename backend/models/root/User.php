@@ -43,10 +43,10 @@ class User extends \backend\models\CommonModel{
         $group = (new FunctionManage)->availableFunctionGroup();
         $i = 0;
         foreach ($group as $k => &$v) {
-            $menu[$i]['text'] = $v['name'];
+            $menu[$i]['text']    = $v['name'];
             $menu[$i]['groupid'] = $v['id'];
-            $firstLevelMenu = $this->getFirstLevalMenuByGroupId($v['id']); 
-            //!$firstLevelMenu && unset($v);
+            $menu[$i]['li_attr'] = array('class' => 'menu-group', 'data-id' => $v['id']);
+            $firstLevelMenu = $this->getFirstLevalMenuByGroupId($v['id']);
             if(!$firstLevelMenu){
                 unset($menu[$i]);
                 $i += 1;
@@ -54,13 +54,20 @@ class User extends \backend\models\CommonModel{
             }     
             $menu[$i]['children'] = $firstLevelMenu;
             $j = 0;
-            foreach ($firstLevelMenu as $kFirstLevelMenu => $vFirstLevelMenu) {
+            foreach ($firstLevelMenu as $kFirstLevelMenu => &$vFirstLevelMenu) {
+                $menu[$i]['children'][$j]['li_attr'] = array('class' => 'menu-function', 'data-id' => $vFirstLevelMenu['id']);
                 $secondLevelMenu = $this->getMenuListByParentId($vFirstLevelMenu['id']);
                 $menu[$i]['children'][$j]['children'] = $secondLevelMenu;
                 $k = 0;
                 foreach ($secondLevelMenu as $kSecondLevelMenu => $vSecondLevelMenu) {
+                     $menu[$i]['children'][$j]['children'][$k]['li_attr'] = array('class' => 'menu-function', 'data-id' => $vSecondLevelMenu['id']);
                     $thirdLevelMenu = $this->getMenuListByParentId($vSecondLevelMenu['id']);
                     $menu[$i]['children'][$j]['children'][$k]['children'] = $thirdLevelMenu;
+                    $l = 0;
+                    foreach ($thirdLevelMenu as $kThirdLevelMenu => $vThirdLevelMenu) {
+                        $menu[$i]['children'][$j]['children'][$k]['children'][$l]['li_attr'] = array('class' => 'menu-function', 'data-id' => $vThirdLevelMenu['id']);
+                        $l += 1;
+                    }
                     $k += 1;
                 }
                 $j += 1;
@@ -72,12 +79,12 @@ class User extends \backend\models\CommonModel{
 
     //获取分组下的一级菜单
     private function getFirstLevalMenuByGroupId($groupid){
-        return $this->db->createCommand('select id, name from {{%function}} where groupid = :groupid and parent_id = 0 and status = 0 order by sort desc', array('groupid' => $groupid))->queryAll();
+        return $this->db->createCommand('select id, name as text from {{%function}} where groupid = :groupid and parent_id = 0 and status = 0 order by sort desc', array('groupid' => $groupid))->queryAll();
     }
 
     //根据parent_id获取菜单树的list
     private function getMenuListByParentId($parent_id){
-        return $this->db->createCommand('select id, name from {{%function}} where parent_id = :parent_id and status = 0 order by sort desc', array('parent_id' => $parent_id))->queryAll();
+        return $this->db->createCommand('select id, name as text from {{%function}} where parent_id = :parent_id and status = 0 order by sort desc', array('parent_id' => $parent_id))->queryAll();
     }
 
 }

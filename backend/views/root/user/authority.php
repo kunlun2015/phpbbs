@@ -69,13 +69,24 @@ use yii\helpers\Url;
                             <input type="radio" name="options" class="toggle" id="option2">Settings</label>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <div id="tree-authority" data-menuTree="<?=$menuTree?>"></div>
+            </div>
+            <div class="portlet-body form">
+                <div class="form-body">
+                    <div id="tree-authority"></div>                         
                 </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" class="btn green">确 定</button>
+                            <button type="button" class="btn default">取 消</button>
+                        </div>
+                    </div>
+                </div>                
             </div>
         </div>
     </div>
 </div>
+<script>var treeMenuData = <?=$menuTree?>;</script>
 <?php \backend\assets\RootAsset::addCss($this, 'static/global/plugins/jstree/dist/themes/default/style.min.css'); ?>
 <?php \backend\assets\RootAsset::addScript($this, 'static/global/plugins/jstree/dist/jstree.min.js'); ?>
 <?php \backend\assets\RootAsset::addScript($this, 'static/js/root/user.js'); ?>
