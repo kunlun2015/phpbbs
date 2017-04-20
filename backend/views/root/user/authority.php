@@ -71,6 +71,7 @@ use yii\helpers\Url;
                 </div>
             </div>
             <div class="portlet-body form">
+                <form  class="form-horizontal user-authority-form" role="form">
                 <div class="form-body">
                     <div id="tree-authority"></div>                         
                 </div>
@@ -81,12 +82,20 @@ use yii\helpers\Url;
                             <button type="button" class="btn default">取 消</button>
                         </div>
                     </div>
-                </div>                
-            </div>
+                </div>
+                <input type="hidden" name="act" value="authority">
+                <input type="hidden" name="uid" value="<?=$uid?>">
+                <input type="hidden" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
+                <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['root/user/action']); ?>">  
+                </form>              
+            </div>            
         </div>
     </div>
 </div>
-<script>var treeMenuData = <?=$menuTree?>;</script>
+<script>
+    var treeMenuData  = <?=$menuTree?>;
+    var userAuthority = <?=$authority?>;
+</script>
 <?php \backend\assets\RootAsset::addCss($this, 'static/global/plugins/jstree/dist/themes/default/style.min.css'); ?>
 <?php \backend\assets\RootAsset::addScript($this, 'static/global/plugins/jstree/dist/jstree.min.js'); ?>
 <?php \backend\assets\RootAsset::addScript($this, 'static/js/root/user.js'); ?>

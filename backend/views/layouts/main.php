@@ -25,7 +25,8 @@ AppAsset::register($this);
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
+        <link rel="shortcut icon" href="favicon.ico" />
+    </head>
     <!-- END HEAD -->
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
         <?php $this->beginBody() ?>
@@ -36,7 +37,7 @@ AppAsset::register($this);
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="index.html">
-                        <img src="static/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
+                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
                     <div class="menu-toggler sidebar-toggler"> </div>
                 </div>
                 <!-- END LOGO -->
@@ -343,8 +344,9 @@ AppAsset::register($this);
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="">
-                                        <i class="icon-user"></i> 我的账户 </a>
+                                    <a href="<?php echo Url::to(['/my']); ?>">
+                                        <i class="icon-user"></i> 我的账户
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="app_calendar.html">
@@ -434,12 +436,14 @@ AppAsset::register($this);
                             </form>
                             <!-- END RESPONSIVE QUICK SEARCH FORM -->
                         </li>
-                        <li class="nav-item start ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
+                        <li class="nav-item start <?php if(Yii::$app->controller->id === 'site') echo 'active'; ?>">
+                            <a href="<?php echo Url::to(['/site']); ?>" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title"> 首页 </span>
                             </a>
                         </li>
+                        <?php //var_dump(Yii::$app->view->params['userMenuLevel']); ?>
+                        <?php echo \Yii::$app->view->render('../login/userMenu', array('userMenuLevel' =>Yii::$app->view->params['userMenuLevel'])) ?>
                     </ul>
                     <!-- END SIDEBAR MENU -->
                     <!-- END SIDEBAR MENU -->

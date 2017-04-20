@@ -19,6 +19,9 @@ class AdminController extends CommonController{
         if(!$this->session->get('user')){
             return $this->redirect(Url::to(['/login'], true), 301);
         }
+        $userMenuLevel = (new \backend\models\Login)->userAuthorityMenuLevel($this->session->get('user')['id']);
+        Yii::$app->view->params['userMenuLevel'] = $userMenuLevel;
+        //Yii::$app->view->params['menuHtml'] = $this->renderPartial('../login/userMenu', array('userMenuLevel' => $userMenuLevel));
     }
     
 }

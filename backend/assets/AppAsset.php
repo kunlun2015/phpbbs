@@ -24,7 +24,8 @@ class AppAsset extends AssetBundle
 
         'static/layouts/layout/css/layout.min.css',
         'static/layouts/layout/css/themes/darkblue.min.css',
-        'static/layouts/layout/css/custom.min.css'
+        'static/layouts/layout/css/custom.min.css',
+        'static/css/style.css'
     ];
     public $js = [
         'static/global/plugins/jquery.min.js',

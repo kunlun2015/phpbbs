@@ -46,7 +46,16 @@ return [
             'password' => '123456',
             'charset' => 'utf8',
             'tablePrefix' => 'kl_'
-        ]        
+        ],
+        'cache' => [
+            'class' => 'yii\caching\MemCache',
+            'servers' => [
+                [
+                    'host' => '127.0.0.1',
+                    'port' => 11211
+                ]
+            ]
+        ]      
     ],
     'params' => $params,
 ];

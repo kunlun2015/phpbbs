@@ -149,8 +149,8 @@ $(document).ready(function(){
         }
     })
 
-    //权限管理
-    $("#tree-authority").jstree({
+    //权限管理   
+    "undefined" != typeof treeMenuData && $("#tree-authority").jstree({
         plugins: ["wholerow", "checkbox", "types"],
         core: {
             themes: {
@@ -167,8 +167,49 @@ $(document).ready(function(){
             }
         }
     })
+    $('#tree-authority').on('ready.jstree', function(){
+        $('#tree-authority').jstree(true).select_node(userAuthority);
+        $('#tree-authority').jstree(true).open_node(userAuthority);
+    })
 
-    $('#tree-authority').on('changed.jstree',function(e,data){
-        console.log($('#tree-authority').jstree().get_checked(true));
-    });
+    $('.user-authority-form').submit(function(){        
+        var selected = $('#tree-authority').jstree().get_checked(true);
+        var groupId = [];
+        var menuId = [];
+        var treeState = $('#tree-authority').jstree().get_checked();
+        for (var i in selected) {
+            $.each(selected[i].parents, function(index, node){
+                var treeNode = $('#tree-authority').jstree(true).get_node(node);
+                if(treeNode.id !== '#' && $.inArray(treeNode.li_attr.data_id, groupId) === -1 && treeNode.li_attr.class === 'menu-group'){
+                    groupId.push(treeNode.li_attr.data_id);
+                }else if(treeNode.id !== '#' && $.inArray(treeNode.li_attr.data_id, menuId) === -1 && treeNode.li_attr.class === 'menu-function'){
+                    menuId.push(treeNode.li_attr.data_id)
+                }
+                var curTreeNode = $('#tree-authority').jstree(true).get_node(selected[i].id);
+                if(curTreeNode.id !== '#' && $.inArray(curTreeNode.li_attr.data_id, groupId) === -1 && curTreeNode.li_attr.class === 'menu-group'){
+                    groupId.push(curTreeNode.li_attr.data_id);
+                }else if(curTreeNode.id !== '#' && $.inArray(curTreeNode.li_attr.data_id, menuId) === -1 && treeNode.li_attr.class === 'menu-function'){
+                    menuId.push(curTreeNode.li_attr.data_id)
+                }
+
+            });
+        }
+        $.ajax({
+            url: $("input[name=request_url]").val(),
+            dataType: 'json',
+            type: 'post',
+            data: $('.user-authority-form').serialize()+'&menuGroup='+groupId+'&menuFunction='+menuId+'&treeState='+treeState,
+            success: function(res){
+                if(res.code == 0){
+                    layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(layer){
+                        window.location.href = res.data.url;
+                    });
+                }else{
+                    layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+                }
+            }
+        })
+        return false;
+    })
+
 })

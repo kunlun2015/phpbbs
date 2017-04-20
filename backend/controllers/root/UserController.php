@@ -46,9 +46,12 @@ class UserController extends RootController{
 
     //用户权限
     public function actionAuthority(){
-        $uid = $this->request->get('uid', 0);
+        $data['uid'] = $this->request->get('uid', 0);
         $menuTree = (new User)->menuLevelTree();
         $data['menuTree'] = json_encode($menuTree);
+        //当前用户菜单权限
+        $authority = (new User)->userMenuAuthority($data['uid']);
+        $data['authority'] = isset($authority[2]) ? json_encode(explode(',', $authority[2])) : '';
         return $this->render('authority', $data);
     }
 
@@ -89,6 +92,19 @@ class UserController extends RootController{
                 }else{
                     $this->jsonExit(-1, '用户信息没有被修改！');
                 }
+                break;
+
+            case 'authority':                
+                    $menuGroup    = $this->request->post('menuGroup');
+                    $menuFunction = $this->request->post('menuFunction');
+                    $treeCheckedState = $this->request->post('treeState');
+                    $authority = $menuGroup.'|'.$menuFunction.'|'.$treeCheckedState;
+                    $rst = (new User)->updateUserMenuAuthority($this->session->get('root_session')['id'], $authority);
+                    if($rst){
+                        $this->jsonExit(0, '用户权限修改成功！', array('url' => Url::to(['root/user'])));
+                    }else{
+                        $this->jsonExit(-1, '用户权限信息没有被修改！');
+                    }
                 break;
             
             default:

@@ -17,6 +17,7 @@ class CommonController extends Controller{
     protected $params;
     protected $session;
     protected $app;
+    protected $cache;
 
     //初始化
     public function init(){        
@@ -25,6 +26,7 @@ class CommonController extends Controller{
         $this->db = $this->app->db;
         $this->params = $this->app->params;
         $this->session = $this->app->session;
+        $this->cache = Yii::$app->cache;
     }
     
     //json数据返回
