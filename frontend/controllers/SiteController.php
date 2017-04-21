@@ -15,4 +15,9 @@ class SiteController extends AppController{
         return $this->render('index', $data);
     }
 
+    public function actionTest(){
+        Yii::$app->language = 'zh_CN';
+        echo Yii::t('app', 'whatisthis');
+    }
+
 }

@@ -442,8 +442,7 @@ AppAsset::register($this);
                                 <span class="title"> 首页 </span>
                             </a>
                         </li>
-                        <?php //var_dump(Yii::$app->view->params['userMenuLevel']); ?>
-                        <?php echo \Yii::$app->view->render('../login/userMenu', array('userMenuLevel' =>Yii::$app->view->params['userMenuLevel'])) ?>
+                        <?php echo \Yii::$app->view->render('../login/userMenu', array('userMenuLevel' =>isset(Yii::$app->view->params['userMenuLevel']) ? Yii::$app->view->params['userMenuLevel'] : array())) ?>
                     </ul>
                     <!-- END SIDEBAR MENU -->
                     <!-- END SIDEBAR MENU -->

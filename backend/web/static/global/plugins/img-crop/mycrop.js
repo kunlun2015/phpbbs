@@ -16,11 +16,12 @@
 	};
 
 	function CropAvatar($element) {
+
 		this.$container = $element;
 
 		this.$avatarView = this.$container.find('.avatar-view');
 		this.$avatar = this.$avatarView.find('img');
-		this.$avatarModal = $("body").find('#avatar-modal');
+		this.$avatarModal = $("body").find('#avatarEditModal');
 		this.$loading = $("#page-wrapper").find('.loading');
 
 		this.$avatarForm = this.$avatarModal.find('.avatar-form');
@@ -33,7 +34,7 @@
 
 		this.$avatarWrapper = this.$avatarModal.find('.avatar-wrapper');
 		this.$avatarPreview = this.$avatarModal.find('.avatar-preview');
-
+		
 		this.init();
 	}
 

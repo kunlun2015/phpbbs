@@ -6,4 +6,4 @@
  * @version $Id$
  */
 .profile-userpic img{cursor: pointer;}
-#avatarEdit .modal-dialog{width: 900px;}
+#avatarEditModal .modal-dialog{width: 900px;}

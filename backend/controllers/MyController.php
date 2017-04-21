@@ -62,6 +62,19 @@ class MyController extends AdminController{
                     $this->jsonExit(-1, '信息保存失败');
                 }
                 break;
+
+            case 'uploadAvatar':
+                $base64 = $this->request->post('base64');
+                $upload = new \common\models\Upload;
+                $upload->saveDir = 'avatar';
+                $rst = $upload->saveBase64Img($base64);
+                if($rst['code'] === 0){
+                    $this->jsonExit($rst['code'], $rst['msg'], array('path' => $rst['path']));
+                }else{
+                    $this->jsonExit($rst['code'], $rst['msg']);
+                }
+
+                break;
             
             default:
                 # code...

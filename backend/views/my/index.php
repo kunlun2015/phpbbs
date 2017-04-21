@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ * 账户信息管理
  * @authors Amos (735767227@qq.com)
  * @date    2017-04-20 14:39:01
  * @version $Id$
@@ -168,7 +168,7 @@ use yii\helpers\Url;
         <!-- END PROFILE CONTENT -->
     </div>
 </div>
-<div class="modal fade" id="avatarEdit" tabindex="-1" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="avatarEditModal" tabindex="-1" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -177,57 +177,57 @@ use yii\helpers\Url;
             </div>
             <div class="modal-body">
                 <div class="avatar-body">
-                                <div class="avatar-upload">
-                                    <input class="avatar-src" name="avatar_src" type="hidden">
-                                    <input class="avatar-data" name="avatar_data" type="hidden">
-                                    <label for="avatarInput" style="line-height: 35px;">图片上传</label>
-                                    <button class="btn btn-danger"  type="button" style="height: 35px;" onClick="$('input[id=avatarInput]').click();">请选择图片</button>
-                                    <span id="avatar-name"></span>
-                                    <input class="avatar-input hide" id="avatarInput" name="avatar_file" type="file"></div>
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <div class="avatar-wrapper"></div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="avatar-preview preview-lg" id="imageHead"></div>
-                                        <!--<div class="avatar-preview preview-md"></div>
-                                <div class="avatar-preview preview-sm"></div>-->
-                                    </div>
-                                </div>
-                                <div class="row avatar-btns">
-                                    <div class="col-md-4">
-                                        <div class="btn-group">
-                                            <button class="btn btn-danger fa fa-undo" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"> 向左旋转</button>
-                                        </div>
-                                        <div class="btn-group">
-                                            <button class="btn  btn-danger fa fa-repeat" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"> 向右旋转</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5" style="text-align: right;">                               
-                                        <button class="btn btn-danger fa fa-arrows" data-method="setDragMode" data-option="move" type="button" title="移动">
-                                        <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;setDragMode&quot;, &quot;move&quot;)">
-                                        </span>
-                                      </button>
-                                      <button type="button" class="btn btn-danger fa fa-search-plus" data-method="zoom" data-option="0.1" title="放大图片">
-                                        <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, 0.1)">
-                                          <!--<span class="fa fa-search-plus"></span>-->
-                                        </span>
-                                      </button>
-                                      <button type="button" class="btn btn-danger fa fa-search-minus" data-method="zoom" data-option="-0.1" title="缩小图片">
-                                        <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, -0.1)">
-                                          <!--<span class="fa fa-search-minus"></span>-->
-                                        </span>
-                                      </button>
-                                      <button type="button" class="btn btn-danger fa fa-refresh" data-method="reset" title="重置图片">
-                                            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;reset&quot;)" aria-describedby="tooltip866214">
-                                       </button>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button class="btn btn-danger btn-block avatar-save fa fa-save" type="button" data-dismiss="modal"> 保存修改</button>
-                                    </div>
-                                </div>
+                    <form action="" class="avatar-form">
+                    <div class="avatar-upload">                        
+                        <label for="avatarInput" style="line-height: 35px;">图片上传</label>
+                        <button class="btn btn-danger"  type="button" style="height: 35px;" onClick="$('input[id=avatarInput]').click();">请选择图片</button>
+                        <span id="avatar-name"></span>
+                        <input class="avatar-input hide" id="avatarInput" name="avatar_file" type="file"></div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="avatar-wrapper"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="avatar-preview preview-lg" id="imageHead"></div>
+                        </div>
+                    </div>
+                    <div class="row avatar-btns">
+                        <div class="col-md-4">
+                            <div class="btn-group">
+                                <button class="btn btn-danger fa fa-undo" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"> 向左旋转</button>
                             </div>
-
+                            <div class="btn-group">
+                                <button class="btn  btn-danger fa fa-repeat" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"> 向右旋转</button>
+                            </div>
+                        </div>
+                        <div class="col-md-5" style="text-align: right;">                               
+                            <button class="btn btn-danger fa fa-arrows" data-method="setDragMode" data-option="move" type="button" title="移动">
+                            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;setDragMode&quot;, &quot;move&quot;)">
+                            </span>
+                          </button>
+                          <button type="button" class="btn btn-danger fa fa-search-plus" data-method="zoom" data-option="0.1" title="放大图片">
+                            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, 0.1)">
+                              <!--<span class="fa fa-search-plus"></span>-->
+                            </span>
+                          </button>
+                          <button type="button" class="btn btn-danger fa fa-search-minus" data-method="zoom" data-option="-0.1" title="缩小图片">
+                            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, -0.1)">
+                              <!--<span class="fa fa-search-minus"></span>-->
+                            </span>
+                          </button>
+                          <button type="button" class="btn btn-danger fa fa-refresh" data-method="reset" title="重置图片">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;reset&quot;)" aria-describedby="tooltip866214">
+                           </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-danger btn-block avatar-save fa fa-save" type="button"> 保存修改</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="act" value="uploadAvatar">
+                    <input type="hidden" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
+                    <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['my/save']); ?>">
+                    </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">取消</button>
@@ -238,7 +238,8 @@ use yii\helpers\Url;
     </div>
     <!-- /.modal-dialog -->
 </div>
-<?php \backend\assets\AppAsset::addScript($this, 'static/js/my.js'); ?>
+<div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
 <?php \backend\assets\AppAsset::addScript($this, 'static/global/plugins/img-crop/cropper.js'); ?>
 <?php \backend\assets\AppAsset::addScript($this, 'static/global/plugins/img-crop/mycrop.js'); ?>
 <?php \backend\assets\AppAsset::addScript($this, 'static/global/plugins/img-crop/html2canvas.min.js'); ?>
+<?php \backend\assets\AppAsset::addScript($this, 'static/js/my.js'); ?>
