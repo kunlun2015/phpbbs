@@ -24,16 +24,16 @@ class Upload extends CommonModel{
 
     //保存base64图片
     public function saveBase64Img($base64){
-        file_put_contents('test.log', $base64, FILE_APPEND);
         if(!$this->checkSaveDir()){
             return array('code' => -1, 'msg' => '保存目录不存在！');
         }
         $fileSavePath = $this->fileSavePath();
         $base64Info = explode(',', $base64);
         $img = base64_decode($base64Info[1]);
-        $rst = file_put_contents($this->saveRootDir.'/'.$fileSavePath.'/'.$this->uploadFileNamed().'.jpeg', $img);
+        $savePath = $fileSavePath.'/'.$this->uploadFileNamed().'.jpeg';
+        $rst = file_put_contents($this->saveRootDir.'/'.$savePath, $img);
         if($rst){
-            return array('code' => 0, 'msg' => '图片已保存！', 'path' => $fileSavePath.'/'.$this->uploadFileNamed().'.jpeg');
+            return array('code' => 0, 'msg' => '图片已保存！', 'path' => $savePath);
         }else{
             return array('code' => -1, 'msg' => '图片保存失败！');
         }

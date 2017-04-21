@@ -225,7 +225,7 @@ use yii\helpers\Url;
                     </div>
                     <input type="hidden" name="act" value="uploadAvatar">
                     <input type="hidden" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
-                    <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['my/save']); ?>">
+                    <input disabled="disabled" type="hidden" name="avatar_request_url" value="<?php echo Url::to(['my/save']); ?>">
                     </form>
                 </div>
             </div>

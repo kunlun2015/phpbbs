@@ -172,12 +172,15 @@ jQuery(document).ready(function() {
                 canvas.id = "mycanvas";
                 //生成base64图片数据
                 var base64 = canvas.toDataURL("image/jpeg");
-                console.log(base64);
+                var formData = $('.avatar-form').serializeArray();
+                console.log(formData);
+                formData.push({name:'base64', value:base64});
+                console.log(formData);
                 $.ajax({
-                    url: $("input[name=request_url]").val(),
+                    url: $("input[name=avatar_request_url]").val(),
                     type: 'post',
                     dataType: 'json',
-                    data: $('.avatar-form').serialize()+"&base64="+base64,
+                    data: formData,
                     success: function(res){
 
                     }
