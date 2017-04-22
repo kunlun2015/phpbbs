@@ -25,6 +25,14 @@ class MyController extends AdminController{
     //账户首页
     public function actionIndex(){
         $data['myInfo'] = $this->my->myInfo();
+        //根据ip获取上次登录地点
+        $address = (new \yii\curl\Curl)->setGetParams(array('ip' => $data['myInfo']['last_login_ip']))->get('http://ip.taobao.com/service/getIpInfo.php');
+        $addressInfo = json_decode($address, true);
+        if($addressInfo['code'] == 0){
+            $data['address'] = $addressInfo['data']['country'].' '.$addressInfo['data']['region'].' '.$addressInfo['data']['city'].' '.$addressInfo['data']['isp'];
+        }else{
+            $data['address'] = '未知地区';
+        }
         return $this->render('index', $data);
     }
 
@@ -69,9 +77,17 @@ class MyController extends AdminController{
                 $upload->saveDir = 'avatar';
                 $rst = $upload->saveBase64Img($base64);
                 if($rst['code'] === 0){
-                    $this->jsonExit($rst['code'], $rst['msg'], array('path' => $rst['path']));
+                    $rstSave = $this->my->editAvatar($rst['path']);
+                    if($rstSave){
+                        $userSession = $this->session->get('user');
+                        $userSession['avatar'] = $rst['path'];
+                        $this->session->set('user', $userSession);
+                        $this->jsonExit($rst['code'], '头像已保存！', array('path' => $this->params['imgUrl'].$rst['path']));
+                    }else{
+                        $this->jsonExit($rst['code'], '头像保存失败！');
+                    }                    
                 }else{
-                    $this->jsonExit($rst['code'], $rst['msg']);
+                    $this->jsonExit($rst['code'], '头像保存失败！');
                 }
 
                 break;

@@ -6,6 +6,7 @@
  */
 
 jQuery(document).ready(function() {
+    $(document.body).addClass('page-container-bg-solid');
     //修改密码
     var e = $("#edit-password"),
     r = $(".alert-danger", e),
@@ -173,37 +174,26 @@ jQuery(document).ready(function() {
                 //生成base64图片数据
                 var base64 = canvas.toDataURL("image/jpeg");
                 var formData = $('.avatar-form').serializeArray();
-                console.log(formData);
                 formData.push({name:'base64', value:base64});
-                console.log(formData);
                 $.ajax({
                     url: $("input[name=avatar_request_url]").val(),
                     type: 'post',
                     dataType: 'json',
                     data: formData,
                     success: function(res){
-
+                        if(res.code === 0){
+                            layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index){
+                                $('.layout-avatar').attr('src', res.data.path);
+                                $('.profile-userpic img').attr('src', res.data.path);
+                                $('#avatarEditModal').modal('hide');
+                                layer.close(index);
+                            });
+                        }else{
+                            layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+                        }
                     }
                 })
             }
         });
     })
-    
-    function imagesAjax(src) {
-        var data = {};
-        data.img = src;
-        data.jid = $('#jid').val();
-        $.ajax({
-            url: "upload-logo.php",
-            data: data,
-            type: "POST",
-            dataType: 'json',
-            success: function(re) {
-                if(re.status == '1') {
-                    $('.user_pic img').attr('src',src );
-                }
-            }
-        });
-    }
-
 })

@@ -62,7 +62,7 @@ use yii\helpers\Url;
             <div class="portlet light profile-sidebar-portlet ">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="<?php echo Yii::$app->homeUrl; ?>static/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    <img src="<?php if(Yii::$app->session->get('user')['avatar']){echo Yii::$app->params['imgUrl'].Yii::$app->session->get('user')['avatar'];}else{echo Yii::$app->params['defaultAvatar'];} ?>" class="img-responsive" alt="">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
@@ -85,8 +85,36 @@ use yii\helpers\Url;
                     </ul>
                 </div>
                 <!-- END MENU -->
-            </div> 
+            </div>
             <!-- END PORTLET MAIN -->
+            <div class="portlet light ">
+                <!-- STAT -->
+                <div class="row list-separated profile-stat">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title"> 100 </div>
+                        <div class="uppercase profile-stat-text"> 项目1 </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title"> 51 </div>
+                        <div class="uppercase profile-stat-text"> 项目2 </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title"> 61 </div>
+                        <div class="uppercase profile-stat-text"> 项目3 </div>
+                    </div>
+                </div>
+                <!-- END STAT -->
+                <div>
+                    <h4 class="profile-desc-title">登录信息</h4>
+                    <span class="profile-desc-text"> 记录上次账户登录信息 </span>
+                    <div class="margin-top-20 profile-desc-link">登录次数：<?=$myInfo['login_times']?>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link">登录时间：<?=$myInfo['last_login_time']?>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link">登录地点：<?=$address?>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- END BEGIN PROFILE SIDEBAR -->
         <!-- BEGIN PROFILE CONTENT -->
@@ -231,7 +259,6 @@ use yii\helpers\Url;
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">取消</button>
-                <button type="button" class="btn green">保存</button>
             </div>
         </div>
         <!-- /.modal-content -->

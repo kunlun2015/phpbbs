@@ -28,12 +28,17 @@ class My extends CommonModel{
 
     //个人信息
     public function myInfo(){
-        return $this->db->createCommand('select id, username, realname, sex, mobile, avatar, remarks, status from {{%user}} where id = :uid', array('uid' => $this->uid))->queryOne();
+        return $this->db->createCommand('select id, username, realname, sex, mobile, avatar, remarks, login_times, last_login_time, last_login_ip, status from {{%user}} where id = :uid', array('uid' => $this->uid))->queryOne();
     }
 
     //修改个人信息
     public function editMyInfo($data){
         return $this->db->createCommand()->update('{{%user}}', $data, array('id' => $this->uid))->execute();
+    }
+
+    //修改头像
+    public function editAvatar($path){
+        return $this->db->createCommand()->update('{{%user}}', array('avatar' => $path), array('id' => $this->uid))->execute();
     }
 
 }

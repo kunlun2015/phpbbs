@@ -1,8 +1,10 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
+/**
+ * 用户后台布局文件
+ * @authors Amos (735767227@qq.com)
+ * @date    2017-04-20 14:39:01
+ * @version $Id$
+ */
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -25,7 +27,7 @@ AppAsset::register($this);
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="shortcut icon" href="<?=Yii::$app->homeUrl?>favicon.ico" />
     </head>
     <!-- END HEAD -->
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
@@ -166,7 +168,7 @@ AppAsset::register($this);
                                         <li>
                                             <a href="#">
                                                 <span class="photo">
-                                                    <img src="static/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                    <img src="<?=Yii::$app->homeUrl?>static/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
                                                 <span class="subject">
                                                     <span class="from"> Lisa Wong </span>
                                                     <span class="time">Just Now </span>
@@ -177,7 +179,7 @@ AppAsset::register($this);
                                         <li>
                                             <a href="#">
                                                 <span class="photo">
-                                                    <img src="static/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                    <img src="<?=Yii::$app->homeUrl?>static/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
                                                 <span class="subject">
                                                     <span class="from"> Richard Doe </span>
                                                     <span class="time">16 mins </span>
@@ -188,7 +190,7 @@ AppAsset::register($this);
                                         <li>
                                             <a href="#">
                                                 <span class="photo">
-                                                    <img src="static/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
+                                                    <img src="<?=Yii::$app->homeUrl?>static/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
                                                 <span class="subject">
                                                     <span class="from"> Bob Nilson </span>
                                                     <span class="time">2 hrs </span>
@@ -199,7 +201,7 @@ AppAsset::register($this);
                                         <li>
                                             <a href="#">
                                                 <span class="photo">
-                                                    <img src="static/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                    <img src="<?=Yii::$app->homeUrl?>static/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
                                                 <span class="subject">
                                                     <span class="from"> Lisa Wong </span>
                                                     <span class="time">40 mins </span>
@@ -210,7 +212,7 @@ AppAsset::register($this);
                                         <li>
                                             <a href="#">
                                                 <span class="photo">
-                                                    <img src="static/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                    <img src="<?=Yii::$app->homeUrl?>static/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
                                                 <span class="subject">
                                                     <span class="from"> Richard Doe </span>
                                                     <span class="time">46 mins </span>
@@ -338,7 +340,7 @@ AppAsset::register($this);
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle" src="static/layouts/layout/img/avatar3_small.jpg" />
+                                <img alt="头像" class="img-circle layout-avatar" src="<?php if(Yii::$app->session->get('user')['avatar']){echo Yii::$app->homeUrl.Yii::$app->params['imgUrl'].Yii::$app->session->get('user')['avatar'];}else{echo Yii::$app->params['defaultAvatar'];} ?>" />
                                 <span class="username username-hide-on-mobile"> <?php echo Yii::$app->session->get('user')['username']; ?> </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
@@ -371,7 +373,7 @@ AppAsset::register($this);
                                 </li>
                                 <li>
                                     <a class="log-out" href="<?php echo Url::to(['/login/log-out']); ?>">
-                                        <i class="icon-key"></i> Log Out </a>
+                                        <i class="icon-key"></i> 退出 </a>
                                 </li>
                             </ul>
                         </li>
@@ -593,14 +595,14 @@ AppAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-success">8</span>
                                         </div>
-                                        <img class="media-object" src="static/layouts/layout/img/avatar3.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar3.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Bob Nilson</h4>
                                             <div class="media-heading-sub"> Project Manager </div>
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="static/layouts/layout/img/avatar1.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar1.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Nick Larson</h4>
                                             <div class="media-heading-sub"> Art Director </div>
@@ -610,14 +612,14 @@ AppAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-danger">3</span>
                                         </div>
-                                        <img class="media-object" src="static/layouts/layout/img/avatar4.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar4.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Deon Hubert</h4>
                                             <div class="media-heading-sub"> CTO </div>
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="static/layouts/layout/img/avatar2.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar2.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Ella Wong</h4>
                                             <div class="media-heading-sub"> CEO </div>
@@ -630,7 +632,7 @@ AppAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-warning">2</span>
                                         </div>
-                                        <img class="media-object" src="static/layouts/layout/img/avatar6.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar6.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Lara Kunis</h4>
                                             <div class="media-heading-sub"> CEO, Loop Inc </div>
@@ -641,7 +643,7 @@ AppAsset::register($this);
                                         <div class="media-status">
                                             <span class="label label-sm label-success">new</span>
                                         </div>
-                                        <img class="media-object" src="static/layouts/layout/img/avatar7.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar7.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Ernie Kyllonen</h4>
                                             <div class="media-heading-sub"> Project Manager,
@@ -649,7 +651,7 @@ AppAsset::register($this);
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="static/layouts/layout/img/avatar8.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar8.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Lisa Stone</h4>
                                             <div class="media-heading-sub"> CTO, Keort Inc </div>
@@ -660,14 +662,14 @@ AppAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-success">7</span>
                                         </div>
-                                        <img class="media-object" src="static/layouts/layout/img/avatar9.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar9.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Deon Portalatin</h4>
                                             <div class="media-heading-sub"> CFO, H&D LTD </div>
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="media-object" src="static/layouts/layout/img/avatar10.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar10.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Irina Savikova</h4>
                                             <div class="media-heading-sub"> CEO, Tizda Motors Inc </div>
@@ -677,7 +679,7 @@ AppAsset::register($this);
                                         <div class="media-status">
                                             <span class="badge badge-danger">4</span>
                                         </div>
-                                        <img class="media-object" src="static/layouts/layout/img/avatar11.jpg" alt="...">
+                                        <img class="media-object" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar11.jpg" alt="...">
                                         <div class="media-body">
                                             <h4 class="media-heading">Maria Gomez</h4>
                                             <div class="media-heading-sub"> Manager, Infomatic Inc </div>
@@ -694,7 +696,7 @@ AppAsset::register($this);
                                     </div>
                                     <div class="page-quick-sidebar-chat-user-messages">
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -703,7 +705,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -712,7 +714,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -721,7 +723,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -730,7 +732,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -739,7 +741,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -748,7 +750,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -757,7 +759,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -766,7 +768,7 @@ AppAsset::register($this);
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="static/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="<?=Yii::$app->homeUrl?>static/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
