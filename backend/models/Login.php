@@ -23,7 +23,7 @@ class Login extends CommonModel{
         if($password != $this->user['password']){
             return -2;
         }
-        $this->loginSuccess($this->user['id'], $user_ip);
+        $this->loginSuccess($user_ip);
         $this->userLoginStatusKeep();
         return true;
     }
@@ -34,7 +34,7 @@ class Login extends CommonModel{
          * 更新上次登录ip
          * 更新登录次数
          * 更新登录时间
-         */        
+         */
         $this->db->createCommand('update {{%user}} set login_times = login_times + 1, last_login_time = :last_login_time, last_login_ip = :last_login_ip where id = '.$this->user['id'], array('last_login_ip' => $user_ip, 'last_login_time' => date('Y-m-d H:i:s')))->execute();
         return true;
     }
