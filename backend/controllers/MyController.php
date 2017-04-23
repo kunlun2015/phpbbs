@@ -26,7 +26,7 @@ class MyController extends AdminController{
     public function actionIndex(){
         $data['myInfo'] = $this->my->myInfo();
         //根据ip获取上次登录地点
-        $address = (new \yii\curl\Curl)->setGetParams(array('ip' => $data['myInfo']['last_login_ip']))->get('http://ip.taobao.com/service/getIpInfo.php');
+        $address = (new \linslin\yii2\curl\Curl)->setGetParams(array('ip' => $data['myInfo']['last_login_ip']))->get('http://ip.taobao.com/service/getIpInfo.php');
         $addressInfo = json_decode($address, true);
         if($addressInfo['code'] == 0){
             $data['address'] = $addressInfo['data']['country'].' '.$addressInfo['data']['region'].' '.$addressInfo['data']['city'].' '.$addressInfo['data']['isp'];
