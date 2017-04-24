@@ -34,6 +34,11 @@ class BannerController extends AdminController{
                 $upload = new \common\models\Upload;
                 $upload->saveDir = 'banner';
                 $rst = $upload->uploadFile();
+                if($rst['code'] === 0){
+                    $this->jsonExit(0, '轮播图片上传成功！', array('path' => $rst['path'], 'url' => $this->params['imgUrl'].$rst['path']));
+                }else{
+                    $this->jsonExit(-1, '图片上传失败，请重试！');
+                }
                 break;
             
             default:

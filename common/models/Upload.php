@@ -45,8 +45,13 @@ class Upload extends CommonModel{
             return array('code' => -1, 'msg' => '保存目录不存在！');
         }
         $fileSavePath = $this->fileSavePath();
-        $savePath = $fileSavePath.'/'.$this->uploadFileNamed().'.jpeg';
-        $rst = move_uploaded_file($_FILES['file']['tmp_name'], destination);
+        $savePath = $fileSavePath.'/'.$this->uploadFileNamed().$this->fileExt($_FILES['file']['name']);
+        $rst = move_uploaded_file($_FILES['file']['tmp_name'], $this->saveRootDir.'/'.$savePath);
+        if($rst){
+            return array('code' => 0, 'msg' => '文件上传成功！', 'path' => $savePath);
+        }else{
+            return array('code' => -1, 'msg' => '文件上传失败！');
+        }
     }
 
     //检查保存目录是否合法
@@ -70,7 +75,8 @@ class Upload extends CommonModel{
 
     //获取文件扩展名
     private function fileExt($fileName){
-
+        $fileNamedExt = explode('.', $fileName);
+        return '.'.array_pop($fileNamedExt);
     }
 
 }

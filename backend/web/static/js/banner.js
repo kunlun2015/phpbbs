@@ -12,7 +12,7 @@ $(document).ready(function(){
     })
     //上传banner轮播图
     $('#banner-file-input').change(function(){
-        lrz(this.files[0], {width: 1024})
+        lrz(this.files[0], {quality: 1})
             .then(function (rst) {
                 $('#img-preview').attr('src', rst.base64);
                 $('#img-preview').attr('width', '100%');

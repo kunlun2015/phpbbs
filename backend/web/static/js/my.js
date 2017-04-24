@@ -143,6 +143,7 @@ jQuery(document).ready(function() {
         return false;
     })
 
+    var avatarChanged = false;
     $('#avatarInput').on('change', function(e) {
         var filemaxsize = 1024 * 5;//5M
         var target = $(e.target);
@@ -160,10 +161,15 @@ jQuery(document).ready(function() {
             var teststr = texts;
             testend = teststr.match(/[^\\]+\.[^\(]+/i);
             filename.innerHTML = testend;
+            avatarChanged = true;
         }    
     });
 
     $(".avatar-save").on("click", function() {
+        if(!avatarChanged){
+            layer.alert('您还没有选择头像图片哦！', {title: siteName+'提示您：', icon: 2});
+            return false;
+        }
         var img_lg = document.getElementById('imageHead');
         // 截图小的显示框内的内容
         html2canvas(img_lg, {
