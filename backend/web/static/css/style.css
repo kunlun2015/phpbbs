@@ -5,5 +5,7 @@
  * @date    2017-04-20 16:45:05
  * @version $Id$
  */
+ .none{display: none !important;}
 .profile-userpic img{cursor: pointer;}
 #avatarEditModal .modal-dialog{width: 900px;}
+.laydate_body, .laydate_box, .laydate_body .laydate_top,.laydate_body .laydate_ym, .laydate_body .laydate_bottom{box-sizing: content-box;}

@@ -340,7 +340,7 @@ AppAsset::register($this);
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="头像" class="img-circle layout-avatar" src="<?php if(Yii::$app->session->get('user')['avatar']){echo Yii::$app->homeUrl.Yii::$app->params['imgUrl'].Yii::$app->session->get('user')['avatar'];}else{echo Yii::$app->params['defaultAvatar'];} ?>" />
+                                <img alt="头像" class="img-circle layout-avatar" src="<?php if(Yii::$app->session->get('user')['avatar']){echo Yii::$app->params['imgUrl'].Yii::$app->session->get('user')['avatar'];}else{echo Yii::$app->params['defaultAvatar'];} ?>" />
                                 <span class="username username-hide-on-mobile"> <?php echo Yii::$app->session->get('user')['username']; ?> </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
@@ -1124,4 +1124,4 @@ AppAsset::register($this);
         <?php $this->endBody() ?>
     </body>
 </html>
-<?php $this->endPage() ?>-->
+<?php $this->endPage() ?>

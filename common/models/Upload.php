@@ -18,7 +18,7 @@ class Upload extends CommonModel{
 
     //初始化上传参数
     public function init(){
-        $this->saveRootDir = Yii::$app->params['backendFileSavePath'];
+        $this->saveRootDir = Yii::$app->params['fileSavePath'];
         $this->uploadSaveDirs = Yii::$app->params['uploadSaveDirs'];
     }
 
@@ -39,6 +39,16 @@ class Upload extends CommonModel{
         }
     }
 
+    //上传文件
+    public function uploadFile(){
+        if(!$this->checkSaveDir()){
+            return array('code' => -1, 'msg' => '保存目录不存在！');
+        }
+        $fileSavePath = $this->fileSavePath();
+        $savePath = $fileSavePath.'/'.$this->uploadFileNamed().'.jpeg';
+        $rst = move_uploaded_file($_FILES['file']['tmp_name'], destination);
+    }
+
     //检查保存目录是否合法
     private function checkSaveDir(){
         return in_array($this->saveDir, $this->uploadSaveDirs);
@@ -56,6 +66,11 @@ class Upload extends CommonModel{
     //文件保存命名
     private function uploadFileNamed(){
         return $this->randString(12, 0).date('YmdHis');
+    }
+
+    //获取文件扩展名
+    private function fileExt($fileName){
+
     }
 
 }

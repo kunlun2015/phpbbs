@@ -5,46 +5,27 @@
     \frontend\assets\AppAsset::addScript($this, 'static/libs/swiper/js/swiper.jquery.min.js');
     \frontend\assets\AppAsset::addScript($this, 'static/js/index.js');
 ?>
-<header class="common-header">
-    <div class="top-bar">
-        <div class="top-bar-info clearfix">
-            <div class="login">
-                <a href="">注册</a> | 
-                <a href="">登陆</a>
-            </div>
-        </div>
-    </div>
-    <div class="top"></div>
-    <div class="menu">
-        <ul class="clearfix">
-            <li>
-                <a href="">首页</a>                
-            </li>            
-            <li><a href="">PHP技术</a></li>
-            <li><a href="">数据库</a></li>
-            <li><a href="">服务器</a></li>
-            <li><a href="">PHP框架</a></li>
-            <li>
-                <a href="">前端开发</a>
-                <ul class="sub">
-                    <li><a href="">JS/Jquery</a></li>
-                    <li><a href="">HTML5</a></li>
-                    <li><a href="">CSS3</a></li>
-                    <li><a href="">Angularjs</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</header>
 <div class="hot-recommend clearfix">
     <div class="slide-wrap">
         <div class="swiper-wrapper">
-            <div class="swiper-slide slide">
-                <a href=""><img src="static/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a>
-                
+            <a href="" class="slide swiper-slide">
+            <div class="swiper-slide">
+                <img src="static/images/test.jpg" alt="">
+                <span class="title">1新闻APP后端系统架构成长之路 - 高可用架构设计</span>
             </div>
-            <div class="swiper-slide"><a href=""><img src="static/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a></div>
-            <div class="swiper-slide"><a href=""><img src="static/images/test.jpg" alt=""><span class="title">新闻APP后端系统架构成长之路 - 高可用架构设计</span></a></div>
+            </a>
+            <a href="" class="slide swiper-slide">
+            <div class="swiper-slide">
+                <img src="static/images/test.jpg" alt="">
+                <span class="title">2新闻APP后端系统架构成长之路 - 高可用架构设计</span>
+            </div>
+            </a>
+            <a href="" class="slide swiper-slide">
+            <div class="swiper-slide">
+                <img src="static/images/test.jpg" alt="">
+                <span class="title">3新闻APP后端系统架构成长之路 - 高可用架构设计</span>
+            </div>
+            </a>
         </div>
         <div class="swiper-pagination"></div>
     </div>

@@ -15,7 +15,7 @@ use yii\helpers\Url;
 <?php foreach ($vMenu['children'] as $kFirstMenu => $vFirstMenu) { ?>
 <li class="nav-item <?php if(Yii::$app->controller->id === $vFirstMenu['controller']){ echo 'active'; if(count($vFirstMenu['children']) > 0){echo ' open';}} ?>">
     <a href="<?php if(isset($vFirstMenu['children']) && count($vFirstMenu['children']) > 0){ ?>javascript:;<?php }else{ if($vFirstMenu['url']){echo $vFirstMenu['url'];}else{echo Url::to(["{$vFirstMenu['controller']}/{$vFirstMenu['method']}"]);}  ?><?php } ?>" class="nav-link nav-toggle">
-        <i class="icon-briefcase"></i>
+        <i class="<?=$vFirstMenu['icon']?>"></i>
         <span class="title"><?=$vFirstMenu['name']?></span>
         <?php if (isset($vFirstMenu['children']) && count($vFirstMenu['children']) > 0){ ?>
         <span class="arrow<?php if(Yii::$app->controller->id === $vFirstMenu['controller']) echo ' open'; ?>"></span>

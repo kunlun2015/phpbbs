@@ -67,3 +67,18 @@ create table kl_function_group(
     create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
     created varchar(16) not null default '' comment '操作者'
 )charset = utf8 engine = innodb comment ="功能分组";
+
+#轮播图
+create table kl_slide_banner(
+    id int unsigned primary key auto_increment,
+    cate_id tinyint not null default 0 comment '分类id',
+    title varchar(64) not null default '' comment '标题',
+    href text comment '跳转链接',
+    picture text not null default '' comment '图片',    
+    begin_time datetime not null comment '开始时间',
+    end_time datetime not null comment '结束时间',
+    sort int not null default 0 comment '排序，越大越靠前',
+    status tinyint(1) not null default 0 comment '状态，0正常，1禁用',
+    create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+    created varchar(16) not null default '' comment '操作者'
+)charset = utf8 engine = innodb comment ="轮播图";

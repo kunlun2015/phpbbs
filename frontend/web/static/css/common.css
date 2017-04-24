@@ -22,6 +22,7 @@ a:hover{color: #f54343;}
 .common-header .top{width: 1100px;height: 100px;margin: auto;}
 .common-header .menu ul{width: 1100px;background-color: #f54343;margin: auto;}
 .common-header .menu ul li{float: left;}
+.common-header .menu ul li:hover{background-color: #d53f3f;}
 .common-header .menu ul li a{display: inline-block;height: 40px;line-height: 40px;padding: 0 20px;color: #fff;font-size: 16px;font-family: "微软雅黑", Arial, Helvetica, sans-serif;}
 .menu ul.sub{display: none; position: absolute;background-color: #fff;width: auto;z-index: 99;}
 .menu ul.sub li{float: none;background-color: #ccc;text-align: cenetr;}

@@ -172,7 +172,7 @@ $(document).ready(function(){
         $('#tree-authority').jstree(true).open_node(userAuthority);
     })
 
-    $('.user-authority-form').submit(function(){        
+    $('.user-authority-form').click(function(){        
         var selected = $('#tree-authority').jstree().get_checked(true);
         var groupId = [];
         var menuId = [];
@@ -186,14 +186,14 @@ $(document).ready(function(){
                     menuId.push(treeNode.li_attr.data_id)
                 }
                 var curTreeNode = $('#tree-authority').jstree(true).get_node(selected[i].id);
-                if(curTreeNode.id !== '#' && $.inArray(curTreeNode.li_attr.data_id, groupId) === -1 && curTreeNode.li_attr.class === 'menu-group'){
+                if(treeNode.id !== '#' && curTreeNode.id !== '#' && $.inArray(curTreeNode.li_attr.data_id, groupId) === -1 && curTreeNode.li_attr.class === 'menu-group'){
                     groupId.push(curTreeNode.li_attr.data_id);
-                }else if(curTreeNode.id !== '#' && $.inArray(curTreeNode.li_attr.data_id, menuId) === -1 && treeNode.li_attr.class === 'menu-function'){
+                }else if(treeNode.id !== '#' && curTreeNode.id !== '#' && $.inArray(curTreeNode.li_attr.data_id, menuId) === -1 && treeNode.li_attr.class === 'menu-function'){
                     menuId.push(curTreeNode.li_attr.data_id)
                 }
 
             });
-        }
+        }        
         $.ajax({
             url: $("input[name=request_url]").val(),
             dataType: 'json',

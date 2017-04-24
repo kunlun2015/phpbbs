@@ -94,11 +94,11 @@ class Login extends CommonModel{
 
     //获取分组下的一级菜单
     private function getFirstLevelMenuByGroupId($groupid){
-        return $this->db->createCommand('select id, name, controller, method, url from {{%function}} where groupid = :groupid and parent_id = 0 and status = 0 order by sort desc', array('groupid' => $groupid))->queryAll();
+        return $this->db->createCommand('select id, name, icon, controller, method, url from {{%function}} where groupid = :groupid and parent_id = 0 and status = 0 order by sort desc', array('groupid' => $groupid))->queryAll();
     }
 
     //根据parent_id获取菜单树的list
     private function getMenuListByParentId($parent_id){
-        return $this->db->createCommand('select id, name, controller, method, url from {{%function}} where parent_id = :parent_id and status = 0 order by sort desc', array('parent_id' => $parent_id))->queryAll();
+        return $this->db->createCommand('select id, name, icon, controller, method, url from {{%function}} where parent_id = :parent_id and status = 0 order by sort desc', array('parent_id' => $parent_id))->queryAll();
     }
 }

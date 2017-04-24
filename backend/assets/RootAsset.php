@@ -50,7 +50,7 @@ class RootAsset extends AssetBundle
         'static/global/plugins/jquery-validation/js/jquery.validate.min.js',
         'static/global/plugins/jquery-validation/js/additional-methods.min.js',
         'static/global/scripts/datatable.js',
-        'static/global/plugins/datatables/datatables.min.js',
+        'static/global/plugins/datatables/jquery.datatables.min.js',
         'static/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
         'static/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js',
         'static/global/plugins/bootstrap-modal/js/bootstrap-modal.js',

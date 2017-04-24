@@ -5,13 +5,14 @@
  * @version $Id$
  */
 
-$(document).ready(function(){
-    new Swiper ('.slide-wrap', {
+$(document).ready(function(){    
+    var indexSwiper = new Swiper ('.slide-wrap', {
         direction: 'horizontal',
         autoplay: 5000,
-        loop: true,        
+        loop: false,        
         pagination: '.swiper-pagination',
         paginationClickable :true,
-        autoplayDisableOnInteraction : false
+        autoplayDisableOnInteraction : false,
+        observer:true,
     })
 })
