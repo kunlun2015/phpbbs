@@ -88,6 +88,7 @@ use yii\helpers\Url;
                     <thead>
                         <tr>
                             <th> ID </th>
+                            <th> 类别 </th>
                             <th> 标题 </th>
                             <th> 图片 </th>
                             <th> 状态 </th>
@@ -97,20 +98,47 @@ use yii\helpers\Url;
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($list as $k => $v) { ?>
                         <tr class="odd gradeX">
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td class="center">   </td>
-                            <td>  </td>
-                            <td class="table-opt-td"> </td>
-                        </tr>                                
+                            <td style="vertical-align: middle;"> <?=$v['id']?> </td>
+                            <td style="vertical-align: middle;"> <?=$bannerCate[$v['cate_id']]?> </td>
+                            <td style="vertical-align: middle;"> <?=$v['title']?> </td>
+                            <td style="vertical-align: middle;" class="banner-list-preview">
+                                <img src="<?=Yii::$app->params['imgUrl']?><?=$v['picture'];?>" alt="">
+                            </td style="vertical-align: middle;">
+                            <td style="vertical-align: middle;"> 
+                                <?php if($v['status'] == 0){ ?>
+                                <span class="label label-sm label-success"> 正常 </span>
+                                <?php }else if($v['status'] == 1){ ?> 
+                                <span class="label label-sm label-warning"> 禁用 </span>
+                                <?php } ?>
+                            </td style="vertical-align: middle;">
+                            <td style="vertical-align: middle;" class="center"> <?=$v['sort']?> </td>
+                            <td style="vertical-align: middle;"> <?=$v['begin_time']?> ~ <?=$v['end_time']?> </td>
+                            <td style="vertical-align: middle;" class="table-opt-td">
+                                <a href="<?=Url::to(['banner/edit', 'id'=>$v['id']]);?>">编辑</a>
+                                <a href="">删除</a>
+                            </td>
+                        </tr>
+                        <?php } ?>                              
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+</div>
+<div class="row kl-pagination">
+    <ul class="pagination" style="visibility: visible;">
+        <li class="prev disabled"><a href="#" title="First"><i class="fa fa-angle-double-left"></i></a></li>
+        <li class="prev disabled"><a href="#" title="Prev"><i class="fa fa-angle-left"></i></a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li class="next"><a href="#" title="Next"><i class="fa fa-angle-right"></i></a></li>
+        <li class="next"><a href="#" title="Last"><i class="fa fa-angle-double-right"></i></a></li>
+    </ul>
 </div>
 <?php 
     $this->registerJs('

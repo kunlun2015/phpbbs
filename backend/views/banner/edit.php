@@ -1,12 +1,12 @@
 <?php
 /**
- * 轮播图管理-添加
+ * 轮播图管理-编辑
  * @authors Amos (735767227@qq.com)
- * @date    2017-04-24 14:28:22
+ * @date    2017-04-25 15:27:30
  * @version $Id$
  */
 
-$this->title = '轮播图管理-添加';
+$this->title = '轮播图管理-编辑';
 use yii\helpers\Url;
 ?>
 <div class="page-bar">
@@ -20,7 +20,7 @@ use yii\helpers\Url;
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span>添加</span>
+            <span>编辑</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -63,7 +63,7 @@ use yii\helpers\Url;
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">添加轮播图</span>
+                    <span class="caption-subject font-dark sbold uppercase">编辑轮播图</span>
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -75,14 +75,14 @@ use yii\helpers\Url;
                 </div>
             </div>
             <div class="portlet-body form">
-                <form class="form-horizontal add-banner-form" role="form" novalidate="novalidate">
+                <form class="form-horizontal edit-banner-form" role="form" novalidate="novalidate">
                     <div class="form-body">
                         <div class="form-group">
                             <label class="col-md-3 control-label">轮播图类别</label>
                             <div class="col-md-9">                                
                                 <select class="form-control input-medium" name="cate_id" id="cate_id">
                                     <?php foreach ($bannerCate as $k => $v) { ?>
-                                    <option value="<?=$k?>"><?=$v?></option>
+                                    <option value="<?=$k?>" <?php if($k == $detail['cate_id']) echo 'selected'; ?>><?=$v?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -90,31 +90,31 @@ use yii\helpers\Url;
                         <div class="form-group">
                             <label class="col-md-3 control-label">标题</label>
                             <div class="col-md-9">
-                                <input type="text" name="title" class="form-control input-inline input-medium" placeholder="轮播图标题">
+                                <input type="text" name="title" value="<?=$detail['title']?>" class="form-control input-inline input-medium" placeholder="轮播图标题">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">跳转链接</label>
                             <div class="col-md-9">
-                                <input type="text" name="href" class="form-control input-inline input-xlarge" placeholder="跳转链接">
+                                <input type="text" name="href" value="<?=$detail['href']?>" class="form-control input-inline input-xlarge" placeholder="跳转链接">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">排序</label>
                             <div class="col-md-9">
-                                <input type="text" name="sort" class="form-control input-inline input-medium" placeholder="排序，越大越靠前">
+                                <input type="text" name="sort" value="<?=$detail['sort']?>" class="form-control input-inline input-medium" placeholder="排序，越大越靠前">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">有效期</label>
                             <div class="col-md-9">
-                                <input type="text" name="begin_time" readonly="readonly" id="begin_time" class="form-control input-inline input-medium laydate-icon" placeholder="开始时间"> ~ <input type="text" name="end_time" readonly="readonly" id="end_time" class="form-control input-inline input-medium laydate-icon" placeholder="结束时间">
+                                <input type="text" name="begin_time" value="<?=$detail['begin_time']?>" readonly="readonly" id="begin_time" class="form-control input-inline input-medium laydate-icon" placeholder="开始时间"> ~ <input type="text" name="end_time" value="<?=$detail['end_time']?>" readonly="readonly" id="end_time" class="form-control input-inline input-medium laydate-icon" placeholder="结束时间">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">轮播图片</label>
                             <div class="col-md-9">
-                                <input type="text" name="picture" id="picture" class="form-control input-inline input-xlarge" readonly="readonly" placeholder="图片路径(上传后自动填充)">
+                                <input type="text" name="picture" value="<?=$detail['picture']?>" id="picture" class="form-control input-inline input-xlarge" readonly="readonly" placeholder="图片路径(上传后自动填充)">
                                 <input type="file" name="file" class="none" id="banner-file-input" accept="image/png,image/jpeg,image/jpg" capture="camera">
                                 <button type="button" class="btn blue select-banner-img">选择图片</button>
                             </div>
@@ -122,7 +122,7 @@ use yii\helpers\Url;
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-9">
-                                <img id="img-preview" src="">
+                                <img id="img-preview" src="<?=Yii::$app->params['imgUrl']?><?=$detail['picture']?>">
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,8 @@ use yii\helpers\Url;
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="act" value="add">
+                    <input type="hidden" name="act" value="edit">
+                    <input type="hidden" name="banner_id" value="<?=$detail['id']?>">
                     <input type="hidden" id="csrf" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
                     <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['banner/save']); ?>">
                 </form>

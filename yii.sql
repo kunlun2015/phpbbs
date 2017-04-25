@@ -74,7 +74,7 @@ create table kl_slide_banner(
     cate_id tinyint not null default 0 comment '分类id',
     title varchar(64) not null default '' comment '标题',
     href text comment '跳转链接',
-    picture text not null default '' comment '图片',    
+    picture text comment '图片',    
     begin_time datetime not null comment '开始时间',
     end_time datetime not null comment '结束时间',
     sort int not null default 0 comment '排序，越大越靠前',
