@@ -15,11 +15,13 @@ use yii\helpers\Url;
 class BannerController extends AdminController{
 
     public function actionIndex(){
-        $cate_id = $this->request->get('cate_id', 0);
-        $pageNum = intval($this->request->get('page', 1)) ? $this->request->get('page', 1) : 1;
-        $pageSize = 10;
-        $data['list'] = (new Banner)->bannerList($cate_id, $pageSize, $pageNum, $totalPage);
-        $data['bannerCate'] = (new Banner)->bannerCate();      
+        $data['cate_id'] = $this->request->get('cate_id', null) ? $this->request->get('cate_id') : null;
+        $page = intval($this->request->get('page', 1)) ? $this->request->get('page', 1) : 1;
+        $pageSize = 5;
+        $banner = new Banner;
+        $data['list'] = $banner->bannerList($data['cate_id'], $pageSize, $page, $totalPage);
+        $data['bannerCate'] = $banner->bannerCate();
+        $data['pagination'] = (new \backend\models\CommonModel)->pagination($totalPage, $page, Url::to(['/banner', 'page' => 'PAGENUMPLACEHOLDER']), 10);   
         return $this->render('index', $data);
     }
 
@@ -93,6 +95,16 @@ class BannerController extends AdminController{
                     $this->jsonExit(0, 'banner轮播图编辑成功！', array('url' => Url::to(['/banner'])));
                 }else{
                     $this->jsonExit(-1, 'banner轮播图编辑失败！');
+                }
+                break;
+
+            case 'deleteBanner':
+                $bannerId = $this->request->post('banner_id');
+                $rst = (new Banner)->deleteBanner($bannerId);
+                if($rst){
+                    $this->jsonExit(0, 'banner轮播图删除成功！');
+                }else{
+                    $this->jsonExit(-1, 'banner轮播图删除失败！');
                 }
                 break;
             

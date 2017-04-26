@@ -13,7 +13,9 @@ class Banner extends CommonModel{
 
     //轮播图分类
     public function bannerCate(){
-        return array('首页轮播图');
+        return array(
+                    1 => '首页轮播图'
+                );
     }
 
     //获取banner轮播图列表
@@ -23,7 +25,7 @@ class Banner extends CommonModel{
         $sql_total = 'select count(*) from {{%slide_banner}} where 1 = 1';
         if($cate_id){
             $sql .= ' and cate_id = :cate_id ';
-            $sql_total .= ' and cate_id = :cate_id ';
+            $sql_total .= ' and cate_id = '.$cate_id;
         }
         $sql .= " order by id desc limit $offset, $pageSize";
         $list = $this->db->createCommand($sql, array('cate_id' => $cate_id))->queryAll();
@@ -39,6 +41,11 @@ class Banner extends CommonModel{
     //编辑banner轮播图
     public function editBanner($data, $id){
         return $this->db->createCommand()->update('{{%slide_banner}}', $data, array('id' => $id))->execute();
+    }
+
+    //删除banner
+    public function deleteBanner($bannerId){
+        return $this->db->createCommand()->delete('{{%slide_banner}}', array('id' => $bannerId))->execute();
     }
 
     //获取banner轮播图详情

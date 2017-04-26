@@ -1,12 +1,12 @@
 <?php
 /**
- * 轮播图管理
+ * 分类管理-列表
  * @authors Amos (735767227@qq.com)
- * @date    2017-04-24 13:17:28
+ * @date    2017-04-26 17:01:47
  * @version $Id$
  */
 
-$this->title = '轮播图管理';
+$this->title = '分类管理-列表';
 use yii\helpers\Url;
 ?>
 <!-- BEGIN PAGE BAR -->
@@ -17,7 +17,7 @@ use yii\helpers\Url;
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a href="<?php echo Url::to(['/banner']); ?>">banner管理</a>
+            <a href="<?php echo Url::to(['/category']); ?>">分类管理</a>
             <i class="fa fa-angle-right"></i>
         </li>
     </ul>
@@ -49,11 +49,11 @@ use yii\helpers\Url;
     </div>
 </div>
 <!-- END PAGE BAR -->
-<h3 class="page-title"> banner轮播图
-    <small>分类别管理各个页面的banner轮播图</small>
+<h3 class="page-title"> 分类管理
+    <small>网站类别分类</small>
 </h3>
 <div class="note note-info">
-    <p> 分类别管理各个页面的banner轮播图 </p>
+    <p> 管理网站的分类 </p>
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -61,7 +61,7 @@ use yii\helpers\Url;
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> 轮播图管理 </span>
+                    <span class="caption-subject bold uppercase"> 分类管理 </span>
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -77,18 +77,9 @@ use yii\helpers\Url;
                     <div class="row">
                         <div class="col-md-12">
                             <div class="btn-group fr">
-                                <a href="<?php echo Url::to(['banner/add']); ?>" class="btn sbold green"> 添加
+                                <a href="<?php echo Url::to(['category/add']); ?>" class="btn sbold green"> 添加
                                     <i class="fa fa-plus"></i>
                                 </a>
-                            </div>
-                            <div class="btn-group">
-                                <select name="cate_id" id="cate_id" class="form-control input-inline search-cate_id">
-                                    <option value="">=全部分类=</option>
-                                    <?php foreach ($bannerCate as $k => $v) {?>
-                                    <option value="<?=$k?>" <?php if($cate_id !== null && $k == $cate_id) echo 'selected'; ?>><?=$v?></option>
-                                    <?php } ?>
-                                </select>
-                                <input type="button" value="确定" class="btn sbold green float-none search-btn">
                             </div>
                         </div>
                     </div>
@@ -97,46 +88,22 @@ use yii\helpers\Url;
                     <thead>
                         <tr>
                             <th> ID </th>
-                            <th> 类别 </th>
-                            <th> 标题 </th>
-                            <th> 图片 </th>
-                            <th> 状态 </th>
+                            <th> 名称 </th>
                             <th> 排序 </th>
-                            <th> 有效期 </th>
+                            <th> 状态 </th>
+                            <th> 创建时间 </th>
+                            <th> 创建人 </th>
                             <th> 操作 </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($list as $k => $v) { ?>
-                        <tr class="odd gradeX">
-                            <td style="vertical-align: middle;"> <?=$v['id']?> </td>
-                            <td style="vertical-align: middle;"> <?=$bannerCate[$v['cate_id']]?> </td>
-                            <td style="vertical-align: middle;"> <?=$v['title']?> </td>
-                            <td style="vertical-align: middle;" class="banner-list-preview">
-                                <img src="<?=Yii::$app->params['imgUrl']?><?=$v['picture'];?>" alt="">
-                            </td style="vertical-align: middle;">
-                            <td style="vertical-align: middle;"> 
-                                <?php if($v['status'] == 0){ ?>
-                                <span class="label label-sm label-success"> 正常 </span>
-                                <?php }else if($v['status'] == 1){ ?> 
-                                <span class="label label-sm label-warning"> 禁用 </span>
-                                <?php } ?>
-                            </td style="vertical-align: middle;">
-                            <td style="vertical-align: middle;" class="center"> <?=$v['sort']?> </td>
-                            <td style="vertical-align: middle;"> <?=$v['begin_time']?> ~ <?=$v['end_time']?> </td>
-                            <td style="vertical-align: middle;" class="table-opt-td">
-                                <a href="<?=Url::to(['banner/edit', 'id'=>$v['id']]);?>">编辑</a>
-                                <a href="<?=Url::to(['banner/save'])?>" class="delete-banner" data-id="<?=$v['id']?>">删除</a>
-                            </td>
-                        </tr>
-                        <?php } ?>                              
+                        
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<div class="row kl-pagination"><?=$pagination?></div>
 <?php 
     $this->registerJs('
             $("#banner-list-table").dataTable({
@@ -156,4 +123,4 @@ use yii\helpers\Url;
 ?>
 <?php \backend\assets\AppAsset::addScript($this, 'static/global/scripts/datatable.js'); ?>
 <?php \backend\assets\AppAsset::addScript($this, 'static/global/plugins/datatables/jquery.datatables.min.js'); ?>
-<?php \backend\assets\AppAsset::addScript($this, 'static/js/banner.js'); ?>
+<?php \backend\assets\AppAsset::addScript($this, 'static/js/category.js'); ?>

@@ -36,3 +36,4 @@ phpunit.phar
 
 #sftp
 sftp-config.json
+/upload

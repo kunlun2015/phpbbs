@@ -26,12 +26,14 @@ class CommonModel extends \common\models\CommonModel{
         return ceil($rst['count(*)']/$page_size);
     }
 
-    //生成页码导航
-    protected function pagination($totalPage, $curPage, $pageNums){
+    /**
+     * 生成页码导航
+     *
+     *
+     *
+     */
+    public function pagination($totalPage, $curPage, $pageHref, $pageNums = 10){
         $middlePage = ceil($pageNums/2);
-        if($beginPageNum*2 == $pageNums){
-
-        }
         /*<ul class="pagination" style="visibility: visible;">
             <li class="prev disabled"><a href="#" title="First"><i class="fa fa-angle-double-left"></i></a></li>
             <li class="prev disabled"><a href="#" title="Prev"><i class="fa fa-angle-left"></i></a></li>
@@ -46,22 +48,28 @@ class CommonModel extends \common\models\CommonModel{
         $pagination = '<ul class="pagination" style="visibility: visible;">';
         if($totalPage == 1){
             return '';
-        }else{
-            if($curPage == 1){
-                $pagination .= '<li class="active"><a href="#" title="第1页">1</a></li>';
-                for ($i=2; $i < $pageNums; $i++) { 
-                    if($i > $totalPage){
-                        break;
-                    }
-                    $pagination .= '<li><a href="#" title="第'.$i.'页">'.$i.'</a></li>';
+        }else{            
+            if($curPage != 1){
+                $pagination .= ' <li class="prev"><a href="'.str_replace('PAGENUMPLACEHOLDER', 1, $pageHref).'" title="第一页"><i class="fa fa-angle-double-left"></i>第一页</a></li>
+                                <li class="prev"><a href="'.str_replace('PAGENUMPLACEHOLDER', $curPage-1, $pageHref).'" title="上一页"><i class="fa fa-angle-left"></i>上一页</a></li>';
+            }
+            for ($i=$curPage - $middlePage -1; $i <= $curPage + $middlePage; $i++) { 
+                if($i < 1 || $i > $totalPage){
+                    continue;
                 }
-                $pagination .= '<li class="next"><a href="#" title="下一页"><i class="fa fa-angle-right"></i></a></li>
-                                <li class="next"><a href="#" title="最后一页"><i class="fa fa-angle-double-right"></i></a></li>';
-            }else{
-                
+                if($i == $curPage){
+                    $pagination .= '<li class="active disabled"><a>'.$i.'</a></li>';
+                }else{
+                    $pagination .= '<li><a href="'.str_replace('PAGENUMPLACEHOLDER', $i, $pageHref).'" title="第'.$i.'页">'.$i.'</a></li>';
+                }                
+            }
+            if($curPage != $totalPage){
+                $pagination .= '<li class="next"><a href="'.str_replace('PAGENUMPLACEHOLDER', $curPage+1, $pageHref).'" title="下一页">下一页<i class="fa fa-angle-right"></i></a></li>
+                                <li class="next"><a href="'.str_replace('PAGENUMPLACEHOLDER', $totalPage, $pageHref).'" title="最后一页">最后一页<i class="fa fa-angle-double-right"></i></a></li>';
             }
         }
         $pagination .= '</ul>';
+        return $pagination;
     }
 
 }

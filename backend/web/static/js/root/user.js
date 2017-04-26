@@ -172,11 +172,11 @@ $(document).ready(function(){
         $('#tree-authority').jstree(true).open_node(userAuthority);
     })
 
-    $('.user-authority-form').click(function(){        
+    $('.submit-authority').click(function(){        
         var selected = $('#tree-authority').jstree().get_checked(true);
         var groupId = [];
         var menuId = [];
-        var treeState = $('#tree-authority').jstree().get_checked();
+        var treeState = $('#tree-authority').jstree(true).get_checked();
         for (var i in selected) {
             $.each(selected[i].parents, function(index, node){
                 var treeNode = $('#tree-authority').jstree(true).get_node(node);
@@ -192,7 +192,12 @@ $(document).ready(function(){
                     menuId.push(curTreeNode.li_attr.data_id)
                 }
 
-            });
+            });            
+            if(selected[i].li_attr.class == 'menu-function' && $.inArray(selected[i].li_attr.data_id, menuId) === -1){
+                menuId.push(selected[i].li_attr.data_id);
+            }else if(selected[i].li_attr.class == 'menu-group' && $.inArray(selected[i].li_attr.data_id, groupId) === -1){
+                groupId.push(selected[i].li_attr.data_id);
+            }
         }        
         $.ajax({
             url: $("input[name=request_url]").val(),

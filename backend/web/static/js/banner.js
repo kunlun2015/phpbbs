@@ -203,4 +203,36 @@ $(document).ready(function(){
             })
         }
     })
+    //删除banner
+    $('.delete-banner').click(function(){
+        var _this = $(this);
+        var data = {act: 'deleteBanner', banner_id: _this.data('id')}
+        data[$("meta[name=csrf-param]")[0].content] = $("meta[name=csrf-token]")[0].content;
+        layer.confirm('确定要删除吗？删除后不能恢复！', {title: siteName+'提示您：', icon: 3}, function(index){
+            var loading = layer.load();
+            $.ajax({
+                url: _this.attr('href'),
+                type: 'post',
+                dataType: 'json',
+                data: data,
+                success: function(res){
+                    if(res.code == 0){
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index2){
+                            _this.parent().parent().remove();
+                            layer.close(index2);
+                        });
+                    }else{
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+                    }
+                    layer.close(loading);
+                }
+            })
+        })
+        return false;
+    })
+    //分类筛选
+    $('.search-btn').click(function(){
+        window.location.href = '?cate_id='+$('.search-cate_id').val();
+        return false;
+    })
 })

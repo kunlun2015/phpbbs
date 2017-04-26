@@ -68,6 +68,7 @@ create table kl_function_group(
     created varchar(16) not null default '' comment '操作者'
 )charset = utf8 engine = innodb comment ="功能分组";
 
+######################### phpstudybbs #########################################################
 #轮播图
 create table kl_slide_banner(
     id int unsigned primary key auto_increment,
@@ -82,3 +83,43 @@ create table kl_slide_banner(
     create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
     created varchar(16) not null default '' comment '操作者'
 )charset = utf8 engine = innodb comment ="轮播图";
+
+#类别分组结构
+create table kl_category(
+    id int unsigned primary key auto_increment,
+    pid int unsigned not null default 0 comment '父菜单id',
+    name varchar(32) not null default '' comment '类别名称',
+    href text comment '链接',
+    sort int unsigned not null default 0 comment '排序，越大越靠前',
+    status tinyint(1) not null default 0 comment '状态，0正常，1禁用',
+    remarks text comment '简介',
+    create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+    created varchar(16) not null default '' comment '操作者'
+)charset = utf8 engine = innodb comment ="类别分组结构";
+
+#文章基本信息
+create table kl_post_basic(
+    id int unsigned primary key auto_increment,
+    fid int unsigned not null default 0 comment '第一级分类id',
+    lid int unsigned not null default 0 comment '最后一级分类id',
+    author varchar(16) not null default '' comment '作者',
+    authorid int unsigned not null default 0 comment '作者id',
+    title text comment '文章标题',
+    display_order tinyint(1) not null default 0 comment '显示顺序， 默认0正常，1置顶1，2置顶2，3置顶3',
+    status tinyint(1) not null default 0 comment '状态，0正常，-2禁用， -1审核中',
+    views int unsigned not null default 0 comment '浏览量',
+    comments int unsigned not null default 0 comment '评论量',
+    likes int unsigned not null default 0 comment '点赞量',
+    unlikes int unsigned not null default 0 comment '不喜欢点赞数量',
+    create_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP comment '创建时间'
+)charset = utf8 engine = innodb comment ="文章基本信息";
+
+#文章内容
+create table kl_post(
+    bid int unsigned not null default 0 comment 'post_basic id',
+    fid int unsigned not null default 0 comment '第一级分类id',
+    lid int unsigned not null default 0 comment '最后一级分类id',
+    title text comment '文章标题',
+    posts text comment '内容'
+)charset = utf8 engine = innodb comment ="文章内容信息";
+######################### phpstudybbs #########################################################

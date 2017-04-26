@@ -78,7 +78,7 @@ use yii\helpers\Url;
                 <div class="form-actions">
                     <div class="row">
                         <div class="col-md-offset-3 col-md-9">
-                            <button type="button" class="btn green">确 定</button>
+                            <button type="button" class="btn green submit-authority">确 定</button>
                             <button type="button" class="btn default">取 消</button>
                         </div>
                     </div>
