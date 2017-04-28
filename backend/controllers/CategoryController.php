@@ -27,4 +27,26 @@ class CategoryController extends AdminController{
     public function actionEdit(){
         return $this->render('add');
     }
+
+    //数据操作
+    public function actionSave(){
+        if(!$this->request->isAjax){
+            $this->jsonExit(-1, '非法请求！');
+        }
+        $act = $this->request->post('act');
+        switch ($act) {
+            case 'add':
+                $data = array(
+                    'name' => $this->request->post('name'),
+                    'href' => $this->request->post('href') ? $this->request->post('href') : '',
+                    'sort' => $this->request->post('sort') ? $this->request->post('href') : 0,
+                    'remarks' => $this->request->post('remarks')
+                    );
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
 }

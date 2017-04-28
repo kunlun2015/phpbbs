@@ -83,7 +83,7 @@ use yii\helpers\Url;
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">跳转链接</label>
+                            <label class="col-md-3 control-label">链接</label>
                             <div class="col-md-9">
                                 <input type="text" name="href" class="form-control input-inline input-xlarge" placeholder="跳转链接">
                             </div>
@@ -111,7 +111,7 @@ use yii\helpers\Url;
                     </div>
                     <input type="hidden" name="act" value="add">
                     <input type="hidden" id="csrf" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
-                    <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['banner/save']); ?>">
+                    <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['category/save']); ?>">
                 </form>
             </div>
         </div>
