@@ -95,6 +95,14 @@ class User extends \backend\models\CommonModel{
     //用户当前权限
     public function userMenuAuthority($uid){
         $authority = $this->db->createCommand('select authority from {{%user}} where id = :uid', array('uid' => $uid))->queryOne();
-        return explode('|', $authority['authority']);
+        $menuAuthority = explode('|', $authority['authority']);
+        if(count($menuAuthority) === 3){
+            $menuAuthority[0] = $menuAuthority[0] ? $menuAuthority[0] : 0;
+            $menuAuthority[1] = $menuAuthority[1] ? $menuAuthority[1] : 0;
+            $menuAuthority[2] = $menuAuthority[2] ? $menuAuthority[2] : 0;
+        }else{            
+            $menuAuthority = array(0, 0, 0);
+        }
+        return $menuAuthority;
     }
 }

@@ -83,9 +83,9 @@ class Login extends CommonModel{
     }
 
     //当前用户的菜单
-    public function menuAuthority($uid){        
+    public function menuAuthority($uid){       
         $authority = (new \backend\models\root\User)->userMenuAuthority($uid);
-        return array('menuGroupId' => isset($authority[0]) ? $authority[0] : '', 'menuFunctionId' => isset($authority[1]) ? $authority[1] : '');
+        return array('menuGroupId' => $authority[0], 'menuFunctionId' => $authority[1]);
     }
 
     //获取分组下的一级菜单
