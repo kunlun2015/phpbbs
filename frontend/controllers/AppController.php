@@ -13,4 +13,8 @@ use yii\web\Controller;
 class AppController extends Controller {
 
     
+    public function init(){
+        Yii::$app->language = 'zh_CN';
+    }
+
 }

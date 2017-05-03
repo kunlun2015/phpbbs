@@ -97,7 +97,21 @@ use yii\helpers\Url;
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php foreach ($list as $k => $v) { ?>
+                        <tr>
+                            <td><?=$v['id']?></td>
+                            <td><?=$v['name']?></td>
+                            <td><?=$v['sort']?></td>
+                            <td><?=$v['status']?></td>
+                            <td><?=$v['create_at']?></td>
+                            <td><?=$v['created']?></td>
+                            <td>
+                                <a href="">编辑</a>
+                                <a href="">删除</a>
+                                <a href="">添加子菜单</a>
+                            </td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

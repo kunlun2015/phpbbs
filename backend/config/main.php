@@ -14,11 +14,11 @@ return [
     'modules' => [],
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-backend',
+            'csrfParam' => '_csrf-phpstudybbs-system',
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => 'phpstudybbs-system',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

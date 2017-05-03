@@ -45,30 +45,16 @@ $(document).ready(function(){
         },
         submitHandler: function(e) {
             i.show(),
-            r.hide()
-            if(!$('#begin_time').val()){
-                layer.alert('请选择有效期的开始时间', {title: siteName+'提示您：', icon: 1}, function(index){
-                    $('#begin_time').click();
-                    layer.close(index);
-                });
-                return false;
-            }
-            if(!$('#end_time').val()){
-                layer.alert('请选择有效期的结束时间', {title: siteName+'提示您：', icon: 1}, function(index){
-                    $('#end_time').click();
-                    layer.close(index);
-                });
-                return false;
-            }
+            r.hide()           
             $.ajax({
                 url: $("input[name=request_url]").val(),
                 type: 'post',
                 dataType: 'json',
-                data: $('.add-banner-form').serialize(),
+                data: $('.add-category-form').serialize(),
                 success: function(res){
                     if(res.code == 0){
                         layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index){
-                            window.location.href = res.data.url;
+                            history.back();
                         });
                     }else{
                         layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
