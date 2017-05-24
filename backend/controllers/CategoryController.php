@@ -16,14 +16,16 @@ class CategoryController extends AdminController{
 
     public function actionIndex(){
         $category = new Category;
-        $parentId = $this->request->get('parentId', 0);
+        $parentId = $this->request->get('pid', 0);
+        $data['level'] = $category->categoryLevel($parentId);
         $data['list'] = $category->categoryList($parentId);
         return $this->render('index', $data);
     }
 
     //添加分类
     public function actionAdd(){
-        return $this->render('add');
+        $data['pid'] = intval($this->request->get('id', 0)) ? intval($this->request->get('id', 0)) : 0;
+        return $this->render('add', $data);
     }
 
     //编辑分类
@@ -41,6 +43,7 @@ class CategoryController extends AdminController{
         switch ($act) {
             case 'add':
                 $data = array(
+                    'pid' => intval($this->request->post('pid')) ? intval($this->request->post('pid')) : 0,
                     'name' => $this->request->post('name'),
                     'href' => $this->request->post('href') ? $this->request->post('href') : '',
                     'sort' => $this->request->post('sort') ? $this->request->post('href') : 0,

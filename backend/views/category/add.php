@@ -110,6 +110,7 @@ use yii\helpers\Url;
                         </div>
                     </div>
                     <input type="hidden" name="act" value="add">
+                    <input type="hidden" name="pid" value="<?=$pid?>">
                     <input type="hidden" id="csrf" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
                     <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['category/save']); ?>">
                 </form>

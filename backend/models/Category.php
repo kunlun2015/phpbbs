@@ -20,4 +20,20 @@ class Category extends CommonModel{
     public function categoryList($parentId){
         return $this->db->createCommand('select id, pid, name, sort, href, status, created, create_at from {{%category}} where pid = :pid', array('pid' => $parentId))->queryAll();
     }
+
+    //获取当前分类的层级关系数组
+    public function categoryLevel($id, $levelArray=[]){
+        $category = $this->db->createCommand('select id, pid, name from {{%category}} where id = :id', array('id' => $id))->queryOne();
+        if(!$category){
+            return [];
+        }
+        if(!$category['pid']){
+            $levelArray[] = $category;
+            krsort($levelArray);
+            return $levelArray;
+        }else{
+            $levelArray[] = $category;            
+            return $this->categoryLevel($category['pid'], $levelArray);
+        }
+    }
 }

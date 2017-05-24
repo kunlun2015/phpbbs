@@ -20,6 +20,12 @@ use yii\helpers\Url;
             <a href="<?php echo Url::to(['/category']); ?>">分类管理</a>
             <i class="fa fa-angle-right"></i>
         </li>
+        <?php foreach ($level as $k => $v) {?>
+        <li>
+            <a href="<?php echo Url::to(['/category', 'pid' => $v['id']]); ?>"><?=$v['name']?></a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <?php } ?>
     </ul>
     <div class="page-toolbar">
         <div class="btn-group pull-right">
@@ -108,7 +114,8 @@ use yii\helpers\Url;
                             <td>
                                 <a href="">编辑</a>
                                 <a href="">删除</a>
-                                <a href="">添加子菜单</a>
+                                <a href="<?=Url::to(['/category', 'pid' =>$v['id']])?>">查看子菜单</a>
+                                <a href="<?=Url::to(['/category/add', 'id' =>$v['id']])?>">添加子菜单</a>
                             </td>
                         </tr>
                         <?php } ?>
