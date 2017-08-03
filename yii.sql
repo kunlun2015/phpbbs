@@ -104,7 +104,10 @@ create table kl_post_basic(
     lid int unsigned not null default 0 comment '最后一级分类id',
     author varchar(16) not null default '' comment '作者',
     authorid int unsigned not null default 0 comment '作者id',
-    title text comment '文章标题',
+    title varchar(128) not null comment '文章标题',
+    tag varchar(64) not null default '' comment '标签，多个标签逗号隔开',
+    abstract varchar(255) not null default '' comment '摘要',
+    thumbnail text comment '封面图片',
     display_order tinyint(1) not null default 0 comment '显示顺序， 默认0正常，1置顶1，2置顶2，3置顶3',
     status tinyint(1) not null default 0 comment '状态，0正常，-2禁用， -1审核中',
     views int unsigned not null default 0 comment '浏览量',
@@ -115,7 +118,7 @@ create table kl_post_basic(
 )charset = utf8 engine = innodb comment ="文章基本信息";
 
 #文章内容
-create table kl_post(
+create table kl_posts(
     bid int unsigned not null default 0 comment 'post_basic id',
     fid int unsigned not null default 0 comment '第一级分类id',
     lid int unsigned not null default 0 comment '最后一级分类id',

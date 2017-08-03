@@ -63,4 +63,29 @@ $(document).ready(function(){
             })
         }
     })
+    //删除分类
+    $('.delete').click(function(){
+        var _this = $(this);
+        layer.confirm('确定要删除吗', {title: siteName+'提示您：', icon: 3}, function(){        
+            var formData = {act: 'delete', id: _this.data('id')};
+            formData[$("meta[name=csrf-param]")[0].content] = $("meta[name=csrf-token]")[0].content;
+            $.ajax({
+                url: $("input[name=request_url]").val(),
+                type: 'post',
+                dataType: 'json',
+                data: formData,
+                success: function(res){
+                    if(res.code == 0){
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index){
+                            _this.parent().parent().remove();
+                            layer.close(index);
+                        });
+                    }else{
+                        layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+                    }
+                }
+            })
+        })
+        return false;
+    })    
 })

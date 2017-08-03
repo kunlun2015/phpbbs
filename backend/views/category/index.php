@@ -27,39 +27,6 @@ use yii\helpers\Url;
         </li>
         <?php } ?>
     </ul>
-    <div class="page-toolbar">
-        <div class="btn-group pull-right">
-            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown"> Actions
-                <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-                <li>
-                    <a href="#">
-                        <i class="icon-bell"></i> Action</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-shield"></i> Another action</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-user"></i> Something else here</a>
-                </li>
-                <li class="divider"> </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-bag"></i> Separated link</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- END PAGE BAR -->
-<h3 class="page-title"> 分类管理
-    <small>网站类别分类</small>
-</h3>
-<div class="note note-info">
-    <p> 管理网站的分类 </p>
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -69,21 +36,13 @@ use yii\helpers\Url;
                     <i class="icon-settings font-dark"></i>
                     <span class="caption-subject bold uppercase"> 分类管理 </span>
                 </div>
-                <div class="actions">
-                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                            <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                            <input type="radio" name="options" class="toggle" id="option2">Settings</label>
-                    </div>
-                </div>
             </div>
             <div class="portlet-body">
                 <div class="table-toolbar">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="btn-group fr">
-                                <a href="<?php echo Url::to(['category/add']); ?>" class="btn sbold green"> 添加
+                                <a href="<?php echo Url::to(['category/add', 'id' => $parentId]); ?>" class="btn sbold green"> 添加
                                     <i class="fa fa-plus"></i>
                                 </a>
                             </div>
@@ -112,8 +71,8 @@ use yii\helpers\Url;
                             <td><?=$v['create_at']?></td>
                             <td><?=$v['created']?></td>
                             <td>
-                                <a href="">编辑</a>
-                                <a href="">删除</a>
+                                <a href="<?=Url::to(['category/edit', 'id' => $v['id']])?>">编辑</a>
+                                <a href="javascript::void(0);" class="delete" data-id="<?=$v['id']?>">删除</a>
                                 <a href="<?=Url::to(['/category', 'pid' =>$v['id']])?>">查看子菜单</a>
                                 <a href="<?=Url::to(['/category/add', 'id' =>$v['id']])?>">添加子菜单</a>
                             </td>
@@ -125,6 +84,7 @@ use yii\helpers\Url;
         </div>
     </div>
 </div>
+<input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['category/save']); ?>">
 <?php 
     $this->registerJs('
             $("#banner-list-table").dataTable({
@@ -143,5 +103,5 @@ use yii\helpers\Url;
         ');
 ?>
 <?php \backend\assets\AppAsset::addScript($this, 'static/global/scripts/datatable.js'); ?>
-<?php \backend\assets\AppAsset::addScript($this, 'static/global/plugins/datatables/jquery.datatables.min.js'); ?>
+<?php \backend\assets\AppAsset::addScript($this, 'static/global/plugins/datatables/jquery.dataTables.min.js'); ?>
 <?php \backend\assets\AppAsset::addScript($this, 'static/js/category.js'); ?>

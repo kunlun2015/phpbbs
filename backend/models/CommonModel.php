@@ -21,9 +21,9 @@ class CommonModel extends \common\models\CommonModel{
     }
 
     //获取总页数
-    protected function getTotalPage($sql, $page_size){
+    protected function getTotalPage($sql, $pageSize){
         $rst = $this->db->createCommand($sql)->queryOne();
-        return ceil($rst['count(*)']/$page_size);
+        return ceil($rst['count(*)']/$pageSize);
     }
 
     /**

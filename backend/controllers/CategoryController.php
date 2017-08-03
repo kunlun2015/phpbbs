@@ -12,29 +12,37 @@ use yii\web\Controller;
 use backend\models\Category;
 use yii\helpers\Url;
 
-class CategoryController extends AdminController{
+class CategoryController extends AdminController
+{
 
-    public function actionIndex(){
+    public function actionIndex()
+    {
         $category = new Category;
-        $parentId = $this->request->get('pid', 0);
-        $data['level'] = $category->categoryLevel($parentId);
-        $data['list'] = $category->categoryList($parentId);
+        $data['parentId'] = $this->request->get('pid', 0);
+        $data['level'] = $category->categoryLevel($data['parentId']);
+        $data['list'] = $category->categoryList($data['parentId']);
         return $this->render('index', $data);
     }
 
     //添加分类
-    public function actionAdd(){
+    public function actionAdd()
+    {
         $data['pid'] = intval($this->request->get('id', 0)) ? intval($this->request->get('id', 0)) : 0;
         return $this->render('add', $data);
     }
 
     //编辑分类
-    public function actionEdit(){
-        return $this->render('add');
+    public function actionEdit()
+    {
+        $id = intval($this->request->get('id', 0)) ? intval($this->request->get('id', 0)) : 0;
+        $category = new Category;
+        $data['detail'] = $category->detail($id);
+        return $this->render('edit', $data);
     }
 
     //数据操作
-    public function actionSave(){
+    public function actionSave()
+    {
         if(!$this->request->isAjax){
             $this->jsonExit(-1, '非法请求！');
         }
@@ -55,6 +63,32 @@ class CategoryController extends AdminController{
                     $this->jsonExit(0, '分类添加成功！');
                 }else{
                     $this->jsonExit(-1, '分类添加失败，请稍候重试！');
+                }
+                break;
+
+            case 'edit':
+                $data = [
+                    'name' => $this->request->post('name'),
+                    'href' => $this->request->post('href') ? $this->request->post('href') : '',
+                    'sort' => $this->request->post('sort') ? $this->request->post('href') : 0,
+                    'remarks' => $this->request->post('remarks')
+                ];
+                $id = $this->request->post('id');
+                $rst = $category->editCategory($id, $data);
+                if($rst !== false){
+                    $this->jsonExit(0, '分类编辑成功！');
+                }else{
+                    $this->jsonExit(-1, '分类编辑失败，请稍候重试！');
+                }
+                break;
+
+            case 'delete':
+                $id = $this->request->post('id');
+                $rst = $category->deleteCategory($id);
+                if($rst !== false){
+                    $this->jsonExit(0, '分类删除成功！');
+                }else{
+                    $this->jsonExit(-1, '分类删除失败，请稍候重试！');
                 }
                 break;
             
