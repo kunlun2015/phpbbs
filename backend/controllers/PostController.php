@@ -77,6 +77,8 @@ class PostController extends AdminController
                     'fid' => $fid,
                     'lid' => $lid,
                     'title' => $this->request->post('title'),
+                    'thumbnail' => $this->request->post('thumbnail'),
+                    'abstract' => $this->request->post('abstract'),
                     'posts' => $this->request->post('posts'),
                     'display_order' => $this->request->post('display_order'),
                     'author' => $this->session->get('user')['username'],
@@ -99,6 +101,8 @@ class PostController extends AdminController
                     'fid' => $fid,
                     'lid' => $lid,
                     'title' => $this->request->post('title'),
+                    'thumbnail' => $this->request->post('thumbnail'),
+                    'abstract' => $this->request->post('abstract'),
                     'posts' => $this->request->post('posts'),
                     'display_order' => $this->request->post('display_order')
                 ];

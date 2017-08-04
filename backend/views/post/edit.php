@@ -56,6 +56,20 @@ use yii\helpers\Url;
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-3 control-label">摘要</label>
+                            <div class="col-md-9">
+                                <textarea name="abstract" class="form-control input-xlarge" rows="3" placeholder="摘要"><?=$detail['abstract']?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">文章封面</label>
+                            <div class="col-md-9">
+                                <input type="text" name="thumbnail" class="form-control input-inline input-xlarge" readonly placeholder="图片地址" value="<?=$detail['thumbnail']?>">
+                                <input type="button" class="btn green select-thumbnail-btn" value="上传图片">
+                                <input type="file" class="none" name="file" id="post-thumbnail-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-3 control-label">文章内容</label>
                             <div class="col-md-9">
                                 <script id="container" name="posts" type="text/plain"><?=$detail['posts']?></script>

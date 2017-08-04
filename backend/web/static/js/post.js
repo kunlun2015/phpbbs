@@ -19,10 +19,16 @@ $(document).ready(function () {
         messages: {
             name: {
                 required: '分类名称不能为空'
+            },
+            abstract: {
+                required: '文章摘要不能为空'
             }
         },
         rules: {
             name: {
+                required: !0
+            },
+            abstract: {
                 required: !0
             }
         },

@@ -19,6 +19,8 @@ class Post extends CommonModel
                 'fid'      => $data['fid'],
                 'lid'      => $data['lid'],
                 'title'    => $data['title'],
+                'abstract' => $data['abstract'],
+                'thumbnail' => $data['thumbnail'],
                 'display_order' => $data['display_order'],
                 'author'   => $data['author'],
                 'authorid' => $data['authorid']
@@ -53,6 +55,8 @@ class Post extends CommonModel
                 'fid'      => $data['fid'],
                 'lid'      => $data['lid'],
                 'title'    => $data['title'],
+                'abstract' => $data['abstract'],
+                'thumbnail' => $data['thumbnail'],
                 'display_order' => $data['display_order']
             ], ['id' => $id])->execute();
             $this->db->createCommand()->update('{{%posts}}', [
@@ -97,7 +101,7 @@ class Post extends CommonModel
     //文章详情
     public function detail($id)
     {
-        $detail = $this->db->createCommand('select t1.id, t1.fid, t1.lid, t1.title, display_order, status, posts from {{%post_basic}} t1 left join {{%posts}} t2 on t1.id = t2.bid where id = :id',
+        $detail = $this->db->createCommand('select t1.id, t1.fid, t1.lid, t1.title, abstract, thumbnail, display_order, status, posts from {{%post_basic}} t1 left join {{%posts}} t2 on t1.id = t2.bid where id = :id',
             ['id' => $id])->queryOne();
         return $detail;
     }
