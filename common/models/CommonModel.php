@@ -19,7 +19,8 @@ class CommonModel extends Model {
      * @param string $addChars 额外字符
      * @return string
      */
-    static public function randString($len=6,$type='',$addChars='') {
+    static public function randString($len=6,$type='',$addChars='')
+    {
         $str ='';
         switch($type) {
             case 0:
@@ -56,4 +57,39 @@ class CommonModel extends Model {
         }
         return $str;
     }
+
+    /**
+     * 生成密码字符串
+     * @param $password string
+     * @param $encrypt string
+     * @return string
+     */
+    protected function genPassword($password, $encrypt)
+    {
+        return hash('sha256', hash('sha256', $password.$encrypt).$encrypt);
+    }
+
+    /**
+     * 返回人性化时间
+     * @param $dateTime Y-m-d H:i:s
+     * @return string
+     */
+    protected function humanizeTime($dateTime)
+    {
+        $timestamp = strtotime($dateTime);
+        $curTime = time();
+        $timeDiff = $curTime - $timestamp;
+        if ($timeDiff <= 60){
+            return $timeDiff.'秒前';
+        }elseif (($time = floor($timeDiff/60)) < 60){
+            return $time.'分钟前';
+        }elseif (($time = floor($timeDiff/3600)) < 24){
+            return $time.'小时前';
+        }elseif (($time = floor($timeDiff/3600/24)) < 7){
+            return $time.'天前';
+        }else{
+            return $dateTime;
+        }
+    }
+
 }
