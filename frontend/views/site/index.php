@@ -8,24 +8,14 @@
 <div class="hot-recommend clearfix">
     <div class="slide-wrap">
         <div class="swiper-wrapper">
+            <?php foreach ($bannerList as $k => $v) { ?>
             <a href="" class="slide swiper-slide">
             <div class="swiper-slide">
-                <img src="static/images/test.jpg" alt="">
-                <span class="title">1新闻APP后端系统架构成长之路 - 高可用架构设计</span>
+                <img src="<?=Yii::$app->params['imgUrl'].$v['picture']?>" alt="">
+                <span class="title"><?=$v['title']?></span>
             </div>
             </a>
-            <a href="" class="slide swiper-slide">
-            <div class="swiper-slide">
-                <img src="static/images/test.jpg" alt="">
-                <span class="title">2新闻APP后端系统架构成长之路 - 高可用架构设计</span>
-            </div>
-            </a>
-            <a href="" class="slide swiper-slide">
-            <div class="swiper-slide">
-                <img src="static/images/test.jpg" alt="">
-                <span class="title">3新闻APP后端系统架构成长之路 - 高可用架构设计</span>
-            </div>
-            </a>
+            <?php } ?>
         </div>
         <div class="swiper-pagination"></div>
     </div>

@@ -6,10 +6,11 @@
  * @version $Id$
  */
 html,body,div,span,em,i,p,ul,li,form,input,textarea{margin: 0;padding: 0;}
-body{font: 12px/20px "SimSun","宋体","Arial Narrow",HELVETICA;color: #2b2b2b; /* background-color: #efefef; */ }
+body{font: 12px/20px Arial, Verdana, 微软雅黑, "Lucida Grande", "Lucida Sans Unicode", Helvetica, sans-serif; /* background-color: #efefef; */ }
 a{text-decoration: none;}
 li{list-style: none;}
 em, i{font-style: normal;}
+a{color: #2b2b2b;}
 a:hover{color: #f54343;}
 
 .mt-10{margin-top: 10px;}

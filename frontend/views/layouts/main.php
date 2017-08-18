@@ -11,7 +11,6 @@ use yii\helpers\Url;
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -32,7 +31,7 @@ use yii\helpers\Url;
                 <li>
                     <a href="<?=Url::to(['/']);?>">首页</a>                
                 </li>            
-                <li><a href="">PHP技术</a></li>
+                <li><a href="<?=Url::to(['/php'])?>">PHP技术</a></li>
                 <li><a href="">数据库</a></li>
                 <li><a href="">服务器</a></li>
                 <li><a href="">PHP框架</a></li>
