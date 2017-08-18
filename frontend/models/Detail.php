@@ -21,6 +21,9 @@ class Detail extends CommonModel{
         return $detail;
     }
 
-    
+    public function commentList($pageSize, $page, &$totalPage)
+    {
+        $list = $this->db->createCommand()->queryAll();
+    }
 
 }

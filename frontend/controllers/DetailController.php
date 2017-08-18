@@ -10,6 +10,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use frontend\models\Detail;
+use common\widgets\Alert;
 
 class DetailController extends Controller {
 
@@ -24,6 +25,10 @@ class DetailController extends Controller {
     //详情
     public function actionIndex($id)
     {
+        Yii::$app->session->setFlash('success', '数据保存成功');
+        Yii::$app->session->setFlash('success', '数据保存成功');
+        echo Alert::widget();
+        //new Alert;
         $id = (int)$id;
         $data['detail'] = $this->detailModel->detail($id);
         return $this->render('detail', $data);
