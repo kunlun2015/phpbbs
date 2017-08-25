@@ -70,7 +70,7 @@
 </div>
 <div class="category-recommend clearfix">
     <div class="recommend-l">
-        <div class="category">
+        <!--<div class="category">
             <div class="title"><span>PHP技术</span></div>
             <ul>
                 <li>[<a class="cate-a" href="">Linux命令</a>]<a href="">基础教程：svn命令在linux下的.</a></li>
@@ -109,7 +109,22 @@
                 <li>[<a class="cate-a" href="">职场攻略</a>]<a href="">PHP学习路线以及10个PHP优化技.</a></li>
                 <li>[<a class="cate-a" href="">面向对象</a>]<a href="">什么是CGI、FastCGI、PHP.</a></li>
             </ul>
-        </div>
+        </div>-->
+        <ul class="article-list">
+            <li>
+                <img src="" alt="">
+                <div class="article-info">
+                    <p class="title">Apache Flink 技术解读之分布式运行时环境</p>
+                    <p class="abstract">任务与运算符链接在实际的分布式计算环境中，Flink 会将多个运算子任务链接到分布式计算任务中。每个线程执行一个计算任务。将运算符链接到计算任务中对于系统性能的提升有很大的帮助：它降低了线程间切换与缓冲的开</p>
+                    <div class="attr">
+                        <span>来源：管理员</span>
+                        <span>时间：2017-08-18</span>
+                        <span>阅读数：150</span>
+                        <span>作者：Kunlun</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="recommend-r">
         <div class="category">

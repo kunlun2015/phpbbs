@@ -14,7 +14,7 @@ class AppAsset extends AssetBundle{
         'static/css/common.css',
     ];
     public $js = [
-        'static/js/jquery-3.1.0.min.js',
+        'static/libs/jquery/jquery-3.1.0.min.js',
         'static/js/common.js'
     ];
 

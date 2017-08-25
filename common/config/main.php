@@ -43,6 +43,17 @@ return [
                     ],
                 ],
             ],
-        ]
+        ],
+        'mailer' => [
+            //配置邮箱'service@debugphp.com'
+            'transport'=>[
+                'class'=>'Swift_SmtpTransport',
+                'host'=>'smtp.exmail.qq.com',
+                'username'=>'service@debugphp.com',
+                'password'=>'2XpG6YBj7WDQyhEu',
+                'port'=> 465,
+                'encryption'=>'ssl',
+            ],
+        ],
     ]
 ];

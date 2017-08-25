@@ -9,6 +9,8 @@
     use yii\helpers\Url;
     \frontend\assets\AppAsset::register($this);
     \frontend\assets\AppAsset::addCss($this, 'static/css/login.css');
+    \frontend\assets\AppAsset::addScript($this, 'static/libs/jquery/jquery.validate.min.js');
+    \frontend\assets\AppAsset::addScript($this, 'static/js/login.js');
     $this->title = '用户登录';
 ?>
 <?php $this->beginPage() ?>
@@ -33,15 +35,16 @@
             <div class="desc"></div>
             <div class="login-box">
                 <div class="box-title">账号登陆</div>
-                <form action="#" method="post">
+                <form id="login-form" action="#" method="post">
                     <input type="text" name="username" placeholder="用户名">
                     <input type="password" name="password" placeholder="登陆密码">
+                    <div class="err-display"></div>
+                    <input class="btn" type="submit" value="登陆">
                 </form>
             </div>
         </div>
     </div>
 <?php $this->endBody() ?>
-
 </body>
 </html>
 <?php $this->endPage() ?>
