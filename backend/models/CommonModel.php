@@ -32,7 +32,8 @@ class CommonModel extends \common\models\CommonModel{
      *
      *
      */
-    public function pagination($totalPage, $curPage, $pageHref, $pageNums = 10){
+    public function pagination($totalPage, $curPage, $pageHref, $pageNums = 10)
+    {        
         $middlePage = ceil($pageNums/2);
         /*<ul class="pagination" style="visibility: visible;">
             <li class="prev disabled"><a href="#" title="First"><i class="fa fa-angle-double-left"></i></a></li>
@@ -46,7 +47,7 @@ class CommonModel extends \common\models\CommonModel{
             <li class="next"><a href="#" title="Last"><i class="fa fa-angle-double-right"></i></a></li>
         </ul>*/
         $pagination = '<ul class="pagination" style="visibility: visible;">';
-        if($totalPage == 1){
+        if($totalPage == 1 || $totalPage == 0){
             return '';
         }else{            
             if($curPage != 1){

@@ -1,5 +1,5 @@
 <?php
-    $this->title = 'PHP';
+    $this->title = 'Debug PHP';
     \frontend\assets\AppAsset::addCss($this, 'static/css/index.css');
     \frontend\assets\AppAsset::addCss($this, 'static/libs/swiper/css/swiper.min.css');
     \frontend\assets\AppAsset::addScript($this, 'static/libs/swiper/js/swiper.jquery.min.js');
