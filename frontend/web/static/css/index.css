@@ -42,7 +42,9 @@ a.cate-a{color: #f54343 !important;}
 .recommend-r .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 4px solid #000;}
 .recommend-r .category .title span{display: inline-block;border-bottom: 4px solid #f54343;color: #f54343;}
 
-.article-list li{padding: 10px 10px 10px 0;}
+.article-list li{padding: 10px 10px 10px 0;overflow: hidden;display: -webkit-flex;border-bottom: 1px solid #eee;}
+.article-list li img{width: 150px;height: 120px;margin: 10px 15px 0 0;}
+.article-list .article-info{}
 .article-list .title{font-size: 20px;color: #333;line-height: 45px;}
 .article-list .abstract{font-size: 14px;color: #777;}
 .article-list .attr{font-size: 14px;color: #999;margin-top: 5px;}
