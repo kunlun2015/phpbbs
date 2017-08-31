@@ -112,7 +112,9 @@
         </div>-->
         <ul class="article-list">
             <li>
-                <img src="http://localhost/personal/phpbbs/upload/banner/2017/08/HAVNgYkKYFPG20170825220056.JPG" alt="">
+                <div class="thumb">
+                    <a href=""><img src="http://static.bbs.nubia.cn/portal/201708/29/101154jwxq1odnogs1zfhv.jpg" alt=""></a>
+                </div>
                 <div class="article-info">
                     <p class="title"><a href="">Apache Flink 技术解读之分布式运行时环境</a></p>
                     <p class="abstract">任务与运算符链接在实际的分布式计算环境中，Flink 会将多个运算子任务链接到分布式计算任务中。每个线程执行一个计算任务。将运算符链接到计算任务中对于系统性能的提升有很大的帮助：它降低了线程间切换与缓冲的开</p>

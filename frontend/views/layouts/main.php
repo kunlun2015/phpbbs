@@ -51,9 +51,17 @@ use yii\helpers\Url;
 <?php $this->beginBody() ?>
 <?= $content ?>
 <?php $this->endBody() ?>
-<div class="footer">
-    
-</div>
+<footer class="footer">    
+    <div class="footer-wrap">
+        <div class="link">
+            <a href="">关于debugphp</a>
+            <a href="">联系我们</a>
+            <a href="">网站地图</a>
+        </div>
+        <p class="copyright">Copyright © 2017-2017 <a href="">www.debugphp.com</a>  All Rights Reserved</p>
+        <p class="copyright">皖ICP备15003242号-1</p>
+    </div>
+</footer>
 </body>
 </html>
 <?php $this->endPage() ?>
