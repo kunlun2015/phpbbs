@@ -17,4 +17,10 @@ class Register extends CommonModel
         $activeCode = $this->randString(8, 5);
         return $activeCode;
     }
+
+    //邮箱注册激活
+    public function emailActive($username)
+    {
+        
+    }
 }

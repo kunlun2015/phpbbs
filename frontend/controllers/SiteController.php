@@ -11,6 +11,7 @@ use Yii;
 use yii\web\Controller;
 use yii\helpers\Url;
 use frontend\models\Index;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends AppController{
 
@@ -20,6 +21,18 @@ class SiteController extends AppController{
     {
         parent::init();
         $this->indexModel = new Index;
+    }
+
+    public function actionError()
+    {
+        print_r(Yii::$app->errorHandler->exception);
+        $exception = Yii::$app->errorHandler->exception;
+        if($exception && isset($exception->statusCode) && $exception->statusCode === 404){
+            return Yii::$app->runAction('tips/404');
+        }else{
+            return Yii::$app->runAction('tips/500');
+        }
+        //var_dump($this->getExceptionCode());
     }
 
     /**

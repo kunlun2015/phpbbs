@@ -12,7 +12,7 @@ use yii\web\Controller;
 use frontend\models\Detail;
 use common\widgets\Alert;
 
-class DetailController extends Controller {
+class DetailController extends AppController {
 
     private $detailModel;
 
