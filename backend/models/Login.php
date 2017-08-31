@@ -15,13 +15,16 @@ class Login extends CommonModel{
 
     //登录验证
     public function loginCheck($username, $password, $user_ip){
-        $this->user = $this->db->createCommand('select id, username, avatar, password, encrypt, login_times, last_login_time, last_login_ip from {{%user}} where username = :username', array('username' => $username))->queryOne();
+        $this->user = $this->db->createCommand('select id, username, avatar, login_times, last_login_time, last_login_ip from {{%users}} where username = :username', array('username' => $username))->queryOne();
         if(!$this->user){
             return -1;
         }
-        $password = md5(md5($password).$this->user['encrypt']);
-        if($password != $this->user['password']){
+        $passwordSaved = $this->db->createCommand('select password, encrypt from {{%login_psd}} where uid = :uid', ['uid' => $this->user['id']])->queryOne();
+        if(!$password){
             return -2;
+        }
+        if(!$this->verifyPassword($password, $passwordSaved['password'], $passwordSaved['encrypt'])){
+            return -3;
         }
         $this->loginSuccess($user_ip);
         $this->userLoginStatusKeep();
@@ -35,7 +38,7 @@ class Login extends CommonModel{
          * 更新登录次数
          * 更新登录时间
          */
-        $this->db->createCommand('update {{%user}} set login_times = login_times + 1, last_login_time = :last_login_time, last_login_ip = :last_login_ip where id = '.$this->user['id'], array('last_login_ip' => $user_ip, 'last_login_time' => date('Y-m-d H:i:s')))->execute();
+        $this->db->createCommand('update {{%users}} set login_times = login_times + 1, last_login_time = :last_login_time, last_login_ip = :last_login_ip where id = '.$this->user['id'], array('last_login_ip' => $user_ip, 'last_login_time' => date('Y-m-d H:i:s')))->execute();
         return true;
     }
 

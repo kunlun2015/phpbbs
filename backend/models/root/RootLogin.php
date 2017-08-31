@@ -22,7 +22,7 @@ class RootLogin extends \backend\models\CommonModel{
         if(!($this->user = $this->userValidate())){
             return -1;//用户不存在
         }else{
-            if($this->passwordValidate($this->user['password'], $this->user['encrypt'])){
+            if(!$this->verifyPassword($this->password, $this->user['password'], $this->user['encrypt'])){
                 return -2;//密码错误
             }else{
                 $this->loginSuccess();
@@ -34,14 +34,6 @@ class RootLogin extends \backend\models\CommonModel{
     //验证用户
     private function userValidate(){
         return $this->db->createCommand("select id, username, avatar, password, encrypt, login_times, last_login_time, last_login_ip from {{%root_user}} where username = '{$this->username}'")->queryOne();
-    }
-
-    //验证密码
-    private function passwordValidate($db_password, $db_encrypt){
-        if(md5(md5($this->password).$db_encrypt) != $db_password){
-            return true;
-        }
-        return false;
     }
 
     //登录成功

@@ -16,5 +16,5 @@ class LoginController extends AppController {
     {
         return $this->renderPartial('login');
     }
-
+    
 }

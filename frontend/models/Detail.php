@@ -8,7 +8,8 @@
 namespace frontend\models;
 use yii\base\Model;
 
-class Detail extends CommonModel{
+class Detail extends CommonModel
+{
 
     /**
      * 获取文章详情

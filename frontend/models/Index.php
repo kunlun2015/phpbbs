@@ -9,7 +9,8 @@
 namespace frontend\models;
 use yii\base\Model;
 
-class Index extends CommonModel{
+class Index extends CommonModel
+{
 
     public function bannerList($cateId)
     {

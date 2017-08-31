@@ -14,8 +14,8 @@ class User extends \backend\models\CommonModel{
     //用户列表
     public function userList($page_size, $page, &$total_page){
         $offset = ($page - 1)*$page_size;
-        $rst = $this->db->createCommand("select id, username, realname, avatar, mobile, login_times, last_login_time, status from {{%user}} order by id desc limit $offset, $page_size")->queryAll();
-        $sql_total = 'select count(*) from {{%user}}';
+        $rst = $this->db->createCommand("select id, username, realname, avatar, mobile, login_times, last_login_time, status from {{%users}} order by id desc limit $offset, $page_size")->queryAll();
+        $sql_total = 'select count(*) from {{%users}}';
         $total_page = $this->getTotalPage($sql_total, $page_size);
         return $rst;
     }
@@ -29,12 +29,12 @@ class User extends \backend\models\CommonModel{
 
     //获取修改用户信息
     public function getEditUser($uid){
-        return $this->db->createCommand('select id, username, realname, mobile, remarks, status from {{%user}} where id = :uid', array('uid' => $uid))->queryOne();
+        return $this->db->createCommand('select id, username, realname, mobile, remarks, status from {{%users}} where id = :uid', array('uid' => $uid))->queryOne();
     }
 
     //修改用户
     public function editUser($data){
-        return $this->db->createCommand()->update('{{%user}}', $data, array('id' => $data['id']))->execute();
+        return $this->db->createCommand()->update('{{%users}}', $data, array('id' => $data['id']))->execute();
     }
 
     //生成menu tree
@@ -89,12 +89,12 @@ class User extends \backend\models\CommonModel{
 
     //更新用户菜单权限
     public function updateUserMenuAuthority($uid, $authority){
-        return $this->db->createCommand()->update('{{%user}}', array('authority' => $authority), array('id' => $uid))->execute();
+        return $this->db->createCommand()->update('{{%user_menu_authority}}', array('authority' => $authority), array('uid' => $uid))->execute();
     }
 
     //用户当前权限
     public function userMenuAuthority($uid){
-        $authority = $this->db->createCommand('select authority from {{%user}} where id = :uid', array('uid' => $uid))->queryOne();
+        $authority = $this->db->createCommand('select authority from {{%user_menu_authority}} where uid = :uid', array('uid' => $uid))->queryOne();
         $menuAuthority = explode('|', $authority['authority']);
         if(count($menuAuthority) === 3){
             $menuAuthority[0] = $menuAuthority[0] ? $menuAuthority[0] : 0;
