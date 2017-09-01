@@ -18,7 +18,7 @@ class RegisterController extends AppController
     //用户注册页
     public function actionIndex()
     {
-        
+        return $this->renderPartial('register');
     }
 
     //用户注册邮箱激活

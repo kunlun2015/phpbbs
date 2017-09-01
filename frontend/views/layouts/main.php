@@ -21,8 +21,8 @@ use yii\helpers\Url;
         <div class="top-bar">
             <div class="top-bar-info clearfix">
                 <div class="login">
-                    <a href="">注册</a> | 
-                    <a href="">登陆</a>
+                    <a href="<?=Url::to(['/register'])?>">注册</a> | 
+                    <a href="<?=Url::to(['/login'])?>">登陆</a>
                 </div>
             </div>
         </div>

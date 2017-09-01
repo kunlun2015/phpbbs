@@ -5,13 +5,13 @@
  * @date: 2017-08-16 18:34
  * @version $Id$
  */
-    use yii\helpers\Html;
-    use yii\helpers\Url;
-    \frontend\assets\AppAsset::register($this);
-    \frontend\assets\AppAsset::addCss($this, 'static/css/login.css');
-    \frontend\assets\AppAsset::addScript($this, 'static/libs/jquery/jquery.validate.min.js');
-    \frontend\assets\AppAsset::addScript($this, 'static/js/login.js');
-    $this->title = '用户登录';
+use yii\helpers\Html;
+use yii\helpers\Url;
+\frontend\assets\AppAsset::register($this);
+\frontend\assets\AppAsset::addCss($this, 'static/css/login.css');
+\frontend\assets\AppAsset::addScript($this, 'static/libs/jquery/jquery.validate.min.js');
+\frontend\assets\AppAsset::addScript($this, 'static/js/login.js');
+$this->title = '用户登录';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/**
+ * register
+ * @authors Amos (szhcool1129@sina.com)
+ * @date    2017-09-01 10:53:36
+ * @version $Id$
+ */
+header{height: 100px;}
+.header{width: 1100px;height: 100%;margin: auto;}
+.logo{float: left;width: 400px;height: 100px;background: url(../images/logo.png) no-repeat;}
+.page-func{float: left;height: 25px;line-height: 25px;padding-left: 10px;margin: 37.5px 0 0 0;font-size: 24px;color: #666;border-left: 1px solid #ddd;}
+
+.register-wrap{background-color: #f8f8f8;box-sizing: border-box;padding: 40px 0;}
+
+.register-form{width: 1100px;margin: auto;}
+.register-form li{height: 35px;}
+.register-form li span{display: inline-block;}
+.register-form input{height: 30px;box-sizing: border-box;padding-left: 5px;outline: none;}
