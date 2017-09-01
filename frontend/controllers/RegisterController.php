@@ -12,6 +12,7 @@ use Yii;
 use yii\web\Controller;
 use frontend\models\Register;
 use frontend\models\User;
+use securimage\Securimage;
 
 class RegisterController extends AppController 
 {
@@ -33,5 +34,49 @@ class RegisterController extends AppController
         $userInfo = $user->getUserByUsername($username);
     }
 
+    //测试验证码
+    public function actionTest()
+    {
+        $img = new Securimage;
+        $img->num_lines = 8;
+        $img->image_width = 240;
+        $img->image_height = 120;
+        $img->charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $img->code_length = 4;
+        $img->createCode();
+        file_put_contents('test.log', var_export($img->code, true)."\r\n", FILE_APPEND);
+        $img->show();
+    }
 
+    //测试log
+    public function actionLog()
+    {
+
+        //var_dump(Yii::$app->controller->module->id.'/');
+        $this->log->debug(['ok']);
+    }
+
+
+    public function actionSave()
+    {
+        $data = [
+            'username' => trim($this->request->post('username')),
+            'sex' => (int)$this->request->post('sex') ? (int)$this->request->post('sex') : 0,
+            'mobile' => trim($this->request->post('mobile')),
+            'email' => trim($this->request->post('email'))
+        ];
+        $user = new User;
+        if($user->getUserByUsername($data['username'])){
+            $this->jsonExit(-1, '用户名已被注册');
+        }
+        if($user->insert($data)){
+            //发送激活邮件
+
+            $this->jsonExit(0, '恭喜您注册成功，请登陆您的邮箱激活账户！');
+        }else{
+            //注册失败邮件提醒并记录日志
+            $this->log->info(['title' => '注册失败', 'data' => $data]);
+            $this->jsonExit(-1, '非常抱歉，注册失败了！我们已记录错误，请等待网站管理员与您邮件联系！');
+        }
+    }
 }

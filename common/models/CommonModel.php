@@ -69,9 +69,39 @@ class CommonModel extends Model {
         return hash('sha256', hash('sha256', $password.$encrypt).$encrypt);
     }
 
+    /**
+     * 验证密码
+     * @param string $password 用户输入密码
+     * @param string $savedPssword 数据库中保存的密码
+     * @param string $encrypt 加密字符串|盐
+     * @return boolen true|false
+     */
     protected function verifyPassword($password, $savedPassword, $encrypt)
     {
         return hash('sha256', hash('sha256', $password.$encrypt).$encrypt) === $savedPassword ? true : false;
+    }
+
+    /**
+     * json格式化数据返回
+     * @param int $errCode 错误码
+     * @param string $errMsg
+     * @param array $data json参数
+     */
+    protected function jsonExit($errCode, $errMsg, $data)
+    {
+        $return = ['errCode' => $errCode, 'errMsg' => $errMsg, 'data' => $data];
+        exit(json_encode($return));
+    }
+
+    /**
+     * 检测目录是否存在，不存在则新建
+     * @param string $dir 目录路径
+     */
+    protected function checkDir($dir)
+    {
+        if(!is_dir($dir)){
+            mkdir($dir, 0777, true);
+        }
     }
 
     /**

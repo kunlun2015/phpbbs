@@ -9,16 +9,28 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\web\Controller;
+use common\models\Log;
 
 class AppController extends Controller {
     
     protected $app;
     protected $request;
+    protected $log;
 
     public function init(){
         $this->app = Yii::$app;
         $this->app->language = 'zh_CN';
         $this->request = $this->app->request;
+        
+    }
+
+    /**
+     * 执行一些操作
+     */
+    public function beforeAction($action)
+    {
+        $this->log = new Log;
+        return true;
     }
 
     /**
