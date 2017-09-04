@@ -39,7 +39,7 @@ class AppController extends Controller {
      * @param string $type 默认index 提示信息, 404:404页面，500:500页面
      * @param tips page
      */
-    protected function tipsPage($params, $type = 'index')
+    protected function tipsPage($type = 'index', $params = [])
     {
         return $this->app->runAction('tips/'.$type, ['params' => $params]);
     }

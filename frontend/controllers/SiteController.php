@@ -28,11 +28,10 @@ class SiteController extends AppController{
         print_r(Yii::$app->errorHandler->exception);
         $exception = Yii::$app->errorHandler->exception;
         if($exception && isset($exception->statusCode) && $exception->statusCode === 404){
-            return Yii::$app->runAction('tips/404');
+            return $this->tipsPage('404');
         }else{
-            return Yii::$app->runAction('tips/500');
+            return $this->tipsPage('500');
         }
-        //var_dump($this->getExceptionCode());
     }
 
     /**
