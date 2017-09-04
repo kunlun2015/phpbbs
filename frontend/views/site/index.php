@@ -1,6 +1,6 @@
 <?php
     $this->title = 'Debug PHP';
-    \frontend\assets\AppAsset::addCss($this, 'static/css/index.css');
+    \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
     \frontend\assets\AppAsset::addCss($this, 'static/libs/swiper/css/swiper.min.css');
     \frontend\assets\AppAsset::addScript($this, 'static/libs/swiper/js/swiper.jquery.min.js');
     \frontend\assets\AppAsset::addScript($this, 'static/js/index.js');
@@ -69,47 +69,7 @@
     </div>
 </div>
 <div class="category-recommend clearfix">
-    <div class="recommend-l">
-        <!--<div class="category">
-            <div class="title"><span>PHP技术</span></div>
-            <ul>
-                <li>[<a class="cate-a" href="">Linux命令</a>]<a href="">基础教程：svn命令在linux下的.</a></li>
-                <li>[<a class="cate-a" href="">简介</a>]<a href="">HTTP简介，http是一个属于应用.</a></li>
-                <li>[<a class="cate-a" href="">跨站攻击</a>]<a href="">PHP漏洞全解(六)跨网站请求伪造.</a></li>
-                <li>[<a class="cate-a" href="">职场攻略</a>]<a href="">PHP学习路线以及10个PHP优化技.</a></li>
-                <li>[<a class="cate-a" href="">面向对象</a>]<a href="">什么是CGI、FastCGI、PHP.</a></li>
-            </ul>
-        </div>
-        <div class="category ml-20">
-            <div class="title"><span>数据库</span></div>
-            <ul>
-                <li>[<a class="cate-a" href="">Linux命令</a>]<a href="">基础教程：svn命令在linux下的.</a></li>
-                <li>[<a class="cate-a" href="">简介</a>]<a href="">HTTP简介，http是一个属于应用.</a></li>
-                <li>[<a class="cate-a" href="">跨站攻击</a>]<a href="">PHP漏洞全解(六)跨网站请求伪造.</a></li>
-                <li>[<a class="cate-a" href="">职场攻略</a>]<a href="">PHP学习路线以及10个PHP优化技.</a></li>
-                <li>[<a class="cate-a" href="">面向对象</a>]<a href="">什么是CGI、FastCGI、PHP.</a></li>
-            </ul>
-        </div>
-        <div class="category mt-10">
-            <div class="title"><span>服务器</span></div>
-            <ul>
-                <li>[<a class="cate-a" href="">Linux命令</a>]<a href="">基础教程：svn命令在linux下的.</a></li>
-                <li>[<a class="cate-a" href="">简介</a>]<a href="">HTTP简介，http是一个属于应用.</a></li>
-                <li>[<a class="cate-a" href="">跨站攻击</a>]<a href="">PHP漏洞全解(六)跨网站请求伪造.</a></li>
-                <li>[<a class="cate-a" href="">职场攻略</a>]<a href="">PHP学习路线以及10个PHP优化技.</a></li>
-                <li>[<a class="cate-a" href="">面向对象</a>]<a href="">什么是CGI、FastCGI、PHP.</a></li>
-            </ul>
-        </div>
-        <div class="category ml-20 mt-10">
-            <div class="title"><span>PHP框架</span></div>
-            <ul>
-                <li>[<a class="cate-a" href="">Linux命令</a>]<a href="">基础教程：svn命令在linux下的.</a></li>
-                <li>[<a class="cate-a" href="">简介</a>]<a href="">HTTP简介，http是一个属于应用.</a></li>
-                <li>[<a class="cate-a" href="">跨站攻击</a>]<a href="">PHP漏洞全解(六)跨网站请求伪造.</a></li>
-                <li>[<a class="cate-a" href="">职场攻略</a>]<a href="">PHP学习路线以及10个PHP优化技.</a></li>
-                <li>[<a class="cate-a" href="">面向对象</a>]<a href="">什么是CGI、FastCGI、PHP.</a></li>
-            </ul>
-        </div>-->
+    <div class="recommend-l">        
         <ul class="article-list">
             <li>
                 <div class="thumb">
@@ -178,9 +138,34 @@
     </div>
     <div class="recommend-r">
         <div class="category">
+            <div class="title"><span>热门标签</span></div>
+            <div class="hot-tags">
+                <span>
+                    <a href="">php高级编程</a>
+                </span>
+                <span>
+                    <a href="">jquery</a>
+                </span>
+                <span>
+                    <a href="">Mysql主从</a>
+                </span>
+                <span>
+                    <a href="">环境搭建</a>
+                </span>
+                <span>
+                    <a href="">php7</a>
+                </span>
+                <span>
+                    <a href="">php高级编程</a>
+                </span>
+            </div>
+        </div>
+        <div class="category">
             <div class="title"><span>行业资讯</span></div>
             <ul>
-                <li><a href="">基础教程：svn命令在linux下的.</a></li>
+                <li>
+                    <a href="">基础教程：svn命令在linux下的.</a>
+                </li>
                 <li><a href="">HTTP简介，http是一个属于应用.</a></li>
                 <li><a href="">PHP漏洞全解(六)跨网站请求伪造.</a></li>
                 <li><a href="">PHP学习路线以及10个PHP优化技.</a></li>

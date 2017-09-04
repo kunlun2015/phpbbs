@@ -31,16 +31,21 @@
 a.cate-a{color: #f54343 !important;}
 
 .category-recommend{width: 1100px;margin: auto;}
-.category-recommend .recommend-l{width: 750px;float: left;margin-right: 10px;}
-.category-recommend .recommend-r{width: 340px;float: left;}
+.category-recommend .recommend-l, .detail .left{width: 750px;float: left;margin-right: 10px;}
+.category-recommend .recommend-r, .detail .right{width: 340px;float: left;}
 .category-recommend .recommend-l .category{width: 365px;float: left;}
 .recommend-l .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 2px solid #f54343;}
 .recommend-l .category .title span{display: inline-block;border-bottom: 2px solid #000;}
-.category li{line-height: 25px;}
-.category li a{font-family: 'Microsoft YaHei', SimSun, 'Arial Narrow';font-size: 14px;color: #333;}
+.category ul{margin-top: 5px;}
+.category li{line-height: 25px;list-style: decimal-leading-zero inside;color: #f54343;}
+.category li a{font-family: 'Microsoft YaHei', SimSun, 'Arial Narrow';font-size: 14px;}
 
-.recommend-r .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 4px solid #000;}
-.recommend-r .category .title span{display: inline-block;border-bottom: 4px solid #f54343;color: #f54343;}
+.recommend-r .category .title, .detail .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 4px solid #000;}
+.recommend-r .category .title span, .detail .category .title span{display: inline-block;border-bottom: 4px solid #f54343;color: #f54343;}
+
+.hot-tags span{display: inline-block;padding: 5px 8px;border: 1px solid #eee;margin: 5px 5px 5px 0;}
+.hot-tags span:hover{background-color: #f54343;}
+.hot-tags span:hover a{color: #fff;}
 
 .article-list li{padding: 10px 10px 10px 0;overflow: hidden;display: -webkit-box;border-bottom: 1px solid #eee;max-height: 150px;box-sizing: border-box;}
 .article-list li .thumb{width: 150px;height: 120px;margin: 9px 15px 0 0;overflow: hidden;}
@@ -50,3 +55,24 @@ a.cate-a{color: #f54343 !important;}
 .article-list .abstract{font-size: 14px;color: #777;}
 .article-list .attr{font-size: 14px;color: #999;margin-top: 5px;}
 .article-list .attr span{display: inline-block;margin-right: 15px;}
+
+/*detail*/
+.nav-title{height: 35px;line-height: 35px;}
+.nav-title li{float: left;margin-left: 5px;}
+.nav-title li:first-child{margin-left: 0;}
+.nav-title li:after{content: " > "}
+
+.article .title{font-size: 24px;font-weight: bold;margin-top: 20px;}
+.article-attr{margin-top: 10px; font-size: 14px;}
+.article-attr span{display: inline-block;margin-right: 15px;color: #999;}
+.article .abstract{font-size: 14px;line-height: 25px; padding: 10px 20px;margin-top: 10px; background-color: #f7f7f7;}
+.article .article-body{}
+.detail .share-btn{height: 40px;margin-top: 30px;}
+.share-btn .bdsharebuttonbox{float: right;}
+.bdsharebuttonbox a{width: 40px !important;height: 40px !important;background: url(../images/icons-share.png) no-repeat !important;background-size: 40px 165px;margin: 0 10px 0 0 !important;}
+.bdsharebuttonbox span{display: inline-block;line-height: 40px;float: left;}
+.bdsharebuttonbox a.bds_weixin{background-position: 0 0 !important;}
+.bdsharebuttonbox a.bds_tsina{background-position: 0 -41px !important;}
+.bdsharebuttonbox a.bds_sqq{background-position: 0 -82px !important;}
+.bdsharebuttonbox a.bds_qzone{background-position: 0 -123px !important;}
+/*detail*/

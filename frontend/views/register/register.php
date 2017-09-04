@@ -31,18 +31,44 @@ $this->title = '用户注册';
         </div>
     </header>
     <div class="register-wrap">
-        <div class="register-form">
-            <form action="" method="post">
-                <ul>
-                    <li>
-                        <span>用户名</span>
-                        <input type="text" name="username" placeholder="用户名">
-                    </li>
-                </ul>
-            </form>
-        </div>
+        <div class="register-box">
+            <div class="register-form">
+                <form action="" method="post" id="register-form">
+                    <div class="login-btn">已有账号?去<a href="<?=Url::to(['/login'])?>">登录</a></div>
+                    <ul>
+                        <li>
+                            <span>用户名</span>
+                            <input type="text" name="username" placeholder="请输入用户名">
+                        </li>
+                        <li>
+                            <span>手机号码</span>
+                            <input type="text" name="mobile" placeholder="请输入手机号码">
+                        </li>
+                        <li>
+                            <span>E-mail</span>
+                            <input type="text" name="email" placeholder="请输入E-mail">
+                        </li>
+                        <li>
+                            <span>登录密码</span>
+                            <input type="password" name="password" placeholder="请输入登录密码">
+                        </li>
+                        <li>
+                            <span>确认密码</span>
+                            <input type="password" name="password_confirm" placeholder="请再次输入登录密码">
+                        </li>
+                        <li class="submit-btn-container">
+                            <input type="submit" value="提 交">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="desc">
+                <img src="./static/images/php-1.jpg" alt="">
+            </div>
+        </div>        
     </div>
 <?php $this->endBody() ?>
+<?php echo $this->render('../layouts/footer')?>
 </body>
 </html>
 <?php $this->endPage() ?>

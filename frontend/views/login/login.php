@@ -32,12 +32,15 @@ $this->title = '用户登录';
     </header>
     <div class="login-wrap">
         <div class="wrap">
-            <div class="desc"></div>
+            <div class="desc">
+                <img src="./static/images/php-1.jpg" alt="">
+            </div>
             <div class="login-box">
                 <div class="box-title">账号登陆</div>
                 <form id="login-form" action="#" method="post">
                     <input type="text" name="username" placeholder="用户名">
                     <input type="password" name="password" placeholder="登陆密码">
+                    <div class="reg-tips">还没有账号，去<a href="<?=Url::to(['/register'])?>">注册</a></div>
                     <div class="err-display"></div>
                     <input class="btn" type="submit" value="登陆">
                 </form>
@@ -45,6 +48,7 @@ $this->title = '用户登录';
         </div>
     </div>
 <?php $this->endBody() ?>
+<?php echo $this->render('../layouts/footer')?>
 </body>
 </html>
 <?php $this->endPage() ?>

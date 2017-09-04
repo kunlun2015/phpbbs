@@ -20,7 +20,12 @@ a:hover{color: #f54343;}
 .common-header .top-bar a{color: #2b2b2b;}
 .common-header .top-bar-info{width: 1100px;margin: auto;background-color: #fcfcfc;}
 .common-header .login{float: right;}
-.common-header .top{width: 1100px;height: 100px;margin: auto;}
+.common-header .top{width: 1100px;height: 150px;margin: auto;}
+.common-header .logo{float: left;width: 300px;height: 150px;background: url(../images/logo.png) center center no-repeat;background-size: 100%;}
+.common-header .g-search{float: left;line-height: 150px;margin: 57.5px 0 0 150px;}
+.g-search #keywords{width: 350px;height: 35px;outline: none;box-sizing: border-box;padding-left: 5px;float: left;border: 1px solid #ddd;border-right: none;}
+.g-search .btn{width: 80px;height: 35px;background-color: #f54343;border: 1px solid #f54343;outline: none;color: #fff;float: left;}
+
 .common-header .menu ul{width: 1100px;background-color: #f54343;margin: auto;}
 .common-header .menu ul li{float: left;}
 .common-header .menu ul li:hover{background-color: #d53f3f;}

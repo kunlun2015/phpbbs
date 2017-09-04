@@ -38,7 +38,20 @@ class User extends CommonModel
      */
     public function insert($data)
     {
-        return $this->db->createCommand()->insert('{{%users}}', $data)->execute();
+        $transaction = $this->db->beginTransaction();
+        try {
+            $this->db->createCommand()->insert('{{%users}}', $data)->execute();
+            $transaction->commit();
+            return true;
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            //throw $e;
+            return false;
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            //throw $e;
+            return false;
+        }
     }
 
     /**

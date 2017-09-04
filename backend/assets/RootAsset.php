@@ -13,7 +13,7 @@ class RootAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all',
+        //'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all',
         'static/global/plugins/font-awesome/css/font-awesome.min.css',
         'static/global/plugins/simple-line-icons/simple-line-icons.min.css',
         'static/global/plugins/bootstrap/css/bootstrap.min.css',

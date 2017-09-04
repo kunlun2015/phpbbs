@@ -61,9 +61,9 @@ class RegisterController extends AppController
     {
         $data = [
             'username' => trim($this->request->post('username')),
-            'sex' => (int)$this->request->post('sex') ? (int)$this->request->post('sex') : 0,
             'mobile' => trim($this->request->post('mobile')),
-            'email' => trim($this->request->post('email'))
+            'email' => trim($this->request->post('email')),
+            'password' => trim($this->request->post('password'))
         ];
         $user = new User;
         if($user->getUserByUsername($data['username'])){

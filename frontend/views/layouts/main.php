@@ -26,7 +26,15 @@ use yii\helpers\Url;
                 </div>
             </div>
         </div>
-        <div class="top"></div>
+        <div class="top">           
+            <div class="logo"></div>
+            <div class="g-search">
+                <form action="" method="get">
+                    <input type="text" name="keywords" id="keywords" placeholder="请输入搜索关键字">
+                    <input class="btn" type="submit" value="搜索">
+                </form>                
+            </div>
+        </div>
         <div class="menu">
             <ul class="clearfix">
                 <li>
@@ -51,17 +59,7 @@ use yii\helpers\Url;
 <?php $this->beginBody() ?>
 <?= $content ?>
 <?php $this->endBody() ?>
-<footer class="footer">    
-    <div class="footer-wrap">
-        <div class="link">
-            <a href="">关于debugphp</a>
-            <a href="">联系我们</a>
-            <a href="">网站地图</a>
-        </div>
-        <p class="copyright">Copyright © 2017-2017 <a href="">www.debugphp.com</a>  All Rights Reserved</p>
-        <p class="copyright">皖ICP备15003242号-1</p>
-    </div>
-</footer>
+<?php echo $this->render('footer')?>
 </body>
 </html>
 <?php $this->endPage() ?>

@@ -10,9 +10,16 @@ header{height: 100px;}
 .logo{float: left;width: 400px;height: 100px;background: url(../images/logo.png) no-repeat;}
 .page-func{float: left;height: 25px;line-height: 25px;padding-left: 10px;margin: 37.5px 0 0 0;font-size: 24px;color: #666;border-left: 1px solid #ddd;}
 
-.register-wrap{background-color: #f8f8f8;box-sizing: border-box;padding: 40px 0;}
-
-.register-form{width: 1100px;margin: auto;}
-.register-form li{height: 35px;}
-.register-form li span{display: inline-block;}
-.register-form input{height: 30px;box-sizing: border-box;padding-left: 5px;outline: none;}
+.register-wrap{background-color: #f8f8f8;box-sizing: border-box;padding: 40px 0;overflow: hidden;}
+.register-box{width: 1100px;margin: auto;overflow: hidden;}
+.desc{float: left;width: 700px;height: 380px;}
+.desc img{display: block;margin: 40px auto 0 auto;width: 450px;height: 300px;border-radius: 50px;}
+.register-form{width: 400px;height: 380px;margin: auto;float: left;background-color: #fff;}
+.register-form li{min-height: 45px;}
+.register-form li span{display: inline-block;width: 100px;height: 30px;line-height: 30px;text-align: right;box-sizing: border-box;padding-right: 10px;float: left;}
+.register-form li label.error{display: block;line-height: 25px;padding-left: 100px;color: red;}
+.register-form input{width: 250px;height: 30px;box-sizing: border-box;padding-left: 5px;outline: none;border: 1px solid #ddd;}
+.submit-btn-container{padding: 15px 0 15px 40px;}
+.submit-btn-container input{width: 320px;height: 40px;display: block;background-color: #f54343;border: none;color: #fff;float: left;}
+.login-btn{padding: 10px 45px 10px 45px;text-align: right;}
+.login-btn a{text-decoration: underline;}
