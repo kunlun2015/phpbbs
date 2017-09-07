@@ -69,9 +69,15 @@ class RegisterController extends AppController
         if($user->getUserByUsername($data['username'])){
             $this->jsonExit(-1, '用户名已被注册');
         }
+        if(!$data['email']){
+            $this->jsonExit(-1, '邮箱不能为空');
+        }
+        if(!$data['password']){
+            $this->jsonExit(-1, '登陆密码不能为空');
+        }
         if($user->insert($data)){
             //发送激活邮件
-
+            
             $this->jsonExit(0, '恭喜您注册成功，请登陆您的邮箱激活账户！');
         }else{
             //注册失败邮件提醒并记录日志

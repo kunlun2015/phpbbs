@@ -40,7 +40,18 @@ class User extends CommonModel
     {
         $transaction = $this->db->beginTransaction();
         try {
-            $this->db->createCommand()->insert('{{%users}}', $data)->execute();
+            $this->db->createCommand()->insert('{{%users}}', [
+                    'username' => $data['username'],
+                    'mobile' => $data['mobile'],
+                    'email' => $data['email']
+                ])->execute();
+            $uid = $this->db->getLastInsertId();
+            $encrypt = $this->randString(8);
+            $this->db->createCommand()->insert('{{%login_psd}}', [
+                    'uid' => $uid,
+                    'password' => $this->genPassword($data['password'], $encrypt),
+                    'encrypt' => $encrypt
+                ])->execute();
             $transaction->commit();
             return true;
         } catch (\Exception $e) {

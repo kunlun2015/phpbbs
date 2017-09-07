@@ -20,11 +20,8 @@ class Login extends CommonModel{
             return -1;
         }
         $passwordSaved = $this->db->createCommand('select password, encrypt from {{%login_psd}} where uid = :uid', ['uid' => $this->user['id']])->queryOne();
-        if(!$password){
-            return -2;
-        }
         if(!$this->verifyPassword($password, $passwordSaved['password'], $passwordSaved['encrypt'])){
-            return -3;
+            return -2;
         }
         $this->loginSuccess($user_ip);
         $this->userLoginStatusKeep();
