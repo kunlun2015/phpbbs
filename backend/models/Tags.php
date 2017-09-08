@@ -27,9 +27,24 @@ class Tags extends CommonModel
         return $this->db->createCommand()->update('{{%tags}}', $data, ['id' => $id])->execute();
     }
 
+    /**
+     * 标签详情
+     * @param int $id 标签id
+     * @return array
+     */
     public function detail($id)
     {
         return $this->db->createCommand('select id, cate, name, nums, remarks, create_at, created from {{%tags}} where id = :id', ['id' => $id])->queryOne();
+    }
+
+    /**
+     * 输出分类标签
+     * @param int $cate 分类id
+     * @return array
+     */
+    public function cateTags($cate)
+    {
+        return $this->db->createCommand('select id, name, nums from {{%tags}} where cate = :cate', ['cate' => $cate])->queryAll();
     }
 
     /**
