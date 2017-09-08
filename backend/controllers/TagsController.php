@@ -23,7 +23,7 @@ class TagsController extends AdminController
         $pageSize = 10;
         $data['list'] = $tags->tagsList($cate, $pageSize, $page, $totalPage);
         $data['pagination'] = $tags->pagination($totalPage, $page, Url::to(['/tags', 'page' => 'PAGENUMPLACEHOLDER']), 10);   
-        return $this->render('index');
+        return $this->render('index', $data);
     }
 
     /**
@@ -32,6 +32,16 @@ class TagsController extends AdminController
     public function actionAdd()
     {
         return $this->render('add');
+    }
+
+    /**
+     * 编辑标签
+     */
+    public function actionEdit($id)
+    {
+        $tags = new Tags;
+        $data['detail'] = $tags->detail($id);
+        return $this->render('edit', $data);
     }
 
     /**
@@ -55,6 +65,19 @@ class TagsController extends AdminController
                     $this->jsonExit(0, '标签添加成功', ['url' => url::to(['/tags'])]);
                 }else{
                     $this->jsonExit(-1, '标签添加失败');
+                }
+                break;
+
+            case 'edit':
+                $data = [
+                    'name' => $this->request->post('name'),
+                    'remarks' => $this->request->post('remarks')
+                ];
+                $id = $this->request->post('id');
+                if($tags->update($data, $id) !== false){
+                    $this->jsonExit(0, '标签编辑成功', ['url' => url::to(['/tags'])]);
+                }else{
+                    $this->jsonExit(-1, '标签编辑失败');
                 }
                 break;
             

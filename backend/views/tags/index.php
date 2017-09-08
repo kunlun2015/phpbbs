@@ -56,13 +56,26 @@ use yii\helpers\Url;
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php foreach ($list as $k => $v) {?>
+                        <tr>
+                            <td><?=$v['id']?></td>
+                            <td><?=$v['cate']?></td>
+                            <td><?=$v['name']?></td>
+                            <td><?=$v['nums']?></td>
+                            <td><?=$v['create_at']?></td>
+                            <td><?=$v['created']?></td>
+                            <td>
+                                <a href="<?=Url::to(['tags/edit', 'id' => $v['id']])?>" class="btn btn-sm btn-outline green"> 编辑 </a>
+                            </td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<div class="row kl-pagination"><?=$pagination?></div>
 <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['category/save']); ?>">
 <?php 
     $this->registerJs('

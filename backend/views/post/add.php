@@ -73,6 +73,12 @@ use yii\helpers\Url;
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-3 control-label">标签</label>
+                            <div class="col-md-9">
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-3 control-label">置顶</label>
                             <div class="col-md-9">
                                 <div class="icheck-inline">

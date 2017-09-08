@@ -27,6 +27,18 @@ class Tags extends CommonModel
         return $this->db->createCommand()->update('{{%tags}}', $data, ['id' => $id])->execute();
     }
 
+    public function detail($id)
+    {
+        return $this->db->createCommand('select id, cate, name, nums, remarks, create_at, created from {{%tags}} where id = :id', ['id' => $id])->queryOne();
+    }
+
+    /**
+     * 标签列表
+     * @param int $cate 分类
+     * @param int $pageSize 每页记录数
+     * @param int $page 页码
+     * @param int $totalPage 总页数
+     */
     public function tagsList($cate, $pageSize, $page, &$totalPage)
     {
         $offset = ($page - 1)*$pageSize;
