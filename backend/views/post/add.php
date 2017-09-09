@@ -85,13 +85,13 @@ use yii\helpers\Url;
                                     <label>
                                         <input type="radio" name="display_order" checked class="icheck" value="0"> 正常
                                     </label>
-                                    <label>
-                                        <input type="radio" name="display_order" class="icheck" value="1"> 分类置顶
+                                    <label title="在栏目置顶显示">
+                                        <input type="radio" name="display_order" class="icheck" value="1"> 栏目置顶
                                     </label>
-                                    <label>
-                                        <input type="radio" name="display_order" class="icheck" value="2"> 版块置顶
+                                    <label title="在类别置顶显示">
+                                        <input type="radio" name="display_order" class="icheck" value="2"> 分类置顶
                                     </label>
-                                    <label>
+                                    <label title="全局置顶">
                                         <input type="radio" name="display_order" class="icheck" value="3"> 全局置顶
                                     </label>
                                 </div>

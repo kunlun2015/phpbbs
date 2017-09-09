@@ -17,4 +17,10 @@ class CommonModel extends \common\models\CommonModel
     {
         $this->db = Yii::$app->db;
     }
+
+    //获取总页数
+    protected function getTotalPage($sql, $pageSize){
+        $rst = $this->db->createCommand($sql)->queryOne();
+        return ceil($rst['count(*)']/$pageSize);
+    }
 }

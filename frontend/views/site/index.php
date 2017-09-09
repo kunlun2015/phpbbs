@@ -139,25 +139,13 @@
     <div class="recommend-r">
         <div class="category">
             <div class="title"><span>热门标签</span></div>
-            <div class="hot-tags">
-                <span>
-                    <a href="">php高级编程</a>
-                </span>
-                <span>
-                    <a href="">jquery</a>
-                </span>
-                <span>
-                    <a href="">Mysql主从</a>
-                </span>
-                <span>
-                    <a href="">环境搭建</a>
-                </span>
-                <span>
-                    <a href="">php7</a>
-                </span>
-                <span>
-                    <a href="">php高级编程</a>
-                </span>
+            <div class="hot-tags">                
+                <a href=""><span>php高级编程</span></a>
+                <a href=""><span>jquery</span></a>
+                <a href=""><span>Mysql主从</span></a>
+                <a href=""><span>环境搭建</span></a>
+                <a href=""><span>php7</span></a>
+                <a href=""><span>php高级编程</span></a>
             </div>
         </div>
         <div class="category">
