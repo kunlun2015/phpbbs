@@ -33,6 +33,12 @@ class AppController extends Controller {
         return true;
     }
 
+    //json数据返回
+    protected function jsonExit($code, $msg, $data = array()){
+        $return = array('code' => $code, 'msg' => $msg, 'data' => $data);
+        exit(json_encode($return));
+    }
+
     /**
      * 展示提示信息页面
      * @param array $params

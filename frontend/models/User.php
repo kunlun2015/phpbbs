@@ -56,11 +56,11 @@ class User extends CommonModel
             return true;
         } catch (\Exception $e) {
             $transaction->rollBack();
-            //throw $e;
+            throw $e;
             return false;
         } catch (\Throwable $e) {
             $transaction->rollBack();
-            //throw $e;
+            throw $e;
             return false;
         }
     }
