@@ -11,6 +11,7 @@ use Yii;
 use yii\web\Controller;
 use backend\models\Post;
 use backend\models\Category;
+use backend\models\Tags;
 use yii\helpers\Url;
 
 class PostController extends AdminController
@@ -36,7 +37,9 @@ class PostController extends AdminController
     public function actionAdd()
     {
         $category = new Category;
+        $tags = new Tags;
         $data['mainCate'] = $category->subCateList(0);
+        $data['tags'] = $tags->cateTags(1);
         return $this->render('add', $data);
     }
 
@@ -44,6 +47,7 @@ class PostController extends AdminController
     {
         $data['detail'] = $this->posts->detail($id);
         $category = new Category;
+        $tags = new Tags;
         if($data['detail']['fid'] == $data['detail']['lid']){
             $data['cate'] = $category->subCateList(0);
         }else{
@@ -51,6 +55,8 @@ class PostController extends AdminController
         }
         $cate = $category->categoryLevelByLastLevel($data['detail']['lid']);
         $data['cateList'] = $category->categoryLevelList($cate);
+        $data['tags'] = $tags->cateTags(1);
+        $data['postTags'] = $this->posts->postTags($id);
         return $this->render('edit', $data);
     }
 
@@ -82,7 +88,8 @@ class PostController extends AdminController
                     'posts' => $this->request->post('posts'),
                     'display_order' => $this->request->post('display_order'),
                     'author' => $this->session->get('user')['username'],
-                    'authorid' => $this->session->get('user')['id']
+                    'authorid' => $this->session->get('user')['id'],
+                    'tags' => $this->request->post('tags') ? $this->request->post('tags') : []
                 ];
                 $rst = $this->posts->addPost($data);
                 if($rst){
@@ -104,7 +111,8 @@ class PostController extends AdminController
                     'thumbnail' => $this->request->post('thumbnail'),
                     'abstract' => $this->request->post('abstract'),
                     'posts' => $this->request->post('posts'),
-                    'display_order' => $this->request->post('display_order')
+                    'display_order' => $this->request->post('display_order'),
+                    'tags' => $this->request->post('tags') ? $this->request->post('tags') : []
                 ];
                 $rst = $this->posts->updatePost($id, $data);
                 if($rst){

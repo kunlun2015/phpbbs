@@ -33,6 +33,12 @@ class Post extends CommonModel
                 'title' => $data['title'],
                 'posts' => $data['posts']
             ])->execute();
+            //插入标签
+            $batchInsertData = [];
+            foreach ($data['tags'] as $k => $v) {
+                array_push($batchInsertData, ['pid' => $bid, 'tags_id' => $v]);
+            }
+            $this->db->createCommand()->batchInsert('{{%post_tags}}', ['pid', 'tags_id'], $batchInsertData)->execute();
             $transaction->commit();
             return true;
         } catch (\Exception $e) {
@@ -65,6 +71,13 @@ class Post extends CommonModel
                 'title' => $data['title'],
                 'posts' => $data['posts']
             ], ['bid' => $id])->execute();
+            //删除原有标签，插入新标签
+            $this->db->createCommand()->delete('{{%post_tags}}', ['pid' => $id])->execute();
+            $batchInsertData = [];
+            foreach ($data['tags'] as $k => $v) {
+                array_push($batchInsertData, ['pid' => $id, 'tags_id' => $v]);
+            }
+            $this->db->createCommand()->batchInsert('{{%post_tags}}', ['pid', 'tags_id'], $batchInsertData)->execute();
             $transaction->commit();
             return true;
         } catch (\Exception $e) {
@@ -104,5 +117,13 @@ class Post extends CommonModel
         $detail = $this->db->createCommand('select t1.id, t1.fid, t1.lid, t1.title, abstract, thumbnail, display_order, status, posts from {{%post_basic}} t1 left join {{%posts}} t2 on t1.id = t2.bid where id = :id',
             ['id' => $id])->queryOne();
         return $detail;
+    }
+
+    /**
+     * 获取文章标签
+     */
+    public function postTags($pid)
+    {
+        return $this->db->createCommand('select tags_id from {{%post_tags}} where pid = :pid', ['pid' => $pid])->queryColumn();
     }
 }

@@ -76,6 +76,18 @@ use yii\helpers\Url;
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-3 control-label">标签</label>
+                            <div class="col-md-9">
+                                <div class="icheck-inline">
+                                    <?php foreach ($tags as $k => $v) { ?>
+                                    <label>
+                                        <input type="checkbox" name="tags[]" value="<?=$v['id']?>" <?php if(in_array($v['id'], $postTags)) echo 'checked'; ?> class="icheck"> <?=$v['name']?>
+                                    </label>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-3 control-label">置顶</label>
                             <div class="col-md-9">
                                 <div class="icheck-inline">

@@ -14,17 +14,17 @@ use yii\helpers\Url;
 class AdminController extends CommonController{
 
     public function init(){
-        parent::init();
-        //登录控制
-        if(!$this->session->get('user')){
-            return $this->redirect(Url::to(['/login'], true), 301);
-        }
+        parent::init();        
         $userMenuLevel = (new \backend\models\Login)->userAuthorityMenuLevel($this->session->get('user')['id']);
         Yii::$app->view->params['userMenuLevel'] = $userMenuLevel;    
     }
 
     //菜单权限判断
     public function beforeAction($action){
+        //登录控制
+        if(!$this->session->get('user')){
+            return $this->redirect(Url::to(['/login'], true), 301);
+        }
         $controller = Yii::$app->controller->id;
         $method     = Yii::$app->controller->action->id;
         $login = new \backend\models\Login;
