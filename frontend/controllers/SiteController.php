@@ -11,16 +11,20 @@ use Yii;
 use yii\web\Controller;
 use yii\helpers\Url;
 use frontend\models\Index;
+use frontend\models\Posts;
 use yii\web\NotFoundHttpException;
 
 class SiteController extends AppController{
 
     private $indexModel;
+    private $posts;
 
     public function init()
     {
         parent::init();
         $this->indexModel = new Index;
+        $this->posts = new Posts;
+
     }
 
     public function actionError()
@@ -41,6 +45,8 @@ class SiteController extends AppController{
     public function actionIndex()
     {
         $data['bannerList'] = $this->indexModel->bannerList($cateId=1);
+        //左侧文章列表
+        $leftList = $this->posts->recommendCateList(1, 10, 1, $totalPage);
         return $this->render('index', $data);
     }
 

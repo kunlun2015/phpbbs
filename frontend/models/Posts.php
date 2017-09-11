@@ -14,18 +14,18 @@ class Posts extends CommonModel
 
     /**
      * 推荐分类文章列表
-     * @param int $type 推荐类型1：首页右上区域，2：首页右上下取悦，3：banner写列表，4：首页中列表
+     * @param int $type 推荐类型1：首页左侧,2首页左侧上，3：首页左侧上4：首页左侧下
      * 
      */
-    public function recommendCateList($type, $pageSize, $page, &$totalPage)
+    public function recommendCateList($recommendType, $pageSize, $page, &$totalPage)
     {
         $offset = ($page - 1)*$pageSize;
-        $list = $this->db->createCommand('select id, author, title, abstract, thumbnail, views from {{%post_basic}} where type = :type and status = 0 order by id desc limit :offset, :pageSize', [
-                'type' => $type,
+        $list = $this->db->createCommand('select id, author, title, abstract, thumbnail, views from {{%post_basic}} where recommend_type = :type and status = 0 order by id desc limit :offset, :pageSize', [
+                'type' => $recommendType,
                 'offset' => $offset,
                 'pageSize' => $pageSize
             ])->queryAll();
-        $sqlTotal = 'select count(*) from {{%post_basic}} where type = '.$type.' and status = 0';
+        $sqlTotal = 'select count(*) from {{%post_basic}} where recommend_type = '.$recommendType.' and status = 0';
         $totalPage = $this->getTotalPage($sqlTotal, $pageSize);
         return $list;
     }
