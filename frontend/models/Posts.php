@@ -20,7 +20,7 @@ class Posts extends CommonModel
     public function recommendCateList($recommendType, $pageSize, $page, &$totalPage)
     {
         $offset = ($page - 1)*$pageSize;
-        $list = $this->db->createCommand('select id, author, title, abstract, thumbnail, views from {{%post_basic}} where recommend_type = :type and status = 0 order by id desc limit :offset, :pageSize', [
+        $list = $this->db->createCommand('select id, author, title, abstract, thumbnail, views, create_at from {{%post_basic}} where recommend_type = :type and status = 0 order by id desc limit :offset, :pageSize', [
                 'type' => $recommendType,
                 'offset' => $offset,
                 'pageSize' => $pageSize

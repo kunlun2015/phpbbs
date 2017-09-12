@@ -1,5 +1,6 @@
 <?php
     $this->title = 'Debug PHP';
+    use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
     \frontend\assets\AppAsset::addCss($this, 'static/libs/swiper/css/swiper.min.css');
     \frontend\assets\AppAsset::addScript($this, 'static/libs/swiper/js/swiper.jquery.min.js');
@@ -71,7 +72,26 @@
 <div class="category-recommend clearfix">
     <div class="recommend-l">        
         <ul class="article-list">
+            <?php foreach ($leftList as $k => $v) {?>
             <li>
+                <?php if($v['thumbnail']){ ?>
+                <div class="thumb">
+                    <a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><img src="<?=Yii::$app->params['imgUrl']?><?=$v['thumbnail']?>" alt="<?=$v['title']?>"></a>
+                </div>
+                <?php } ?>
+                <div class="article-info">
+                    <p class="title"><a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=$v['title']?></a></p>
+                    <p class="abstract"><?=$v['abstract']?></p>
+                    <div class="attr">
+                        <span>来源：管理员</span>
+                        <span>时间：<?=$v['create_at']?></span>
+                        <span>阅读数：<?=$v['views']?></span>
+                        <span>作者：<?=$v['author']?></span>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+            <!-- <li>
                 <div class="thumb">
                     <a href=""><img src="http://static.bbs.nubia.cn/portal/201708/29/101154jwxq1odnogs1zfhv.jpg" alt=""></a>
                 </div>
@@ -133,7 +153,7 @@
                         <span>作者：Kunlun</span>
                     </div>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
     <div class="recommend-r">

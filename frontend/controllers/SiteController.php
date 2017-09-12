@@ -46,7 +46,7 @@ class SiteController extends AppController{
     {
         $data['bannerList'] = $this->indexModel->bannerList($cateId=1);
         //左侧文章列表
-        $leftList = $this->posts->recommendCateList(1, 10, 1, $totalPage);
+        $data['leftList'] = $this->posts->recommendCateList(1, 10, 1, $totalPage);
         return $this->render('index', $data);
     }
 

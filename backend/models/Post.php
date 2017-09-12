@@ -120,6 +120,17 @@ class Post extends CommonModel
     }
 
     /**
+     * 推荐文章
+     * @param int $pid 文章id
+     * @param int $recommendType 推荐位置 1:首页左侧
+     * @return boolen
+     */
+    public function recommendPost($pid, $recommendType)
+    {
+        return $this->db->createCommand()->update('{{%post_basic}}', ['recommend_type' => $recommendType], ['id' => $pid])->execute();
+    }
+
+    /**
      * 获取文章标签
      */
     public function postTags($pid)

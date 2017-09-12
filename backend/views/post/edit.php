@@ -129,4 +129,6 @@ use yii\helpers\Url;
 <?php  \backend\assets\AppAsset::addScript($this, 'static/plugin/ueditor1_4_3_3/ueditor.all.js'); ?>
 <?php  \backend\assets\AppAsset::addCss($this, 'static/global/plugins/icheck/skins/all.css'); ?>
 <?php  \backend\assets\AppAsset::addScript($this, 'static/global/plugins/icheck/icheck.min.js'); ?>
+<?php  \backend\assets\AppAsset::addScript($this, 'static/plugin/jquery-file-upload/jquery.ui.widget.js'); ?>
+<?php  \backend\assets\AppAsset::addScript($this, 'static/plugin/jquery-file-upload/jquery.fileupload.js'); ?>
 <?php  \backend\assets\AppAsset::addScript($this, 'static/js/post.js'); ?>

@@ -132,6 +132,16 @@ class PostController extends AdminController
                     $this->jsonExit(-1, '文件上传失败，请重试！');
                 }
                 break;
+
+            case 'recommend':
+                $pid = $this->request->post('pid');
+                $recommendType = $this->request->post('recommend_type');
+                if($this->posts->recommendPost($pid, $recommendType)){
+                    $this->jsonExit(0, '文章推荐成功');
+                }else{
+                    $this->jsonExit(-1, '文章推荐失败');
+                }
+                break;
             
             default:
                 # code...
