@@ -143,5 +143,44 @@ $(document).on('change', "select[name='cate[]']", function () {
                 console.log(res.msg);
             }
         }
-    })    
+    })
+})
+
+//推荐文章
+$('.recommend').click(function(){
+    var _this = $(this);
+    layer.open({
+        type: 2,
+        title: '推荐文章',
+        shadeClose: false,
+        shade: 0.8,
+        area: ['500px', '320px'],
+        content: _this.attr('href')
+    });
+    return false;
+})
+//关闭推荐层
+$('.close-layer').click(function(){
+    parent.layer.close(parent.layer.getFrameIndex(window.name));
+    return false;
+})
+//推荐提交
+$('.submit-recommend').click(function(){
+    var recommendType = $("input[name=display_order]:checked").val();
+    $.ajax({
+        url: $("input[name=request_url]").val(),
+        dataType: 'json',
+        type: 'post',
+        data: $('.recommend-post-form').serialize(),
+        success: function(res){
+            if(res.code == 0){
+                layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(){
+                    layer.closeAll();
+                });
+            }else{
+                layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+            }
+        }
+    })
+    return false;
 })

@@ -60,6 +60,13 @@ class PostController extends AdminController
         return $this->render('edit', $data);
     }
 
+    public function actionRecommend($id)
+    {
+        $this->layout = 'iframe';
+        $recommendType = $this->posts->getRecommendType($id);
+        return $this->render('recommend', $recommendType);
+    }
+
     public function actionAction()
     {
         $act = $this->request->post('act');

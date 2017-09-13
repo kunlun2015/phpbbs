@@ -87,8 +87,9 @@ use yii\helpers\Url;
                             </td>
                             <td><?=$v['create_at']?></td>
                             <td>
-                                <a href="javascript:;" class="btn btn-sm btn-outline grey-salsa"> 查看 </a>
+                                <a href="" class="btn btn-sm btn-outline grey-salsa"> 查看 </a>
                                 <a href="<?=Url::to(['post/edit', 'id' => $v['id']])?>" class="btn btn-sm btn-outline green"> 编辑 </a>
+                                <a href="<?=Url::to(['post/recommend', 'id' => $v['id']])?>" class="btn btn-sm btn-outline green recommend"> 推荐 </a>
                                 <a href="javascript:;" class="btn btn-sm btn-outline red"> 删除 </a>
                             </td>
                         </tr>

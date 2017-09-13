@@ -14,7 +14,7 @@ class Posts extends CommonModel
 
     /**
      * 推荐分类文章列表
-     * @param int $type 推荐类型1：首页左侧,2首页左侧上，3：首页左侧上4：首页左侧下
+     * @param int $type 推荐类型1：首页左侧,2首页左侧上，3：首页上右侧上4：首页上右侧下
      * 
      */
     public function recommendCateList($recommendType, $pageSize, $page, &$totalPage)

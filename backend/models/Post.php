@@ -131,6 +131,16 @@ class Post extends CommonModel
     }
 
     /**
+     * 获取文章推荐类型
+     * @param int $pid 文章id
+     * @return int recommendType
+     */
+    public function getRecommendType($pid)
+    {
+        return $this->db->createCommand('select recommend_type from {{%post_basic}} where id = :id', ['id' => $pid])->queryColumn();
+    }
+
+    /**
      * 获取文章标签
      */
     public function postTags($pid)
