@@ -76,3 +76,15 @@ a.cate-a{color: #f54343 !important;}
 .bdsharebuttonbox a.bds_sqq{background-position: 0 -82px !important;}
 .bdsharebuttonbox a.bds_qzone{background-position: 0 -123px !important;}
 /*detail*/
+
+.pic-style{position: relative;background-color: #000;}
+.pic-style-text{position: absolute;top: 0;left: 0;width: 100%;height: 100%;text-transform: uppercase;backface-visibility: hidden;display: block;}
+.pic-style-text::before{top: 15px;right: 10px;bottom: 15px;left: 10px;border-top: 1px solid #fff;border-bottom: 1px solid #fff;-webkit-transform: scale(0,1);transform: scale(0,1);-webkit-transform-origin: 0 0;transform-origin: 0 0;padding: 3em;font-size: 90%;
+}
+.pic-style-text::after{top: 10px;right: 15px;bottom: 10px;left: 15px;border-right: 1px solid #fff;border-left: 1px solid #fff;-webkit-transform: scale(1,0);transform: scale(1,0);-webkit-transform-origin: 100% 0;transform-origin: 100% 0;}
+.pic-style-text::before,.pic-style-text::after{position: absolute;content: '';opacity: 0;pointer-events: none;box-sizing: border-box;}
+.pic-style-text p{display: block;height: 100%;line-height: 100%;text-transform: none;opacity: 0;-webkit-transform: translate3d(0,-10px,0);transform: translate3d(0,-10px,0);letter-spacing: 1px;font-size: 68.5%;-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;transition: opacity 0.35s,transform 0.35s;line-height: 120px;color: #fff;text-align: center;}
+.pic-style:hover .pic-style-text::before,.pic-style:hover .pic-style-text::after {opacity: 1;-webkit-transform: scale(1);transform: scale(1);-webkit-transition: opacity 0.5s, -webkit-transform 0.5s;transition: opacity 0.5s, transform 0.55s;}
+.pic-style:hover h2,.pic-style:hover p {opacity: 1;-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+.pic-style a{z-index: 1000;text-indent: 200%; white-space: nowrap;font-size: 0;opacity: 0;position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.pic-style:hover img{opacity: .5;-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}

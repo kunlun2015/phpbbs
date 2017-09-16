@@ -55,8 +55,12 @@
             <?php foreach ($leftList as $k => $v) {?>
             <li>
                 <?php if($v['thumbnail']){ ?>
-                <div class="thumb">
-                    <a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><img src="<?=Yii::$app->params['imgUrl']?><?=$v['thumbnail']?>" alt="<?=$v['title']?>"></a>
+                <div class="thumb pic-style">                   
+                    <img src="<?=Yii::$app->params['imgUrl']?><?=$v['thumbnail']?>" alt="<?=$v['title']?>">
+                    <div class="pic-style-text">
+                        <p><?=$v['lname']?></p>
+                        <a href="<?=Url::to(['/detail', 'id' => $v['id']])?>" target="_blank">debugphp.com</a>
+                    </div>
                 </div>
                 <?php } ?>
                 <div class="article-info">
