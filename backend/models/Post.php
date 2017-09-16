@@ -137,7 +137,7 @@ class Post extends CommonModel
      */
     public function getRecommendType($pid)
     {
-        return $this->db->createCommand('select recommend_type from {{%post_basic}} where id = :id', ['id' => $pid])->queryColumn();
+        return $this->db->createCommand('select recommend_type from {{%post_basic}} where id = :id limit 1', ['id' => $pid])->queryColumn();
     }
 
     /**

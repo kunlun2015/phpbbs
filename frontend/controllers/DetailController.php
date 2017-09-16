@@ -10,6 +10,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use frontend\models\Posts;
+use frontend\models\Tags;
 use common\widgets\Alert;
 
 class DetailController extends AppController {
@@ -30,6 +31,13 @@ class DetailController extends AppController {
         if(!$data['detail']){
             return $this->tipsPage(['msg' => '文章不存在']);
         }
+        //导航面包屑
+        $data['navTitleArr'] =$this->postsModel->categoryLevel($data['detail']['lid']);
+        $this->postsModel->postViewsIncrease($id);
+        //标签
+        $data['tagsList'] = (new Tags)->tagsList(1, 1, 10, $tagsToalPage);
+        //阅读排行
+        $data['readRankingList'] = $this->postsModel->postList(0, 0, '', 0, 'views', 'desc', 1, 10, $readRankingListTotalPage);
         return $this->render('detail', $data);
     }
 

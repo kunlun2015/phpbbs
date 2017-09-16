@@ -31,6 +31,7 @@ class PostController extends AdminController
         $data['title'] = $this->request->get('title');
         $page = intval($this->request->get('page', 1)) ? intval($this->request->get('page', 1)) : 1;
         $data['list'] = $this->posts->postsList($data['id'], $data['title'], $pageSize, $page, $totalPage);
+        $data['pagination'] = $this->posts->pagination($totalPage, $page, Url::to(['/post', 'page' => 'PAGENUMPLACEHOLDER']), 10);
         return $this->render('index', $data);
     }
 
@@ -63,8 +64,9 @@ class PostController extends AdminController
     public function actionRecommend($id)
     {
         $this->layout = 'iframe';
-        $recommendType = $this->posts->getRecommendType($id);
-        return $this->render('recommend', $recommendType);
+        $data['recommendType'] = $this->posts->getRecommendType($id);
+        $data['pid'] = $id;
+        return $this->render('recommend', $data);
     }
 
     public function actionAction()

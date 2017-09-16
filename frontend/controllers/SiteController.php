@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\helpers\Url;
 use frontend\models\Index;
 use frontend\models\Posts;
+use frontend\models\Tags;
 use yii\web\NotFoundHttpException;
 
 class SiteController extends AppController{
@@ -25,18 +26,7 @@ class SiteController extends AppController{
         $this->indexModel = new Index;
         $this->posts = new Posts;
 
-    }
-
-    public function actionError()
-    {
-        print_r(Yii::$app->errorHandler->exception);
-        $exception = Yii::$app->errorHandler->exception;
-        if($exception && isset($exception->statusCode) && $exception->statusCode === 404){
-            return $this->tipsPage('404');
-        }else{
-            return $this->tipsPage('500');
-        }
-    }
+    }    
 
     /**
      *首页
@@ -44,9 +34,20 @@ class SiteController extends AppController{
      */
     public function actionIndex()
     {
+        //轮播图
         $data['bannerList'] = $this->indexModel->bannerList($cateId=1);
         //左侧文章列表
-        $data['leftList'] = $this->posts->recommendCateList(1, 10, 1, $totalPage);
+        $data['leftList'] = $this->posts->recommendCateList(1, 10, 1, $leftTotalPage);
+        //左侧上文章列表
+        $data['leftTopList'] = $this->posts->recommendCateList(2, 10, 1, $leftTopTotalPage);
+        //首页上右侧上
+        $data['topRightTopList'] = $this->posts->recommendCateList(3, 2, 1, $topRightTopTotalPage);
+        //首页上右侧下
+        $data['topRightBottomList'] = $this->posts->recommendCateList(4, 8, 1, $topRightBottomListTotalPage);
+        //标签
+        $data['tagsList'] = (new Tags)->tagsList(1, 1, 10, $tagsToalPage);
+        //行业资讯
+        $data['industryNews'] = $this->posts->postList(21, 0, '', 0, '', '', 1, 10, $industryNewsTotalPage);
         return $this->render('index', $data);
     }
 

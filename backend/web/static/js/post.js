@@ -166,7 +166,11 @@ $('.close-layer').click(function(){
 })
 //推荐提交
 $('.submit-recommend').click(function(){
-    var recommendType = $("input[name=display_order]:checked").val();
+    var recommendType = $("input[name=recommend_type]:checked").val();
+    if(typeof(recommendType) === 'undefined'){
+        layer.alert('请选择要推荐到的位置', {title: siteName+'提示您：', icon: 2});
+        return false;
+    }
     $.ajax({
         url: $("input[name=request_url]").val(),
         dataType: 'json',
@@ -176,6 +180,7 @@ $('.submit-recommend').click(function(){
             if(res.code == 0){
                 layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(){
                     layer.closeAll();
+                    parent.layer.close(parent.layer.getFrameIndex(window.name));
                 });
             }else{
                 layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});

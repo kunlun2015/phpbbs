@@ -100,6 +100,7 @@ use yii\helpers\Url;
         </div>
     </div>
 </div>
+<div class="row kl-pagination"><?=$pagination?></div>
 <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['category/save']); ?>">
 <script> var page = 'indexPost'</script>
 <?php 
