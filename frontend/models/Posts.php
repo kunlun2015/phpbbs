@@ -76,6 +76,12 @@ class Posts extends CommonModel
         $sql .= ' limit :offset, :pageSize';
         $list = $this->db->createCommand($sql, ['offset' => $offset, 'pageSize' => $pageSize])->queryAll();
         $totalPage = $this->getTotalPage($sqlTotal, $pageSize);
+        foreach ($list as $k => $v) {
+            $fidInfo = $this->getPostCateById($v['fid']);
+            $lidInfo = $this->getPostCateById($v['lid']);
+            $list[$k]['fname'] = $fidInfo['name'];
+            $list[$k]['lname'] = $lidInfo['name'];
+        }
         return $list;
     }
 
