@@ -39,13 +39,13 @@ use yii\helpers\Url;
                         <div class="form-group">
                             <label class="col-md-3 control-label">标题</label>
                             <div class="col-md-9">
-                                <input type="text" name="title" class="form-control" placeholder="标题名称">
+                                <input type="text" name="title" class="form-control" placeholder="标题名称" value="<?php if(isset($detail['title'])) echo $detail['title']; ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">内容</label>
                             <div class="col-md-9">
-                                <script id="container" name="content" type="text/plain"></script>
+                                <script id="container" name="content" type="text/plain"><?php if(isset($detail['content'])) echo $detail['content']; ?></script>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,10 @@ use yii\helpers\Url;
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="act" value="add">
+                    <input type="hidden" name="act" value="<?php if(isset($detail['id'])){echo 'edit';}else{echo 'add';} ?>">
+                    <?php if(isset($detail['id'])){ ?>
+                    <input type="hidden" name="id" value="<?=$detail['id']?>">
+                    <?php } ?>
                     <input type="hidden" id="csrf" name="<?= \Yii::$app->request->csrfParam; ?>" value="<?= \Yii::$app->request->getCsrfToken();?>">
                     <input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['/site-info/action']); ?>">
                 </form>

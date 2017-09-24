@@ -51,7 +51,7 @@ $(document).ready(function () {
                 success: function(res){
                     if(res.code == 0){
                         layer.alert(res.msg, {title: siteName+'提示您：', icon: 1}, function(index){
-                            window.lcoation.href = res.data.url;
+                            window.location.href = res.data.url;
                         });
                     }else{
                         layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});

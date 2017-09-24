@@ -43,6 +43,7 @@
             </li>
             <?php } ?>
         </ul>
+        <div class="btn-loading-more loading">加载更多</div>
     </div>
     <div class="right">
         <div class="category">

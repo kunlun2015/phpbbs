@@ -5,7 +5,7 @@
  * @date    2017-09-23 12:50:10
  * @version $Id$
  */
-$this->title = '';
+$this->title = '站点信息管理';
 use yii\helpers\Url;
 ?>
 <!-- BEGIN PAGE BAR -->
@@ -53,7 +53,15 @@ use yii\helpers\Url;
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php foreach ($list as $k => $v) { ?>
+                        <tr>
+                            <td><?=$v['id']?></td>
+                            <td><?=$v['title']?></td>
+                            <td><?=$v['created']?></td>
+                            <td><?=$v['create_at']?></td>
+                            <td><a href="<?=Url::to(['/site-info/add', 'id' => $v['id']])?>" class="btn btn-sm btn-outline green"> 编辑 </a></td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -72,7 +80,7 @@ use yii\helpers\Url;
                 },
                 columnDefs: [{
                     orderable: !1,
-                    targets: [0, 6]
+                    targets: [4]
                 }],
                 order: []
             });
