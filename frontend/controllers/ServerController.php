@@ -1,8 +1,8 @@
 <?php
 /**
- * php版块
+ * 服务器
  * @authors Amos (szhcool1129@sina.com)
- * @date    2017-09-23 12:21:06
+ * @date    2017-09-27 14:17:36
  * @version $Id$
  */
 
@@ -13,7 +13,7 @@ use yii\web\Controller;
 use frontend\models\Posts;
 use frontend\models\Tags;
 
-class PhpController extends AppController {
+class ServerController extends AppController {
 
     private $postsModel;
 

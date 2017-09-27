@@ -16,10 +16,20 @@ window._bd_share_config={
     },
     "share":{}
 };
+var apiUrl = '';
 with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 $(document).ready(function(){
     $('.btn-loading-more').click(function(){
-        
+        var _this = $(this);
+        $.ajax({
+            url: api+'post/list',
+            type: 'post',
+            dataType: 'json',
+            data: {fid: _this.data('fid'), page: _this.data('page')+1},
+            success: function(res){
+                
+            }
+        })
         return false;
     })
 })

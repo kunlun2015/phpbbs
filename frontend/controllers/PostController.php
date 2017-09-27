@@ -11,13 +11,37 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use frontend\models\Posts;
-use frontend\models\Tags;
 
 class PostController extends AppController {
+
+    private $posts;
+
+    public function init()
+    {
+        parent::init();
+        $this->posts = new Posts;
+    }
 
     public function beforeAction()
     {
         return parent::beforeAction();
+    }
+
+    /**
+     * 公共列表返回
+     * @return [json]
+     */
+    public function actionList()
+    {
+        $fid = $this->request->post('fid');
+        $page = $this->request->post('page');
+        $pageSize = 10;
+        $postsList = $this->postsModel->postList($fid, $lid = 0, $title = 0, $displayOrder = 0, $orderBy = 'id', $sort = 'desc', $page, $pageSize, $totalPage);
+        if($postsList){
+            $this->jsonExit(0, 'ok', ['list' => $postsList]);
+        }else{
+            $this->jsonExit(-1, 'failed');
+        }
     }
 
 }
