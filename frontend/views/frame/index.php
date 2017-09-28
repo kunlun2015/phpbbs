@@ -9,7 +9,7 @@
     $this->title = 'php框架';
     use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
-    \frontend\assets\AppAsset::addScript($this, 'static/js/detail.js');
+    \frontend\assets\AppAsset::addScript($this, 'static/js/post.js');
 ?>
 <div class="wrap detail">
     <ul class="nav-title">

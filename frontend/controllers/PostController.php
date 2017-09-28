@@ -22,9 +22,9 @@ class PostController extends AppController {
         $this->posts = new Posts;
     }
 
-    public function beforeAction()
+    public function beforeAction($action)
     {
-        return parent::beforeAction();
+        return parent::beforeAction($action);
     }
 
     /**
@@ -35,10 +35,11 @@ class PostController extends AppController {
     {
         $fid = $this->request->post('fid');
         $page = $this->request->post('page');
-        $pageSize = 10;
-        $postsList = $this->postsModel->postList($fid, $lid = 0, $title = 0, $displayOrder = 0, $orderBy = 'id', $sort = 'desc', $page, $pageSize, $totalPage);
+        $pageSize = 5;
+        $postsList = $this->posts->postList($fid, $lid = 0, $title = 0, $displayOrder = 0, $orderBy = 'id', $sort = 'desc', $page, $pageSize, $totalPage);
         if($postsList){
-            $this->jsonExit(0, 'ok', ['list' => $postsList]);
+            $htmlStr = $this->renderPartial('/php/listTemplate', ['postsList' => $postsList]);
+            $this->jsonExit(0, 'ok', ['html' => $htmlStr]);
         }else{
             $this->jsonExit(-1, 'failed');
         }
