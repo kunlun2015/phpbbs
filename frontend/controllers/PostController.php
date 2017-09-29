@@ -35,7 +35,7 @@ class PostController extends AppController {
     {
         $fid = $this->request->post('fid');
         $page = $this->request->post('page');
-        $pageSize = 5;
+        $pageSize = 10;
         $postsList = $this->posts->postList($fid, $lid = 0, $title = 0, $displayOrder = 0, $orderBy = 'id', $sort = 'desc', $page, $pageSize, $totalPage);
         if($postsList){
             $htmlStr = $this->renderPartial('/php/listTemplate', ['postsList' => $postsList]);

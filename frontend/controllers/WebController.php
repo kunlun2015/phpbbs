@@ -25,11 +25,11 @@ class WebController extends AppController {
 
     public function actionIndex()
     {
-        $fid = 10;
+        $data['fid'] = 10;
         //导航面包屑
-        $data['navTitleArr'] =$this->postsModel->categoryLevel($fid);
+        $data['navTitleArr'] =$this->postsModel->categoryLevel($data['fid']);
         //posts list
-        $data['postsList'] = $this->postsModel->postList($fid, $lid = 0, $title = 0, $displayOrder = 0, $orderBy = 'id', $sort = 'desc', $page = 1, $pageSize = 10, $totalPage);
+        $data['postsList'] = $this->postsModel->postList($data['fid'], $lid = 0, $title = 0, $displayOrder = 0, $orderBy = 'id', $sort = 'desc', $page = 1, $pageSize = 10, $data['totalPage']);
         //标签
         $data['tagsList'] = (new Tags)->tagsList(1, 1, 10, $tagsToalPage);
         //阅读排行

@@ -31,7 +31,7 @@ $(document).ready(function(){
             dataType: 'json',
             data: {fid: _this.data('fid'), page: _this.data('page')+1},
             beforeSend: function(){
-                _this.text('加载中...');
+                _this.text('加载中...').addClass('loading');
             },
             success: function(res){
                 if(res.code == 0){
@@ -45,7 +45,7 @@ $(document).ready(function(){
                 }
             },
             complete: function(){
-                _this.text('加载更多');
+                _this.text('加载更多').removeClass('loading');
             }
         })
         return false;

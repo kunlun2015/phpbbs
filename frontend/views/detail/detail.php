@@ -6,7 +6,7 @@
  * @version $Id$
  */
 
-    $this->title = '详情';
+    $this->title = $detail['title'].'-debugphp';
     use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
     \frontend\assets\AppAsset::addScript($this, 'static/js/post.js');

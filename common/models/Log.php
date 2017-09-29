@@ -19,10 +19,7 @@ class Log extends CommonModel
 
     public function init()
     {
-        $this->logRootPath = Yii::$app->params['logRootPath'].Yii::$app->controller->module->id.'/';
-        $this->logFilePath = date('Ym').'/';
-        $this->logFileName = date('d').'.log';
-        $this->checkDir($this->logRootPath.$this->logFilePath);
+        
     }
 
     /**
@@ -49,6 +46,12 @@ class Log extends CommonModel
      */
     private function write()
     {
+        //初始化操作
+        $this->logRootPath = Yii::$app->params['logRootPath'].Yii::$app->controller->module->id.'/';
+        $this->logFilePath = date('Ym').'/';
+        $this->logFileName = date('d').'.log';
+        $this->checkDir($this->logRootPath.$this->logFilePath);
+
         $logInfo = [
             'time' => date('Y-m-d H:i:s'),
             'ip' => (new \yii\web\Request)->userIP,
