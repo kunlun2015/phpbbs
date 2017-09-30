@@ -14,6 +14,12 @@ use yii\helpers\Url;
     <meta charset="<?= Yii::$app->charset ?>">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+   <!--  <link rel="stylesheet" href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shCore.css">
+   
+   <link rel="stylesheet" href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shThemeDefault.css">
+   <script src="http://localhost/amos/phpbbs/backend/web/static/plugin/ueditor1_4_3_3/third-party/SyntaxHighlighter/shCore.js"></script>
+   <script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shCore.js"></script>
+   <script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushPhp.js"></script> -->
     <?php $this->head() ?>
 </head>
 <body>
@@ -60,6 +66,9 @@ use yii\helpers\Url;
 <?= $content ?>
 <?php $this->endBody() ?>
 <?php echo $this->render('footer')?>
+<script>
+SyntaxHighlighter.all();
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>
