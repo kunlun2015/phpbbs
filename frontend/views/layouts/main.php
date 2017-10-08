@@ -14,12 +14,11 @@ use yii\helpers\Url;
     <meta charset="<?= Yii::$app->charset ?>">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-   <!--  <link rel="stylesheet" href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shCore.css">
-   
-   <link rel="stylesheet" href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shThemeDefault.css">
-   <script src="http://localhost/amos/phpbbs/backend/web/static/plugin/ueditor1_4_3_3/third-party/SyntaxHighlighter/shCore.js"></script>
-   <script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shCore.js"></script>
-   <script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushPhp.js"></script> -->
+    <meta name="keywords" content="php,debugphp,调试php,php教程,php技术,php资讯,服务器,linux,mysql,php框架,web,前端开发,js,jquery" />
+    <meta name="description" content="debugphp是中国最大的php技术类分享平台，提供php等相关技术的分享、教程的演示、问题答疑以及互联网行业内资讯的快递等，旨在为php初学者及开发者提供一些常见问题的解决方案。" />
+    <meta name="author" content="debugphp" />
+    <meta name="copyright" content="Copyright 2017-<?=date('Y')?>. www.debugphp.com . All Rights Reserved." />
+    <meta name="application-name" content="debugphp" />
     <?php $this->head() ?>
 </head>
 <body>
@@ -66,9 +65,6 @@ use yii\helpers\Url;
 <?= $content ?>
 <?php $this->endBody() ?>
 <?php echo $this->render('footer')?>
-<script>
-SyntaxHighlighter.all();
-</script>
 </body>
 </html>
 <?php $this->endPage() ?>

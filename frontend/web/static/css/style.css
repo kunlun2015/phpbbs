@@ -65,7 +65,7 @@ a.cate-a{color: #f54343 !important;}
 .article-attr{margin-top: 10px; font-size: 14px;}
 .article-attr span{display: inline-block;margin-right: 15px;color: #999;}
 .article .abstract{font-size: 14px;line-height: 25px; padding: 10px 20px;margin-top: 10px; background-color: #f7f7f7;}
-.article .article-body{}
+.article .article-body{font-size: 14px;padding: 15px 10px;line-height: 22px;overflow: hidden;}
 .article .article-body img{max-width: 100%;}
 .detail .share-btn{height: 40px;margin-top: 30px;}
 .share-btn .bdsharebuttonbox{float: right;}
@@ -101,3 +101,5 @@ a.cate-a{color: #f54343 !important;}
 .btn-loading-more:hover{background-color: #f54343;color: #fff;}
 .loading{text-indent: -1000px;}
 .loading:after{display: inline-block;content: '';background: url(../images/icon-loading.gif) no-repeat;}
+
+.syntaxhighlighter{margin: 10px 0;}

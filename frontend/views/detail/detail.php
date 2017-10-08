@@ -11,8 +11,8 @@
     \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
     \frontend\assets\AppAsset::addCss($this, 'static/libs/syntaxHighlighter/shCore.css');
     \frontend\assets\AppAsset::addCss($this, 'static/libs/syntaxHighlighter/shThemeDefault.css');
-    \frontend\assets\AppAsset::addScript($this, 'static/libs/syntaxHighlighter/shCore.js');
-    \frontend\assets\AppAsset::addScript($this, 'static/libs/syntaxHighlighter/shAutoloader.js');
+    \frontend\assets\AppAsset::addScript($this, 'static/libs/syntaxHighlighter/script/shCore.js');
+    \frontend\assets\AppAsset::addScript($this, 'static/libs/syntaxHighlighter/script/shAutoloader.js');
     \frontend\assets\AppAsset::addScript($this, 'static/js/post.js');
 
 ?>
@@ -34,7 +34,7 @@
             <div class="abstract">
                 <strong>摘要：</strong><?=$detail['abstract']?> ...
             </div>
-            <div class="article-body syntaxhighlighter"><?=$detail['posts']?></div>
+            <div class="article-body"><?=$detail['posts']?></div>
         </div>
         <div class="share-btn">
             <div class="bdsharebuttonbox">
