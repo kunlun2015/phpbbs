@@ -47,7 +47,7 @@ class SiteController extends AppController{
         //标签
         $data['tagsList'] = (new Tags)->tagsList(1, 1, 10, $tagsToalPage);
         //行业资讯
-        $data['industryNews'] = $this->posts->postList(21, 0, '', 0, '', '', 1, 10, $industryNewsTotalPage);
+        $data['industryNews'] = $this->posts->postList(6, 0, '', 0, '', '', 1, 10, $industryNewsTotalPage);
         return $this->render('index', $data);
     }
 

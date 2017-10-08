@@ -25,7 +25,7 @@ class DbController extends AppController {
 
     public function actionIndex()
     {
-        $data['fid'] = 10;
+        $data['fid'] = 2;
         //导航面包屑
         $data['navTitleArr'] =$this->postsModel->categoryLevel($data['fid']);
         //posts list
