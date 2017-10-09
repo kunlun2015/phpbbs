@@ -12,6 +12,7 @@ li{list-style: none;}
 em, i{font-style: normal;}
 a{color: #2b2b2b;}
 a:hover{color: #f54343;}
+::selection{color: #fff;background-color: #f54343;}
 
 .mt-10{margin-top: 10px;}
 .ml-20{margin-left: 20px;}
