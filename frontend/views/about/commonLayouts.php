@@ -8,7 +8,7 @@
 
     $this->title = '关于debugphp';
     use yii\helpers\Url;
-    \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
+    \frontend\assets\AppAsset::addCss($this, 'css/style.css');
 ?>
 <div class="wrap">
     <?=$this->render('/layouts/commonPageLeftNav', ['title' => $title]);?>

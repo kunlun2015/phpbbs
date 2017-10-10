@@ -8,9 +8,9 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 \frontend\assets\AppAsset::register($this);
-\frontend\assets\AppAsset::addCss($this, 'static/css/register.css');
-\frontend\assets\AppAsset::addScript($this, 'static/libs/jquery/jquery.validate.min.js');
-\frontend\assets\AppAsset::addScript($this, 'static/js/register.js');
+\frontend\assets\AppAsset::addCss($this, 'css/register.css');
+\frontend\assets\AppAsset::addScript($this, 'libs/jquery/jquery.validate.min.js');
+\frontend\assets\AppAsset::addScript($this, 'js/register.js');
 $this->title = '用户注册';
 ?>
 <?php $this->beginPage() ?>

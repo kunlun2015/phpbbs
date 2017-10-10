@@ -8,9 +8,9 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 \frontend\assets\AppAsset::register($this);
-\frontend\assets\AppAsset::addCss($this, 'static/css/login.css');
-\frontend\assets\AppAsset::addScript($this, 'static/libs/jquery/jquery.validate.min.js');
-\frontend\assets\AppAsset::addScript($this, 'static/js/login.js');
+\frontend\assets\AppAsset::addCss($this, 'css/login.css');
+\frontend\assets\AppAsset::addScript($this, 'libs/jquery/jquery.validate.min.js');
+\frontend\assets\AppAsset::addScript($this, 'js/login.js');
 $this->title = '用户登录';
 ?>
 <?php $this->beginPage() ?>

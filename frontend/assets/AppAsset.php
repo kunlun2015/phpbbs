@@ -9,22 +9,23 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle{
     public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    //public $baseUrl = '@web';
+    public $baseUrl = 'http://static.debugphp.com';
     public $css = [
-        'static/css/common.css',
+        'css/common.css',
     ];
     public $js = [
-        'static/libs/jquery/jquery-3.1.0.min.js',
-        'static/js/common.js'
+        'libs/jquery/jquery-3.1.0.min.js',
+        'js/common.js'
     ];
 
     //定义按需加载JS方法，注意加载顺序在最后  
     public static function addScript($view, $jsfile) {  
-        $view->registerJsFile('@web/'.$jsfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset']);  
+        $view->registerJsFile('http://static.debugphp.com/'.$jsfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset']);  
     }  
       
    //定义按需加载css方法，注意加载顺序在最后  
     public static function addCss($view, $cssfile) {  
-        $view->registerCssFile('@web/'.$cssfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset']);  
+        $view->registerCssFile('http://static.debugphp.com/'.$cssfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset']);  
     }  
 }

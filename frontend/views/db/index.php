@@ -8,8 +8,8 @@
 
     $this->title = '数据库';
     use yii\helpers\Url;
-    \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
-    \frontend\assets\AppAsset::addScript($this, 'static/js/post.js');
+    \frontend\assets\AppAsset::addCss($this, 'css/style.css');
+    \frontend\assets\AppAsset::addScript($this, 'js/post.js');
 ?>
 <div class="wrap detail">
     <ul class="nav-title">

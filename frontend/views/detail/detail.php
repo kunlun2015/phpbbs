@@ -8,12 +8,12 @@
 
     $this->title = $detail['title'].'-debugphp';
     use yii\helpers\Url;
-    \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
-    \frontend\assets\AppAsset::addCss($this, 'static/libs/syntaxHighlighter/shCore.css');
-    \frontend\assets\AppAsset::addCss($this, 'static/libs/syntaxHighlighter/shThemeDefault.css');
-    \frontend\assets\AppAsset::addScript($this, 'static/libs/syntaxHighlighter/script/shCore.js');
-    \frontend\assets\AppAsset::addScript($this, 'static/libs/syntaxHighlighter/script/shAutoloader.js');
-    \frontend\assets\AppAsset::addScript($this, 'static/js/post.js');
+    \frontend\assets\AppAsset::addCss($this, 'css/style.css');
+    \frontend\assets\AppAsset::addCss($this, 'libs/syntaxHighlighter/shCore.css');
+    \frontend\assets\AppAsset::addCss($this, 'libs/syntaxHighlighter/shThemeDefault.css');
+    \frontend\assets\AppAsset::addScript($this, 'libs/syntaxHighlighter/script/shCore.js');
+    \frontend\assets\AppAsset::addScript($this, 'libs/syntaxHighlighter/script/shAutoloader.js');
+    \frontend\assets\AppAsset::addScript($this, 'js/post.js');
 
 ?>
 <div class="wrap detail">

@@ -1,10 +1,10 @@
 <?php
     $this->title = 'Debug PHP';
     use yii\helpers\Url;
-    \frontend\assets\AppAsset::addCss($this, 'static/css/style.css');
-    \frontend\assets\AppAsset::addCss($this, 'static/libs/swiper/css/swiper.min.css');
-    \frontend\assets\AppAsset::addScript($this, 'static/libs/swiper/js/swiper.jquery.min.js');
-    \frontend\assets\AppAsset::addScript($this, 'static/js/index.js');
+    \frontend\assets\AppAsset::addCss($this, 'css/style.css');
+    \frontend\assets\AppAsset::addCss($this, 'libs/swiper/css/swiper.min.css');
+    \frontend\assets\AppAsset::addScript($this, 'libs/swiper/js/swiper.jquery.min.js');
+    \frontend\assets\AppAsset::addScript($this, 'js/index.js');
 ?>
 <div class="hot-recommend clearfix">
     <div class="slide-wrap">
