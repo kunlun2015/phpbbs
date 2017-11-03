@@ -56,8 +56,8 @@ $(document).ready(function(){
         for(var i = 0; i< args.length; i++)
             result.push(args[i].replace('@', 'static/libs/syntaxHighlighter/script/'));
         return result
-    };
-    SyntaxHighlighter.autoloader.apply(null, path(
+    };    
+    typeof(SyntaxHighlighter) === 'object' && SyntaxHighlighter.autoloader.apply(null, path(
             'applescript        @shBrushAppleScript.js',
             'actionscript3 as3      @shBrushAS3.js',
             'bash shell     @shBrushBash.js',
@@ -84,6 +84,6 @@ $(document).ready(function(){
             'xml xhtml xslt html        @shBrushXml.js'
         )
     );
-    SyntaxHighlighter.all();
+    typeof(SyntaxHighlighter) === 'object' && SyntaxHighlighter.all();
 
 })

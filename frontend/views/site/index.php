@@ -10,7 +10,7 @@
     <div class="slide-wrap">
         <div class="swiper-wrapper">
             <?php foreach ($bannerList as $k => $v) { ?>
-            <a href="" class="slide swiper-slide">
+            <a href="<?=$v['href']?>" class="slide swiper-slide">
             <div class="swiper-slide">
                 <img src="<?=Yii::$app->params['imgUrl'].$v['picture']?>" alt="">
                 <span class="title"><?=$v['title']?></span>

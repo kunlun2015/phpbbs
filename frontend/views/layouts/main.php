@@ -34,7 +34,7 @@ use yii\helpers\Url;
         <div class="top">           
             <div class="logo"></div>
             <div class="g-search">
-                <form action="" method="get">
+                <form action="/search" method="get">
                     <input type="text" name="keywords" id="keywords" placeholder="请输入搜索关键字">
                     <input class="btn" type="submit" value="搜索">
                 </form>                
