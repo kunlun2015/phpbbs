@@ -28,6 +28,20 @@ return [
                 ],
             ],
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            //'suffix' => '.html',
+            'rules' => [
+                'debugphp.html' => 'about/debugphp',
+                'contact.html' => 'about/contact',
+                'feedback.html' => 'about/feedback',
+                'exemption.html' => 'about/exemption',
+                'sitemap.html' => 'about/sitemap',
+                'experience.html' => 'about/experience',
+                'detail-<id:\d+>.html' => 'detail'
+            ],
+        ],
         'errorHandler' => [
             'errorAction' => 'app/error',
         ]

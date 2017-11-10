@@ -43,7 +43,7 @@
         <ul>
             <?php foreach ($leftTopList as $k => $v) {?>
         <?php if($k === 5) echo '<ul>' ?>
-            <li>[<a class="cate-a" href=""><?=$v['lname']?></a>]<a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=mb_substr($v['title'], 0, 20, 'utf-8')?></a></li>
+            <li>[<a class="cate-a" href=""><?=$v['lname']?></a>]<a href="<?=Url::to(['/detail', 'id' => $v['id']])?>" title="<?=$v['title']?>"><?=mb_substr($v['title'], 0, 20, 'utf-8')?></a></li>
         <?php if(count($leftTopList) > 5 && $k === 4) echo '</ul>' ?>        
             <?php } ?>
         </ul>

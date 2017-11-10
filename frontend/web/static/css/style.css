@@ -103,3 +103,4 @@ a.cate-a{color: #f54343 !important;}
 .loading:after{display: inline-block;content: '';background: url(../images/icon-loading.gif) no-repeat;}
 
 .syntaxhighlighter{margin: 10px 0;}
+.syntaxhighlighter table td.code .container{max-width: 690px;overflow-x: auto !important;overflow-y: hidden !important;}
