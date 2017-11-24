@@ -14,12 +14,12 @@
         <img src="<?=Yii::$app->params['imgUrl']?><?=$v['thumbnail']?>" alt="<?=$v['title']?>">
         <div class="pic-style-text">
             <p><?=$v['lname']?></p>
-            <a href="<?=Url::to(['/detail', 'id' => $v['id']])?>" target="_blank">debugphp.com</a>
+            <a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>" target="_blank">debugphp.com</a>
         </div>
     </div>
     <?php } ?>
     <div class="article-info">
-        <p class="title"><a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=$v['title']?></a></p>
+        <p class="title"><a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>"><?=$v['title']?></a></p>
         <p class="abstract"><?=$v['abstract']?></p>
         <div class="attr">
             <span>来源：管理员</span>

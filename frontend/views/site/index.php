@@ -25,7 +25,7 @@
             <?php foreach ($topRightTopList as $k => $v) {?>
             <li>
                 <p class="title">
-                    <a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=$v['title']?></a>
+                    <a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>"><?=$v['title']?></a>
                 </p>
                 <div class="abstract">
                     <?=mb_substr($v['abstract'], 0, 60, 'utf-8')?> [<a href="<?=Url::to(['/detail', 'id' => $v['id']])?>">详情</a>]
@@ -35,7 +35,7 @@
         </ul>
         <ul class="list">
             <?php foreach ($topRightBottomList as $k => $v) {?>
-            <li><a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=$v['title']?></a></li>
+            <li><a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>"><?=$v['title']?></a></li>
             <?php } ?>
         </ul>
     </div>
@@ -43,7 +43,7 @@
         <ul>
             <?php foreach ($leftTopList as $k => $v) {?>
         <?php if($k === 5) echo '<ul>' ?>
-            <li>[<a class="cate-a" href=""><?=$v['lname']?></a>]<a href="<?=Url::to(['/detail', 'id' => $v['id']])?>" title="<?=$v['title']?>"><?=mb_substr($v['title'], 0, 20, 'utf-8')?></a></li>
+            <li>[<a class="cate-a" href="<?=Url::to(['/'.$v['fmap']])?>"><?=$v['lname']?></a>]<a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>" title="<?=$v['title']?>"><?=mb_substr($v['title'], 0, 20, 'utf-8')?></a></li>
         <?php if(count($leftTopList) > 5 && $k === 4) echo '</ul>' ?>        
             <?php } ?>
         </ul>
@@ -59,12 +59,12 @@
                     <img src="<?=Yii::$app->params['imgUrl']?><?=$v['thumbnail']?>" alt="<?=$v['title']?>">
                     <div class="pic-style-text">
                         <p><?=$v['lname']?></p>
-                        <a href="<?=Url::to(['/detail', 'id' => $v['id']])?>" target="_blank">debugphp.com</a>
+                        <a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>" target="_blank">debugphp.com</a>
                     </div>
                 </div>
                 <?php } ?>
                 <div class="article-info">
-                    <p class="title"><a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=$v['title']?></a></p>
+                    <p class="title"><a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>"><?=$v['title']?></a></p>
                     <p class="abstract"><?=$v['abstract']?></p>
                     <div class="attr">
                         <span>来源：管理员</span>
@@ -90,7 +90,7 @@
             <div class="title"><span>行业资讯</span></div>
             <ul>
                 <?php foreach ($industryNews as $k => $v) {?>
-                <li><a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=$v['title']?></a></li>
+                <li><a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>"><?=$v['title']?></a></li>
                 <?php } ?>
             </ul>
         </div>

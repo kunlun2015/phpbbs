@@ -39,7 +39,7 @@ return [
                 'exemption.html' => 'about/exemption',
                 'sitemap.html' => 'about/sitemap',
                 'experience.html' => 'about/experience',
-                'detail-<id:\d+>.html' => 'detail'
+                '<fmap:\w+>/<id:\d+>.html' => 'detail'
             ],
         ],
         'errorHandler' => [

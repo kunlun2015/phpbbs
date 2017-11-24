@@ -6,4 +6,12 @@ return [
     'uploadSaveDirs' => array('avatar', 'banner', 'posts'),
     'imgUrl' => 'http://img.debugphp.com/',
     'logRootPath' => dirname(dirname(__DIR__)).'/log/',
+    'cateMap' => [
+        1 => 'php',
+        2 => 'db',
+        3 => 'server',
+        4 => 'frame',
+        5 => 'web',
+        6 => 'news'
+    ]
 ];

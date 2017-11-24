@@ -54,7 +54,7 @@ $(document).ready(function(){
         var args = arguments,
             result = [];
         for(var i = 0; i< args.length; i++)
-            result.push(args[i].replace('@', 'static/libs/syntaxHighlighter/script/'));
+            result.push(args[i].replace('@', '/static/libs/syntaxHighlighter/script/'));
         return result
     };    
     typeof(SyntaxHighlighter) === 'object' && SyntaxHighlighter.autoloader.apply(null, path(

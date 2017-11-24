@@ -12,10 +12,12 @@ use yii\base\Model;
 class CommonModel extends \common\models\CommonModel
 {
     protected $db;
+    protected $params;
 
     public function init()
     {
         $this->db = Yii::$app->db;
+        $this->params = Yii::$app->params;
     }
 
     //获取总页数

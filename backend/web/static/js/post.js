@@ -5,7 +5,9 @@
  * @version $Id$
  */
 
-page === 'addPost' && UE.getEditor("container");
+if(page === 'addPost'){
+    var ue = UE.getEditor("container");
+}
 
 $(document).ready(function () {
     var e = $(".add-post-form"),
@@ -189,3 +191,15 @@ $('.submit-recommend').click(function(){
     })
     return false;
 })
+
+function klStyle(){
+    layer.open({
+        type: 2,
+        area: ['525px', '600px'],
+        title: '自定义编辑器样式',
+        shade: 0.6,
+        maxmin: true,
+        anim: 1,
+        content: 'http://kunlun.debugphp.com/editor'
+    });
+}

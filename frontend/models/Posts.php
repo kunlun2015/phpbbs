@@ -30,6 +30,7 @@ class Posts extends CommonModel
             $lidInfo = $this->getPostCateById($v['lid']);
             $list[$k]['fname'] = $fidInfo['name'];
             $list[$k]['lname'] = $lidInfo['name'];
+            $list[$k]['fmap'] = $this->params['cateMap'][$v['fid']];
         }
         $sqlTotal = 'select count(*) from {{%post_basic}} where recommend_type = '.$recommendType.' and status = 0';
         $totalPage = $this->getTotalPage($sqlTotal, $pageSize);
@@ -81,6 +82,7 @@ class Posts extends CommonModel
             $lidInfo = $this->getPostCateById($v['lid']);
             $list[$k]['fname'] = $fidInfo['name'];
             $list[$k]['lname'] = $lidInfo['name'];
+            $list[$k]['fmap'] = $this->params['cateMap'][$v['fid']];
         }
         return $list;
     }

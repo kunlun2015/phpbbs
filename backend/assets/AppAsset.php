@@ -51,11 +51,11 @@ class AppAsset extends AssetBundle
 
     //定义按需加载JS方法，注意加载顺序在最后  
     public static function addScript($view, $jsfile) {  
-        $view->registerJsFile('@web/'.$jsfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);  
+        $view->registerJsFile('@web/'.$jsfile, [/*AppAsset::className(), */'depends' => 'backend\assets\AppAsset']);  
     }  
       
    //定义按需加载css方法，注意加载顺序在最后  
     public static function addCss($view, $cssfile) {  
-        $view->registerCssFile('@web/'.$cssfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);  
+        $view->registerCssFile('@web/'.$cssfile, [/*AppAsset::className(), */'depends' => 'backend\assets\AppAsset']);  
     }
 }

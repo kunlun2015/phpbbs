@@ -7,7 +7,6 @@
  */
 
 namespace backend\models;
-use function foo\func;
 use yii\base\Model;
 
 class Category extends CommonModel

@@ -38,7 +38,7 @@
             <div class="title"><span>阅读排行</span></div>
             <ul>
                 <?php foreach ($readRankingList as $k => $v) {?>
-                <li><a href="<?=Url::to(['/detail', 'id' => $v['id']])?>"><?=mb_substr($v['title'], 0 , 30, 'utf-8')?></a></li>
+                <li><a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>"><?=mb_substr($v['title'], 0 , 30, 'utf-8')?></a></li>
                 <?php } ?>
             </ul>
         </div>
