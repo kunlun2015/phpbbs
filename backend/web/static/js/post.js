@@ -191,7 +191,7 @@ $('.submit-recommend').click(function(){
     })
     return false;
 })
-
+document.domain='debugphp.com';
 function klStyle(){
     layer.open({
         type: 2,
@@ -200,6 +200,6 @@ function klStyle(){
         shade: 0.6,
         maxmin: true,
         anim: 1,
-        content: 'http://kunlun.debugphp.com/editor'
+        content: 'http://editor.debugphp.com'
     });
 }
