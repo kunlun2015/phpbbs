@@ -16,7 +16,7 @@ class TipsController extends AppController {
     //参数错误提示页面
     public function actionIndex(array $params)
     {
-        var_dump($params);
+        return $this->render('index', $params);
     }
     
     //404提示页面

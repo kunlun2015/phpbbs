@@ -1,4 +1,5 @@
 (function () {
+    document.domain='debugphp.com';
     var parent = window.parent;
     //dialog对象
     dialog = parent.$EDITORUI[window.frameElement.id.replace( /_iframe$/, '' )];

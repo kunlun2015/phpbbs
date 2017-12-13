@@ -103,7 +103,7 @@ class Posts extends CommonModel
      * @param int $id 类别名称
      * @return array
      */
-    private function getPostCateById($id)
+    public function getPostCateById($id)
     {
         return $this->db->createCommand('select id, pid, name, href from {{%category}} where id = :id', ['id' => $id])->queryOne();
     }

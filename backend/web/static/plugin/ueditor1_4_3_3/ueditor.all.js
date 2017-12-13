@@ -24534,6 +24534,7 @@ UE.plugin.register('simpleupload', function (){
                             showErrorLoader && showErrorLoader(json.state);
                         }
                     }catch(er){
+                        console.log(er)
                         showErrorLoader && showErrorLoader(me.getLang('simpleupload.loadError'));
                     }
                     form.reset();

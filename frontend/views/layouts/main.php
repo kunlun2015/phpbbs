@@ -45,11 +45,11 @@ use yii\helpers\Url;
                 <li>
                     <a href="<?=Url::to(['/']);?>">首页</a>                
                 </li>            
-                <li><a href="<?=Url::to(['/php'])?>">PHP技术</a></li>
-                <li><a href="<?=Url::to(['/db'])?>">数据库</a></li>
-                <li><a href="<?=Url::to(['/server'])?>">服务器</a></li>
-                <li><a href="<?=Url::to(['/frame'])?>">PHP框架</a></li>
-                <li>
+                <li<?php if(Yii::$app->controller->id == 'php') echo ' class="active"';?>><a href="<?=Url::to(['/php'])?>">PHP技术</a></li>
+                <li<?php if(Yii::$app->controller->id == 'db') echo ' class="active"';?>><a href="<?=Url::to(['/db'])?>">数据库</a></li>
+                <li<?php if(Yii::$app->controller->id == 'server') echo ' class="active"';?>><a href="<?=Url::to(['/server'])?>">服务器</a></li>
+                <li<?php if(Yii::$app->controller->id == 'frame') echo ' class="active"';?>><a href="<?=Url::to(['/frame'])?>">PHP框架</a></li>
+                <li<?php if(Yii::$app->controller->id == 'web') echo ' class="active"';?>>
                     <a href="<?=Url::to(['/web'])?>">前端开发</a>
                     <ul class="sub">
                         <li><a href="">JS/Jquery</a></li>

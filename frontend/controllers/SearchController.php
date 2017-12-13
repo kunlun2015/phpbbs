@@ -16,11 +16,15 @@ class SearchController extends AppController {
 
     public function actionIndex()
     {
-        $keywords = $this->request->get('keywords');
+        $data['keywords'] = $this->request->get('keywords');
+        if(!$data['keywords']){
+            return $this->tipsPage(['errMsg' => '搜索关键词不能为空。', 'redirect' => true, 'timeout' => 3]);
+        }
         $page = intval($this->request->get('page')) ? intval($this->request->get('page')) : 1;
         $pageSize = 10;
         $search = new Search;
-        $list = $search->searchResultList($keywords, $page, $pageSize, $totalPage);
+        $data['list'] = $search->searchResultList($data['keywords'], $page, $pageSize, $totalPage);
+        return $this->renderPartial('index', $data);
     }
 
 }

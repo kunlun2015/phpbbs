@@ -46,13 +46,13 @@
             </div>
         </div>
         <div class="comment-box">
-            <div id="SOHUCS" sid="请将此处替换为配置SourceID的语句"></div>
+            <div id="SOHUCS" sid="<?=$detail['id']?>"></div>
             <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
             <script type="text/javascript">
-            window.changyan.api.config({
-            appid: 'cys1uARDu',
-            conf: 'prod_a2edcf2a15cf5659beee98a09ad24649'
-            });
+                window.changyan.api.config({
+                    appid: 'cytm3wfWT',
+                    conf: 'prod_df647135386f86264c1b288619d4c879'
+                });
             </script>
         </div>
     </div>

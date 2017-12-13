@@ -36,6 +36,6 @@ phpunit.phar
 
 #sftp
 sftp-config.json
-#/upload
+/upload/editor-theme
 /log
 *.sql

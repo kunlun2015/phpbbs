@@ -104,3 +104,20 @@ a.cate-a{color: #f54343 !important;}
 
 .syntaxhighlighter{margin: 10px 0;}
 .syntaxhighlighter table td.code .container{max-width: 690px;overflow-x: auto !important;overflow-y: hidden !important;}
+
+.search-header{overflow: hidden;}
+.search-header .top{width: 1100px;height: 150px;margin: auto;}
+.search-header .logo{float: left;width: 138px;height: 40px;background: url(../images/logo-small.png) center center no-repeat;background-size: 100%;margin: 5px 0 5px 0;}
+.search-header .g-search{float: left;line-height: 150px;margin: 7.5px 0 7.5px 5px;}
+.g-search #keywords{width: 350px;height: 35px;outline: none;box-sizing: border-box;padding-left: 5px;float: left;border: 1px solid #ddd;border-right: none;}
+.g-search .btn{width: 80px;height: 35px;background-color: #f54343;border: 1px solid #f54343;outline: none;color: #fff;float: left;}
+
+.search-wrap{padding: 0 0 0 140px;}
+.search-result-list{width: 750px;}
+.search-result-list li{border-bottom: 1px solid #eee;padding-bottom: 10px;}
+.search-result-list .title{font-size: 20px;color: #333;line-height: 45px;}
+.search-result-list .abstract{font-size: 14px;color: #777;}
+
+.tips-page .msg{padding: 20px;font-size: 14px;text-align: center;}
+.tips-page .redirect-tips{font-size: 12px;color: #aaa;text-align: center;}
+.search-highlight{color: red;}

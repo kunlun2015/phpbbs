@@ -8,6 +8,7 @@
 
 namespace frontend\models;
 use yii\base\Model;
+use frontend\models\Posts;
 
 class Search extends CommonModel
 {
@@ -15,7 +16,15 @@ class Search extends CommonModel
     public function searchResultList($keywords, $page, $pageSize, &$totalPage)
     {
         $offset = ($page - 1)*$pageSize;
-        $list = $this->db->createCommand('select id, author, authorid, title, tag, abstract, views, comments, likes, unlikes, create_at from {{%post_basic}} where title like :keywords limit :offset, :pageSize', ['keywords' => "%$keywords%", 'offset' => $offset, 'pageSize' => $pageSize])->queryAll();
+        $list = $this->db->createCommand('select id, fid, lid, author, authorid, title, tag, abstract, thumbnail, views, comments, likes, unlikes, create_at from {{%post_basic}} where title like :keywords limit :offset, :pageSize', ['keywords' => "%$keywords%", 'offset' => $offset, 'pageSize' => $pageSize])->queryAll();
+        $posts = new Posts;
+        foreach ($list as $k => $v) {
+            $fidInfo = $posts->getPostCateById($v['fid']);
+            $lidInfo = $posts->getPostCateById($v['lid']);
+            $list[$k]['fname'] = $fidInfo['name'];
+            $list[$k]['lname'] = $lidInfo['name'];
+            $list[$k]['fmap'] = $this->params['cateMap'][$v['fid']];
+        }
         $totalSql = "select count(*) from {{%post_basic}} where title like '%$keywords%'";
         $totalPage = $this->getTotalPage($totalSql, $pageSize);
         return $list;
