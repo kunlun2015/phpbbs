@@ -43,7 +43,7 @@ $this->title = '用户登录';
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="index.html">
-                <img src="static/pages/img/logo-big.png" alt="" /> </a>
+                <img src="static/images/logo.png" alt="debugphp" /> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->

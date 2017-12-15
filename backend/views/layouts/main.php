@@ -38,8 +38,8 @@ AppAsset::register($this);
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="index.html">
-                        <img src="<?php echo Yii::$app->homeUrl; ?>static/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
+                    <a href="/">
+                        <img src="<?php echo Yii::$app->homeUrl; ?>static/images/logo.png" style="width: 170px;margin: 0;" alt="logo" class="logo-default" /> </a>
                     <div class="menu-toggler sidebar-toggler"> </div>
                 </div>
                 <!-- END LOGO -->

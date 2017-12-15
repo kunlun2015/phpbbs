@@ -17,7 +17,7 @@
             <a href="<?=Url::to(['/about/sitemap'])?>">网站地图</a>
             <a href="<?=Url::to(['/about/experience'])?>">发展经历</a>
         </div>
-        <p class="copyright">Copyright © 2017-2017 <a href="<?=Url::to(['/']);?>">www.debugphp.com</a>  All Rights Reserved</p>
-        <p class="copyright">皖ICP备15003242号-1</p>
+        <p class="copyright">Copyright © 2017-<?=date('Y')?> <a href="<?=Url::to(['/']);?>">www.debugphp.com</a>  All Rights Reserved</p>
+        <p class="copyright">皖ICP备15003242号-3</p>
     </div>
 </footer>

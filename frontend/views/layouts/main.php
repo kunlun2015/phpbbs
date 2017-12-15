@@ -32,7 +32,7 @@ use yii\helpers\Url;
             </div>
         </div>
         <div class="top">           
-            <div class="logo"></div>
+            <a href="/"><div class="logo"></div></a>
             <div class="g-search">
                 <form action="/search" method="get">
                     <input type="text" name="keywords" id="keywords" placeholder="请输入搜索关键字">
@@ -42,21 +42,21 @@ use yii\helpers\Url;
         </div>
         <div class="menu">
             <ul class="clearfix">
-                <li>
+                <li<?php if(Yii::$app->controller->id == 'site') echo ' class="active"';?>>
                     <a href="<?=Url::to(['/']);?>">首页</a>                
-                </li>            
-                <li<?php if(Yii::$app->controller->id == 'php') echo ' class="active"';?>><a href="<?=Url::to(['/php'])?>">PHP技术</a></li>
-                <li<?php if(Yii::$app->controller->id == 'db') echo ' class="active"';?>><a href="<?=Url::to(['/db'])?>">数据库</a></li>
-                <li<?php if(Yii::$app->controller->id == 'server') echo ' class="active"';?>><a href="<?=Url::to(['/server'])?>">服务器</a></li>
-                <li<?php if(Yii::$app->controller->id == 'frame') echo ' class="active"';?>><a href="<?=Url::to(['/frame'])?>">PHP框架</a></li>
-                <li<?php if(Yii::$app->controller->id == 'web') echo ' class="active"';?>>
+                </li>       
+                <li<?php if(Yii::$app->controller->id == 'php' || Yii::$app->controller->id == 'detail' && Yii::$app->request->get('fmap') == 'php') echo ' class="active"';?>><a href="<?=Url::to(['/php'])?>">PHP技术</a></li>
+                <li<?php if(Yii::$app->controller->id == 'db' || Yii::$app->controller->id == 'detail' && Yii::$app->request->get('fmap') == 'db') echo ' class="active"';?>><a href="<?=Url::to(['/db'])?>">数据库</a></li>
+                <li<?php if(Yii::$app->controller->id == 'server' || Yii::$app->controller->id == 'detail' && Yii::$app->request->get('fmap') == 'server') echo ' class="active"';?>><a href="<?=Url::to(['/server'])?>">服务器</a></li>
+                <li<?php if(Yii::$app->controller->id == 'frame' || Yii::$app->controller->id == 'detail' && Yii::$app->request->get('fmap') == 'frame') echo ' class="active"';?>><a href="<?=Url::to(['/frame'])?>">PHP框架</a></li>
+                <li<?php if(Yii::$app->controller->id == 'web' || Yii::$app->controller->id == 'detail' && Yii::$app->request->get('fmap') == 'web') echo ' class="active"';?>>
                     <a href="<?=Url::to(['/web'])?>">前端开发</a>
-                    <ul class="sub">
+                    <!-- <ul class="sub">
                         <li><a href="">JS/Jquery</a></li>
                         <li><a href="">HTML5</a></li>
                         <li><a href="">CSS3</a></li>
                         <li><a href="">Angularjs</a></li>
-                    </ul>
+                    </ul> -->
                 </li>
             </ul>
         </div>

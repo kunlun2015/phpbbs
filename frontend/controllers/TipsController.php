@@ -22,12 +22,12 @@ class TipsController extends AppController {
     //404提示页面
     public function action404(array $params)
     {
-        echo '404 page';
+        return $this->render('404', $params);
     }
 
     //500提示页面
     public function action500(array $params)
     {
-        echo '500 page';
+        return $this->render('500', $params);
     }
 }
