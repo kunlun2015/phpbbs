@@ -59,7 +59,7 @@ use yii\helpers\Url;
                         <?php foreach ($list as $k => $v){ ?>
                         <tr>
                             <td><?=$v['id']?></td>
-                            <td><?=$v['title']?></td>
+                            <td><a href="http://local.www.debugphp.com/<?=$v['fmap']?>/<?=$v['id']?>.html?key=<?=md5($v['title'].$v['fmap'].date('YmdH'))?>" target="_blakn"><?=$v['title']?></a></td>
                             <td><?=$v['author']?></td>
                             <td>
                                 <?php
@@ -74,23 +74,28 @@ use yii\helpers\Url;
                                     }
                                 ?>
                             </td>
-                            <td>
+                            <td class="post-status">
                                 <?php
                                     if($v['status'] == 0){
                                         echo '<span class="label label-sm label-success"> 正常 </span>';
                                     }elseif($v['status'] == -1){
                                         echo '<span class="label label-sm label-warning"> 审核中 </span>';
                                     }elseif($v['status'] == -2){
-                                        echo '<span class="label label-sm label-failed"> 禁用 </span>';
+                                        echo '<span class="label label-sm label-danger"> 禁用 </span>';
                                     }
                                 ?>
                             </td>
                             <td><?=$v['create_at']?></td>
                             <td>
-                                <a href="" class="btn btn-sm btn-outline grey-salsa"> 查看 </a>
                                 <a href="<?=Url::to(['post/edit', 'id' => $v['id']])?>" class="btn btn-sm btn-outline green"> 编辑 </a>
                                 <a href="<?=Url::to(['post/recommend', 'id' => $v['id']])?>" class="btn btn-sm btn-outline green recommend"> 推荐 </a>
                                 <a href="javascript:;" class="btn btn-sm btn-outline red"> 删除 </a>
+                                <a href="javascript:;" class="btn btn-sm btn-outline green change-status-btn"> 状态 </a>
+                                <ul class="change-status-act">
+                                    <li><a href="javascript:;" data-id="<?=$v['id']?>" data-status="0" class="btn btn-sm btn-outline green"> 正常 </a></li>
+                                    <li><a href="javascript:;" data-id="<?=$v['id']?>" data-status="-1" class="btn btn-sm btn-outline yellow"> 审核中 </a></li>
+                                    <li><a href="javascript:;" data-id="<?=$v['id']?>" data-status="-2" class="btn btn-sm btn-outline red"> 禁用 </a></li>
+                                </ul>
                             </td>
                         </tr>
                         <?php } ?>
@@ -101,7 +106,7 @@ use yii\helpers\Url;
     </div>
 </div>
 <div class="row kl-pagination"><?=$pagination?></div>
-<input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['category/save']); ?>">
+<input disabled="disabled" type="hidden" name="request_url" value="<?php echo Url::to(['post/action']); ?>">
 <script> var page = 'indexPost'</script>
 <?php 
     $this->registerJs('

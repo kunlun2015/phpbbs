@@ -14,10 +14,12 @@ class CommonModel extends \common\models\CommonModel{
 
     protected $db;
     protected $session;
+    protected $params;
 
     public function init(){
         $this->db = Yii::$app->db;
         $this->session = Yii::$app->session;
+        $this->params = Yii::$app->params;
     }
 
     //获取总页数

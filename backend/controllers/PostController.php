@@ -151,6 +151,17 @@ class PostController extends AdminController
                     $this->jsonExit(-1, '文章推荐失败');
                 }
                 break;
+
+            case 'changeStatus':
+                $id = $this->request->post('id');
+                $status = $this->request->post('status');
+                $rst = $this->posts->changePostStatus($id, $status);
+                if($rst){
+                    $this->jsonExit(0, '文章状态更改成功');
+                }else{
+                    $this->jsonExit(-1, '文章状态更改失败');
+                }
+                break;
             
             default:
                 # code...

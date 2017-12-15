@@ -22,6 +22,7 @@ class Post extends CommonModel
                 'abstract' => $data['abstract'],
                 'thumbnail' => $data['thumbnail'],
                 'display_order' => $data['display_order'],
+                'status' => -1,
                 'author'   => $data['author'],
                 'authorid' => $data['authorid']
             ])->execute();
@@ -107,6 +108,9 @@ class Post extends CommonModel
         }
         $sql .= " order by create_at desc limit $offset, $pageSize";
         $list = $this->db->createCommand($sql)->queryAll();
+        foreach ($list as $k => $v) {
+            $list[$k]['fmap'] = $this->params['cateMap'][$v['fid']];
+        }
         $totalPage = $this->getTotalPage($sqlTotal, $pageSize);
         return $list;
     }
@@ -146,5 +150,16 @@ class Post extends CommonModel
     public function postTags($pid)
     {
         return $this->db->createCommand('select tags_id from {{%post_tags}} where pid = :pid', ['pid' => $pid])->queryColumn();
+    }
+
+    /**
+     * 更改文章状态
+     * @param  int $id     
+     * @param  int $status 文章状态，0：正常，-1：审核中，-2：禁用
+     * @return boolen
+     */
+    public function changePostStatus($id, $status)
+    {
+        return $this->db->createCommand()->update('{{%post_basic}}', ['status' => $status], ['id' => $id])->execute();
     }
 }

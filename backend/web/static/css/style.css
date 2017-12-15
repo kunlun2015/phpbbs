@@ -20,3 +20,5 @@
 .banner-list-preview img{max-width: 300px;max-height: 50px;}
 .kl-pagination{text-align: center;-webkit-user-select: none;}
 .kl-pagination li:hover a{border: 1px solid #36c6d3;background-color: #36c6d3;color: #fff;}
+.change-status-act{display: inline-block;padding-left: 0;overflow: hidden;display: none;}
+.change-status-act li{list-style: none;float: left;}

@@ -191,6 +191,47 @@ $('.submit-recommend').click(function(){
     })
     return false;
 })
+
+//列表页更改状态按钮
+$(".change-status-btn, .change-status-act").hover(function(){
+    $(this).parent("td").children("a").hide();
+    $(this).parent("td").children(".change-status-act").show();
+}, function(){
+    $(this).parent("td").children("a").show();
+    $(this).parent("td").children(".change-status-act").hide();
+})
+
+//更改状态
+$('.change-status-act a').click(function(){
+    var _this = $(this);
+    var status = _this.data('status');
+    var formData = {act: 'changeStatus', id: _this.data('id'), 'status': status};
+    formData[$("meta[name=csrf-param]")[0].content] = $("meta[name=csrf-token]")[0].content;
+    $.ajax({
+        url: $("input[name=request_url]").val(),
+        type: 'post',
+        dataType: 'json',
+        data: formData,
+        success: function(res){
+            if(res.code == 0){
+                layer.alert(res.msg, {title: siteName+'提示您：', icon: 1});
+                var newStatus = '';
+                if(status == 0){
+                    newStatus = '<span class="label label-sm label-success"> 正常 </span>';
+                }else if(status == -1){
+                    newStatus = '<span class="label label-sm label-warning"> 审核中 </span>';
+                }else if(status == -2){
+                    newStatus = '<span class="label label-sm label-danger"> 禁用 </span>';
+                }
+                _this.parents('tr').find('.post-status').html(newStatus);
+            }else{
+                layer.alert(res.msg, {title: siteName+'提示您：', icon: 2});
+            }
+        }
+    })
+    return false;
+})
+
 document.domain='debugphp.com';
 function klStyle(){
     layer.open({
