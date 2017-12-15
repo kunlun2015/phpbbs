@@ -27,7 +27,7 @@ class AppController extends Controller {
     //异常提示处理
     public function actionError()
     {
-        //print_r(Yii::$app->errorHandler->exception);
+        print_r(Yii::$app->errorHandler->exception);
         $exception = Yii::$app->errorHandler->exception;
         if($exception && isset($exception->statusCode) && $exception->statusCode === 404){
             return $this->tipsPage(['errMsg' => '页面找不到了'], '404');

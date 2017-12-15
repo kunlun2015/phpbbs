@@ -67,11 +67,11 @@ class SiteController extends AppController{
             ],
         ]);
         var_dump(Yii::$app->mailer);*/
-        /*$mail = Yii::$app->mailer->compose();
+        /*$mail = Yii::$app->mailer->compose(['html' => 'registerActive'], ['activeLink' => 'http://www.lovehpy.com']);
         $mail->setFrom('service@debugphp.com');
         $mail->setTo('735767227@qq.com');
-        $mail->setSubject("test");
-        $mail->setHtmlBody('test');
+        $mail->setSubject("subject");
+        //$mail->setHtmlBody('test content');
         $rst = $mail->send();
         var_dump($rst);*/
     }

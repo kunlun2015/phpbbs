@@ -10,6 +10,7 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\web\Controller;
+use yii\helpers\Url;
 use frontend\models\Register;
 use frontend\models\User;
 use securimage\Securimage;
@@ -28,7 +29,7 @@ class RegisterController extends AppController
         $username = $this->request->get('username');
         $code = $this->request->get('code');
         if(!($username && $code)){
-            return $this->tipsPage(['errMsg' => '参数不完整', 'errCode' => 404]);
+            return $this->tipsPage(['errMsg' => '参数不完整']);
         }
         $user = new User;
         $userInfo = $user->getUserByUsername($username);
@@ -77,7 +78,15 @@ class RegisterController extends AppController
         }
         if($user->insert($data)){
             //发送激活邮件
-            
+            $mail = Yii::$app->mailer->compose(['html' => 'registerActive'], ['activeLink' => Url::to(['register/email-active', 'username' => $data['username'], 'code' => md5($data['username'].$data['email'].'-debuphp-kunlun')], true)]);
+            $mail->setFrom('service@debugphp.com');
+            $mail->setTo($data['email']);
+            $mail->setSubject('debugphp账户激活');
+            $rst = $mail->send();
+            if(!$rst){
+                $this->log->info(['title' => '邮件发送失败', 'data' => $data]);
+                $this->jsonExit(-1, '非常抱歉，邮箱激活链接发送失败了！我们已记录错误，请等待网站管理员与您邮件联系！');
+            }
             $this->jsonExit(0, '恭喜您注册成功，请登陆您的邮箱激活账户！');
         }else{
             //注册失败邮件提醒并记录日志
