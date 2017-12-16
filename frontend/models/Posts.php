@@ -95,6 +95,7 @@ class Posts extends CommonModel
     public function detail($id)
     {
         $detail = $this->db->createCommand('select t1.id, t1.fid, t1.lid, author, authorid, t1.title, tag, abstract, thumbnail, display_order, status, views, comments, likes, unlikes, create_at, posts from {{%post_basic}} t1 left join {{%posts}} t2 on t1.id = t2.bid where t1.id = :id', ['id' => $id])->queryOne();
+        $detail['fmap'] = $this->params['cateMap'][$detail['fid']];
         return $detail;
     }
 
@@ -137,5 +138,11 @@ class Posts extends CommonModel
             $levelArray[] = $category;
             return $this->categoryLevel($category['pid'], $levelArray);
         }
+    }
+
+
+    public function getPidByTagId($tagId)
+    {
+        $list = $this->db->createCommand('select pid from {{%post_tags}} where ')->queryAll();
     }
 }

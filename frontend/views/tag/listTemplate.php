@@ -1,10 +1,11 @@
 <?php
 /**
- * web版块列表模板
+ * 热门标签列表模板
  * @authors Amos (szhcool1129@sina.com)
- * @date    2017-09-28 12:29:33
+ * @date    2017-12-16 15:50:11
  * @version $Id$
  */
+
     use yii\helpers\Url;
 ?>
 <?php foreach ($postsList as $k => $v) {?>

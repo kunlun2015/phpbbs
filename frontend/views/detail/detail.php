@@ -19,7 +19,7 @@
 <div class="wrap detail">
     <ul class="nav-title">
         <?php foreach($navTitleArr as $k => $v){ ?>
-        <li><a href=""><?=$v['name']?></a></li>
+        <li><a href="<?=Url::to(['/'.$detail['fmap']])?>"><?=$v['name']?></a></li>
         <?php } ?>
     </ul>
     <div class="left">
@@ -61,7 +61,7 @@
             <div class="title"><span>热门标签</span></div>
             <div class="hot-tags">
                 <?php foreach($tagsList as $k => $v){?>              
-                <a href="<?=Url::to(['/tag', 'name' => $v['name']])?>"><span><?=$v['name']?></span></a>
+                <a href="<?=Url::to(['/tag', 'id' => $v['id']])?>"><span><?=$v['name']?></span></a>
                 <?php } ?>
             </div>
         </div>

@@ -40,7 +40,7 @@ return [
                 'sitemap.html' => 'about/sitemap',
                 'experience.html' => 'about/experience',
                 '<fmap:\w+>/<id:\d+>.html' => 'detail',
-                'tag/<name>' => 'tag'
+                'tag/<id>' => 'tag'
             ],
         ],
         'errorHandler' => [
