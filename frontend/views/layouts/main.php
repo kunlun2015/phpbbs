@@ -13,7 +13,7 @@ use yii\helpers\Url;
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?>-国内最实用的技术分享平台</title>
     <meta name="keywords" content="php,debugphp,调试php,php教程,php技术,php资讯,服务器,linux,mysql,php框架,web,前端开发,js,jquery" />
     <meta name="description" content="debugphp是中国最大的php技术类分享平台，提供php等相关技术的分享、教程的演示、问题答疑以及互联网行业内资讯的快递等，旨在为php初学者及开发者提供一些常见问题的解决方案。" />
     <meta name="author" content="debugphp" />
@@ -25,10 +25,10 @@ use yii\helpers\Url;
     <header class="common-header">
         <div class="top-bar">
             <div class="top-bar-info clearfix">
-                <div class="login">
+                <!-- <div class="login">
                     <a href="<?=Url::to(['/register'])?>">注册</a> | 
                     <a href="<?=Url::to(['/login'])?>">登陆</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="top">           

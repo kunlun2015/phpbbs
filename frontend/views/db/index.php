@@ -6,7 +6,7 @@
  * @version $Id$
  */
 
-    $this->title = '数据库';
+    $this->title = '数据库-debugphp';
     use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'css/style.css');
     \frontend\assets\AppAsset::addScript($this, 'js/post.js');

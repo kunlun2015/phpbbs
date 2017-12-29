@@ -1,5 +1,5 @@
 <?php
-    $this->title = 'Debug PHP';
+    $this->title = 'debugphp';
     use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'css/style.css');
     \frontend\assets\AppAsset::addCss($this, 'libs/swiper/css/swiper.min.css');
@@ -12,7 +12,7 @@
             <?php foreach ($bannerList as $k => $v) { ?>
             <a href="<?=$v['href']?>" class="slide swiper-slide">
             <div class="swiper-slide">
-                <img src="<?=Yii::$app->params['imgUrl'].$v['picture']?>" alt="">
+                <img src="<?=Yii::$app->params['imgUrl'].$v['picture']?>" alt="<?=$v['title']?>">
                 <span class="title"><?=$v['title']?></span>
             </div>
             </a>

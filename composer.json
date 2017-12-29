@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "linslin/yii2-curl": "*",
-        "kosinix/grafika": "dev-master"
+        "kosinix/grafika": "dev-master",
+        "mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -32,7 +32,7 @@ class DetailController extends AppController {
             return $this->tipsPage(['errMsg' => '很抱歉，您浏览的文章不存在！']);
         }
         if($data['detail']['status'] != 0 && $this->request->get('key') != md5($data['detail']['title'].$data['detail']['fmap'].date('YmdH'))){
-            return $this->tipsPage(['errMsg' => '很抱歉，您浏览的文章暂无发布！']);
+            return $this->tipsPage(['errMsg' => '很抱歉，您浏览的文章暂未发布！']);
         }
         //导航面包屑
         $data['navTitleArr'] =$this->postsModel->categoryLevel($data['detail']['lid']);

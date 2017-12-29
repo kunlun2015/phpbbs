@@ -10,7 +10,7 @@ use yii\helpers\Url;
 \frontend\assets\AppAsset::register($this);
 \frontend\assets\AppAsset::addCss($this, 'css/style.css');
 \frontend\assets\AppAsset::addScript($this, 'libs/jquery/jquery.validate.min.js');
-$this->title = '搜索结果页';
+$this->title = '搜索结果页-debugphp';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

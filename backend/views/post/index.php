@@ -59,7 +59,7 @@ use yii\helpers\Url;
                         <?php foreach ($list as $k => $v){ ?>
                         <tr>
                             <td><?=$v['id']?></td>
-                            <td><a href="http://local.www.debugphp.com/<?=$v['fmap']?>/<?=$v['id']?>.html?key=<?=md5($v['title'].$v['fmap'].date('YmdH'))?>" target="_blakn"><?=$v['title']?></a></td>
+                            <td><a href="http://www.debugphp.com/<?=$v['fmap']?>/<?=$v['id']?>.html?key=<?=md5($v['title'].$v['fmap'].date('YmdH'))?>" target="_blakn"><?=$v['title']?></a></td>
                             <td><?=$v['author']?></td>
                             <td>
                                 <?php

@@ -26,6 +26,10 @@ return [
                 ],
             ],
         ],
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'scriptUrl' => 'http://www.debugphp.com'
+        ]
     ],
     'params' => $params,
 ];

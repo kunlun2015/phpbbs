@@ -40,8 +40,8 @@ a.cate-a{color: #f54343 !important;}
 .category li{line-height: 25px;list-style: decimal-leading-zero inside;color: #f54343;}
 .category li a{font-family: 'Microsoft YaHei', SimSun, 'Arial Narrow';font-size: 14px;}
 
-.recommend-r .category .title, .detail .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 4px solid #000;}
-.recommend-r .category .title span, .detail .category .title span{display: inline-block;border-bottom: 4px solid #f54343;color: #f54343;}
+.recommend-r .category .title, .detail .category .title, .tag .category .title{height: 35px; line-height: 35px;font-family: 'Microsoft YaHei', SimHei ,SimSun, 'Arial Narrow';font-size: 22px;border-bottom: 4px solid #000;}
+.recommend-r .category .title span, .detail .category .title span, .tag .category .title span{display: inline-block;border-bottom: 4px solid #f54343;color: #f54343;}
 
 .hot-tags a{display: inline-block;padding: 5px 8px;border: 1px solid #eee;margin: 5px 5px 5px 0;}
 .hot-tags a:hover, .hot-tags .active{background-color: #f54343;color: #fff;}

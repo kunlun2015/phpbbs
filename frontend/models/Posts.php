@@ -141,8 +141,24 @@ class Posts extends CommonModel
     }
 
 
-    public function getPidByTagId($tagId)
+    public function getPidByTagId($tagId, $page, $pageSize, &$totalPage)
     {
-        $list = $this->db->createCommand('select pid from {{%post_tags}} where ')->queryAll();
+        $offset = ($page - 1)*$pageSize;   
+        $list = $this->db->createCommand('select pid from {{%post_tags}} where tags_id = :tagId limit :offset, :pageSize', ['tagId' => $tagId, 'offset' => $offset, 'pageSize' => $pageSize])->queryAll();
+        $totalPage = $this->getTotalPage('select count(*) from {{%post_tags}} where tags_id = '.$tagId, $pageSize);
+        $posts = [];
+        foreach ($list as $k => $v) {
+            $sql = 'select id, fid, lid, author, title, abstract, thumbnail, views, create_at from {{%post_basic}} where id = :id and status = 0';
+            $post = $this->db->createCommand($sql, ['id' => $v['pid']])->queryOne();
+            if($post){
+                $lidInfo = $this->getPostCateById($post['lid']);
+                $fidInfo = $this->getPostCateById($post['fid']);
+                $post['fname'] = $fidInfo['name'];
+                $post['lname'] = $lidInfo['name'];
+                $post['fmap'] = $this->params['cateMap'][$post['fid']];
+                array_push($posts, $post);
+            }
+        }
+        return $posts;
     }
 }

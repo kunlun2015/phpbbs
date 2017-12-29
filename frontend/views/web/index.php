@@ -6,7 +6,7 @@
  * @version $Id$
  */
 
-    $this->title = '前端开发';
+    $this->title = '前端开发-debugphp';
     use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'css/style.css');
     \frontend\assets\AppAsset::addScript($this, 'js/post.js');

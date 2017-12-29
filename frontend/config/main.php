@@ -40,12 +40,20 @@ return [
                 'sitemap.html' => 'about/sitemap',
                 'experience.html' => 'about/experience',
                 '<fmap:\w+>/<id:\d+>.html' => 'detail',
-                'tag/<id>' => 'tag'
+                'tag/<id>' => 'tag',
+                'http://api.debugphp.com' => 'api',
+                'http://api.debugphp.com/<controller:\w+>' => 'api/<controller>',
+                'http://api.debugphp.com/<controller:\w+>/<action:\w+>' => 'api/<controller>/<action>',
             ],
         ],
         'errorHandler' => [
             'errorAction' => 'app/error',
         ]
+    ],
+    'modules' => [
+        'api' => [
+            'class' => 'frontend\modules\api\Module',
+        ],
     ],
     'params' => $params,
 ];

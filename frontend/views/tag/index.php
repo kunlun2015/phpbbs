@@ -6,7 +6,7 @@
  * @version $Id$
  */
 
-    $this->title = '热门标签';
+    $this->title = '热门标签-debugphp';
     use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'css/style.css');
     \frontend\assets\AppAsset::addScript($this, 'js/post.js');
@@ -22,11 +22,21 @@
             <a href="<?=Url::to(['/tag', 'id' => $v['id']])?>" <?php if($v['id'] == $tagId){echo 'class="active"';} ?>><span><?=$v['name']?></span></a>
             <?php } ?>
         </div>
+        <ul class="article-list">            
+            <?=$this->render('listTemplate', ['postsList' => $postsList])?>
+        </ul>
+        <?php if($totalPage > 1){ ?>
+        <div class="btn-loading-more" data-fid="<?=$fid?>" data-page="1" data-total="<?=$totalPage?>">加载更多</div>
+        <?php } ?>
     </div>
-    <ul class="article-list">            
-        <?=$this->render('listTemplate', ['postsList' => $postsList])?>
-    </ul>
-    <?php if($totalPage > 1){ ?>
-    <div class="btn-loading-more" data-fid="<?=$fid?>" data-page="1" data-total="<?=$totalPage?>">加载更多</div>
-    <?php } ?>
+    <div class="right">
+        <div class="category">
+            <div class="title"><span>阅读排行</span></div>
+            <ul>
+                <?php foreach ($readRankingList as $k => $v) {?>
+                <li><a href="<?=Url::to(['/detail', 'fmap' => $v['fmap'], 'id' => $v['id']])?>"><?=mb_substr($v['title'], 0 , 30, 'utf-8')?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div> 
 </div>

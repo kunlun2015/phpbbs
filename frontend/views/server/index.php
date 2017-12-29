@@ -6,7 +6,7 @@
  * @version $Id$
  */
 
-    $this->title = '服务器';
+    $this->title = '服务器-debugphp';
     use yii\helpers\Url;
     \frontend\assets\AppAsset::addCss($this, 'css/style.css');
     \frontend\assets\AppAsset::addScript($this, 'js/post.js');

@@ -45,7 +45,7 @@ a:hover{color: #f54343;}
 .section-title span{display: inline-block;width: 3px;height: 100%;background-color: #f54343;float: left;}
 .section-title em{float: left;padding-left: 5px;font-weight: bold;}
 
-.footer{width: 100%;height: 150px;margin-top: 20px;border-top: #f54343 2px solid;}
+.footer{width: 100%;height: 120px;margin-top: 20px;border-top: #f54343 2px solid;}
 .footer .link{text-align: center;margin-top: 10px;}
 .footer .link a{display: inline-block;color: #777;margin: 5px 10px;}
 .footer-wrap{width: 1100px;margin: auto;}
