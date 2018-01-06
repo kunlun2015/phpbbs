@@ -40,7 +40,7 @@ class LoginController extends CommonController{
             $this->jsonExit(-1, '非法请求！');
         }
         $this->session->remove('user');
-        $this->jsonExit(0, '登录成功！', array('url' => Url::to(['/login'], true)));
+        $this->jsonExit(0, '退出成功！', array('url' => Url::to(['/login'], true)));
     }
 
 }

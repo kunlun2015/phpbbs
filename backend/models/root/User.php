@@ -22,9 +22,31 @@ class User extends \backend\models\CommonModel{
 
     //添加用户
     public function addUser($data){
-        $data['encrypt'] = $this->randString(8);
-        $data['password'] = md5(md5($data['password']).$data['encrypt']);
-        return $this->db->createCommand()->insert('{{%user}}', $data)->execute();
+        $transaction = $this->db->beginTransaction();
+        try {
+            $this->db->createCommand()->insert('{{%users}}', [
+                    'username' => $data['username'],
+                    'mobile' => $data['mobile'],
+                    'remarks' => $data['remarks']
+                ])->execute();
+            $uid = $this->db->getLastInsertId();
+            $encrypt = $this->randString(8);
+            $this->db->createCommand()->insert('{{%login_psd}}', [
+                    'uid' => $uid,
+                    'password' => $this->genPassword($data['password'], $encrypt),
+                    'encrypt' => $encrypt
+                ])->execute();
+            $transaction->commit();
+            return true;
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            //throw $e;
+            return false;
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            //throw $e;
+            return false;
+        }
     }
 
     //获取修改用户信息

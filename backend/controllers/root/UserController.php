@@ -99,7 +99,7 @@ class UserController extends RootController{
                     $menuFunction = $this->request->post('menuFunction');
                     $treeCheckedState = $this->request->post('treeState');
                     $authority = $menuGroup.'|'.$menuFunction.'|'.$treeCheckedState;
-                    $rst = (new User)->updateUserMenuAuthority($this->session->get('root_session')['id'], $authority);
+                    $rst = (new User)->updateUserMenuAuthority($this->request->post('uid'), $authority);
                     if($rst){
                         $this->jsonExit(0, '用户权限修改成功！', array('url' => Url::to(['root/user'])));
                     }else{
